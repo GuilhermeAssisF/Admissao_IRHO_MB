@@ -36,7 +36,7 @@ $(document).ready(function () {
     // Oculta o painel inteiro de "Dependentes" e "Filiação"
     $('a[href="#dados_pessoais"]').closest('.panel.panel-default').hide();
 
-    // próximo commit
+
     // Oculta o painel "Deficiências"
     $('h3.panel-title:contains("Deficiências")').closest('.panel.panel-default').hide();
 
@@ -45,6 +45,51 @@ $(document).ready(function () {
 
     // Oculta o painel "Dados Bancários"
     $('h3.panel-title:contains("Dados Bancários")').closest('.panel.panel-default').hide();
+
+    // próximo commit
+    // Oculta o painel "Endereço"
+    $('.fluigicon-home').closest('.panel.panel-default').hide();
+
+    // --- Modificações no Painel "Contato" ---
+    
+    // 2. Marca "E-mail de Contato" como obrigatório (adiciona asterisco)
+    var $labelEmail = $("#txtEmail").closest(".form-group").find("label");
+    $labelEmail.html($labelEmail.html() + ' <span style="color:red;">*</span>');
+
+    // --- Oculta campos da seção "Dados da Lotação" ---
+    
+    // Oculta "Fechamento da Vaga"
+    $("#txtAdmissao").closest(".col-md-2").hide();
+
+    // Oculta "Início das Atividades"
+    $("#txtInicioAdmissao").closest(".col-md-2").hide();
+
+    // Oculta "Fim Período de Experiência"
+    $("#txtInicioExperiencia").closest(".col-md-2").hide();
+
+    // Oculta "Sindicato"
+    $("#Sind").closest(".col-md-6").hide();
+
+    // Oculta "Índice do Horário de Trabalho"
+    $("#TxtIndi").closest(".col-md-6").hide();
+
+    // Oculta "Motivo de Admissão"
+    $("#TxtMotADM").closest(".col-md-6").hide();
+
+    // Oculta "Situação do FGTS"
+    $("#TxtSitFGTS").closest(".col-md-6").hide();
+
+    // Oculta "Banco de Pagamento FGTS"
+    $("#BANCFGTS").closest(".col-md-6").hide();
+
+    // Oculta "Vínculo da RAIS"
+    $("#TxtVINCRais").closest(".col-md-6").hide();
+
+    // Oculta "Situação da RAIS"
+    $("#TxtSITRais").closest(".col-md-6").hide();
+
+    // Oculta "Contribuição Sindical"
+    $("#TxtContSind").closest(".col-md-6").hide();
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
