@@ -35,6 +35,16 @@ $(document).ready(function () {
 
     // Oculta o painel inteiro de "Dependentes" e "Filiação"
     $('a[href="#dados_pessoais"]').closest('.panel.panel-default').hide();
+
+    // próximo commit
+    // Oculta o painel "Deficiências"
+    $('h3.panel-title:contains("Defici&ecirc;ncias")').closest('.panel.panel-default').hide();
+
+    // Oculta o painel "Documentos"
+    $('h3.panel-title:contains("Documentos")').closest('.panel.panel-default').hide();
+
+    // Oculta o painel "Dados Bancários"
+    $('h3.panel-title:contains("Dados Banc&aacute;rios")').closest('.panel.panel-default').hide();
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
