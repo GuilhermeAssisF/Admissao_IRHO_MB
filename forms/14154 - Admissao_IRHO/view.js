@@ -46,7 +46,6 @@ $(document).ready(function () {
     // Oculta o painel "Dados Bancários"
     $('h3.panel-title:contains("Dados Bancários")').closest('.panel.panel-default').hide();
 
-    // próximo commit
     // Oculta o painel "Endereço"
     $('.fluigicon-home').closest('.panel.panel-default').hide();
 
@@ -90,6 +89,14 @@ $(document).ready(function () {
 
     // Oculta "Contribuição Sindical"
     $("#TxtContSind").closest(".col-md-6").hide();
+
+    // Oculta o painel "Informe a chapa do Colaborador"
+    $("#TxtChapa").closest('.panel.panel-default').hide();
+
+    // Oculta o painel "Preenchimento da Área RH"
+    // Selecionamos pelo ID de um campo interno, como 'txtNvHiera', para evitar
+    // problemas com o acento no título do painel ('&Aacute;')
+    $("#txtNvHiera").closest('.panel.panel-default').hide();
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
