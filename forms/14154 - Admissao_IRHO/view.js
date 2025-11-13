@@ -1,6 +1,40 @@
 $(document).ready(function () {
   var atividade = getWKNumState();
 
+  // --- INÍCIO: Lógica de visualização de campos por Etapa ---
+  if (atividade == 0 || atividade == 1 || atividade == 41) {
+
+    // Oculta campos da seção "Dados do Colaborador"
+
+    // Oculta "Está Recebendo Seguro Desemprego?"
+    $("#TxtSegDesemprego").closest(".col-md-4").hide();
+
+    // Oculta "Cor/Raça"
+    $("#CORRACA").closest(".col-md-6").hide();
+
+    // Oculta "Nacionalidade"
+    $("#NACIONALIDADE").closest(".col-md-6").hide();
+
+    // Oculta "Estado Natal"
+    $("#ESTADO").closest(".col-md-6").hide();
+
+    // Oculta "Naturalidade"
+    $("#txtNaturalidade").closest(".col-md-6").hide();
+
+    // Oculta "Sexo"
+    $("#txtSexo").closest(".col-md-6").hide();
+
+    // Oculta "Estado Civil"
+    $("#txtEstadoCivil").closest(".col-md-6").hide();
+
+    // Oculta "Escolaridade"
+    $("#txtEscolaridade").closest(".col-md-6").hide();
+
+    // Oculta "Tipo Sanguíneo"
+    $("#TipoSanguineo").closest(".col-md-6").hide();
+  }
+  // --- FIM: Lógica de visualização de campos por Etapa ---
+
   Compartilhados.expandePainel(atividade);
   Compartilhados.destacaAprovacoes();
   Compartilhados.destacaParecer();
@@ -1044,7 +1078,7 @@ function VerificaFuncAtivo() {
     alert(
       "Existem funcionários ativos utilizando o CPF informado, gentileza verificar."
     );
-    
+
     $("#cpfcnpj").val("");
   }
 }
