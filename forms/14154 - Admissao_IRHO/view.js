@@ -32,6 +32,9 @@ $(document).ready(function () {
 
     // Oculta "Tipo Sanguíneo"
     $("#TipoSanguineo").closest(".col-md-6").hide();
+
+    // Oculta o painel inteiro de "Dependentes" e "Filiação"
+    $('a[href="#dados_pessoais"]').closest('.panel.panel-default').hide();
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
