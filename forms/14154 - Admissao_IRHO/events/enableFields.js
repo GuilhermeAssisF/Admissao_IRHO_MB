@@ -21,7 +21,7 @@ function enableFields(form) {
     { campo: "cpBonusValor", atividade: "0,1,41" },
     { campo: "cpBonusTipo", atividade: "0,1,41" },
     { campo: "cpAcordoNegociacao", atividade: "0,1,41" },
-    { campo: "cpAnexoPropostaLabel", atividade: "" }, // Sempre readonly
+    //{ campo: "cpAnexoPropostaLabel", atividade: "" }, // Sempre readonly
     // FIM NOVOS CAMPOS
 
     //inicio e correcao

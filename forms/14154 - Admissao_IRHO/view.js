@@ -1,6 +1,28 @@
 $(document).ready(function () {
   var atividade = getWKNumState();
 
+  // --- INÍCIO DA ALTERAÇÃO: LÓGICA DO BOTÃO DE ANEXO ---
+  $("#btnIrParaAnexos").on("click", function (e) {
+    e.preventDefault(); // Previne qualquer comportamento padrão do botão
+
+    try {
+      // Seletor mais robusto que busca diretamente pelo link da aba de anexos
+      var $anexosTab = window.parent.$('a[href="#attachments"]');
+
+      if ($anexosTab.length > 0) {
+        // Encontrou pelo href, clica nele
+        $anexosTab.click();
+      } else {
+        // Se falhar, tenta o método antigo por posição (fallback)
+        window.parent.$("#workflowView-tab").find("li").eq(1).find("a").click();
+      }
+    } catch (err) {
+      console.error("Erro ao tentar mudar para a aba Anexos:", err);
+      alert("Não foi possível navegar para a aba 'Anexos'. Por favor, clique manualmente.");
+    }
+  });
+  // --- FIM DA ALTERAÇÃO ---
+
   // --- INÍCIO: Lógica condicional novos campos ---
 
   // Função para UP Front
@@ -151,7 +173,14 @@ $(document).ready(function () {
     // --- OCULTA ABA VALE TRANSPORTE NESSAS ETAPAS ---
     $('a[href="#dados_VT"]').parent('li').hide();
 
-    
+    // --- INÍCIO NOVAS ALTERAÇÕES: Oculta campos antigos de "Informações Gerais" ---
+    $("#cpTpRecrutamento").closest(".row").hide(); // Oculta Tipo de Recrutamento e Contratação
+    $("#ValeAlim").closest(".row").hide(); // Oculta Vale Alimentação, Cesta, VT (select) e Marca Ponto
+    $("#Planodonto").closest(".row").hide(); // Oculta Plano Odonto, Saúde e Conta Salário
+    $("#CatPonto").closest(".row").hide(); // Oculta Categoria Ponto e Substituição
+    $("#AddInsul").closest(".row").hide(); // Oculta Insalubridade, Periculosidade e Gratificação
+    $("#AuxMoradia").closest(".row").hide(); // Oculta Aux Moradia e Crédito Combustível
+    // --- FIM NOVAS ALTERAÇÕES ---
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
@@ -174,7 +203,7 @@ $(document).ready(function () {
     $("#cpUpFront").on("change", toggleUpFrontTipo);
     $("#cpHiringBonus").on("change", toggleHiringBonusTipo);
     // Usamos 'blur' para campos de valor, que é disparado quando o usuário sai do campo
-    $("#cpBonusValor").on("blur", toggleBonusTipo); 
+    $("#cpBonusValor").on("blur", toggleBonusTipo);
     // --- FIM GATILHOS ---
 
     //data de nascimento dependente
