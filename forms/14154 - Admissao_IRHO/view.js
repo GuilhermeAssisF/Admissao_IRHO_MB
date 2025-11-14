@@ -1,6 +1,56 @@
 $(document).ready(function () {
   var atividade = getWKNumState();
 
+  // --- INÍCIO: Lógica condicional novos campos ---
+
+  // Função para UP Front
+  function toggleUpFrontTipo() {
+    if ($("#cpUpFront").val() == "sim") {
+      $("#divUpFrontTipo").show();
+    } else {
+      $("#divUpFrontTipo").hide();
+      // Limpa seleção apenas em modo de edição
+      if (atividade == 0 || atividade == 1 || atividade == 41) {
+        $("input[name='cpUpFrontTipo']").prop("checked", false);
+      }
+    }
+  }
+
+  // Função para Hiring Bonus
+  function toggleHiringBonusTipo() {
+    if ($("#cpHiringBonus").val() == "sim") {
+      $("#divHiringBonusTipo").show();
+    } else {
+      $("#divHiringBonusTipo").hide();
+      // Limpa seleção apenas em modo de edição
+      if (atividade == 0 || atividade == 1 || atividade == 41) {
+        $("input[name='cpHiringBonusTipo']").prop("checked", false);
+      }
+    }
+  }
+
+  // Função para Bonus
+  function toggleBonusTipo() {
+    var valor = $("#cpBonusValor").val();
+    // Verifica se o valor não é vazio, 0,00 ou 0.00
+    if (valor != "" && valor != "0,00" && valor != "0.00" && valor != null) {
+      $("#divBonusTipo").show();
+    } else {
+      $("#divBonusTipo").hide();
+      // Limpa seleção apenas em modo de edição
+      if (atividade == 0 || atividade == 1 || atividade == 41) {
+        $("input[name='cpBonusTipo']").prop("checked", false);
+      }
+    }
+  }
+
+  // Dispara as funções no carregamento da página (para modo de visão e edição)
+  toggleUpFrontTipo();
+  toggleHiringBonusTipo();
+  toggleBonusTipo();
+
+  // --- FIM: Lógica condicional novos campos ---
+
   // --- INÍCIO: Lógica de visualização de campos por Etapa ---
   if (atividade == 0 || atividade == 1 || atividade == 41) {
 
@@ -50,13 +100,13 @@ $(document).ready(function () {
     $('.fluigicon-home').closest('.panel.panel-default').hide();
 
     // --- Modificações no Painel "Contato" ---
-    
+
     // 2. Marca "E-mail de Contato" como obrigatório (adiciona asterisco)
     var $labelEmail = $("#txtEmail").closest(".form-group").find("label");
     $labelEmail.html($labelEmail.html() + ' <span style="color:red;">*</span>');
 
     // --- Oculta campos da seção "Dados da Lotação" ---
-    
+
     // Oculta "Fechamento da Vaga"
     $("#txtAdmissao").closest(".col-md-2").hide();
 
@@ -100,6 +150,8 @@ $(document).ready(function () {
 
     // --- OCULTA ABA VALE TRANSPORTE NESSAS ETAPAS ---
     $('a[href="#dados_VT"]').parent('li').hide();
+
+    
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
@@ -117,6 +169,14 @@ $(document).ready(function () {
   FormataData();
 
   if (atividade == "1" || atividade == "0" || atividade == "41") {
+
+    // --- GATILHOS PARA NOVOS CAMPOS ---
+    $("#cpUpFront").on("change", toggleUpFrontTipo);
+    $("#cpHiringBonus").on("change", toggleHiringBonusTipo);
+    // Usamos 'blur' para campos de valor, que é disparado quando o usuário sai do campo
+    $("#cpBonusValor").on("blur", toggleBonusTipo); 
+    // --- FIM GATILHOS ---
+
     //data de nascimento dependente
     $(document).on("click", ".openPicker", function () {
       $(this).closest(".input-group").find("input").datepicker("show");

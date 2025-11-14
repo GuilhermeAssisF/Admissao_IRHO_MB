@@ -13,6 +13,17 @@ function enableFields(form) {
   var atividade = parseInt(getValue("WKNumState"));
 
   var Campos = new Array(
+    // INÍCIO NOVOS CAMPOS
+    { campo: "cpUpFront", atividade: "0,1,41" },
+    { campo: "cpUpFrontTipo", atividade: "0,1,41" },
+    { campo: "cpHiringBonus", atividade: "0,1,41" },
+    { campo: "cpHiringBonusTipo", atividade: "0,1,41" },
+    { campo: "cpBonusValor", atividade: "0,1,41" },
+    { campo: "cpBonusTipo", atividade: "0,1,41" },
+    { campo: "cpAcordoNegociacao", atividade: "0,1,41" },
+    { campo: "cpAnexoPropostaLabel", atividade: "" }, // Sempre readonly
+    // FIM NOVOS CAMPOS
+
     //inicio e correcao
     { campo: "txtNomeColaborador", atividade: "0,1,41" },
     { campo: "dtDataNascColaborador", atividade: "0,1,41" },
