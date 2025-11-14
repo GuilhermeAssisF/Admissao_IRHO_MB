@@ -97,6 +97,9 @@ $(document).ready(function () {
     // Selecionamos pelo ID de um campo interno, como 'txtNvHiera', para evitar
     // problemas com o acento no título do painel ('&Aacute;')
     $("#txtNvHiera").closest('.panel.panel-default').hide();
+
+    // --- OCULTA ABA VALE TRANSPORTE NESSAS ETAPAS ---
+    $('a[href="#dados_VT"]').parent('li').hide();
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
