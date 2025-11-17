@@ -243,7 +243,10 @@ $(document).ready(function () {
           return false;
         }
       });
-      $(".money").maskMoney({ decimal: ".", thousands: "", precision: 2 });
+      // Aplica a máscara APENAS nos campos da nova linha que foi adicionada
+      // Usamos jQuery para segurança e a vírgula para manter consistência
+      jQuery("#txtTarifa___" + indexRCM).maskMoney({ decimal: ",", thousands: "", precision: 2 });
+      jQuery("#txtValorTotal___" + indexRCM).maskMoney({ decimal: ",", thousands: "", precision: 2 });
 
       $("#txtNumViagensVt___" + indexRCM).attr("readonly", true);
     });
@@ -490,7 +493,7 @@ $(document).ready(function () {
 
   if (atividade == "1" || atividade == "0" || atividade == "41") {
     //money
-    $(".money").maskMoney({ decimal: ",", thousands: "", precision: 2 });
+    jQuery(".money").maskMoney({ decimal: ",", thousands: "", precision: 2 });
 
     $(".Jornada").mask("999:99");
 
@@ -593,6 +596,7 @@ $(document).ready(function () {
       $("#txtInicioExperiencia").datepicker("show");
     });
   }
+
 });
 
 var createPickerDinamico = function (elementId, isVencimento) {
@@ -1029,195 +1033,275 @@ function PegaValorData() {
   $("#dtDataNascColaboradorValue").val(DtNasc);
 }
 
+var formatarData = function (data) {
+  if (data == "" || data == null) {
+    return "";
+  }
+  if (data.indexOf("T") > -1) {
+    data = data.substr(0, data.indexOf("T"));
+  }
+  var arrData = data.split("-");
+  // Verifica se a data já não está no formato correto (evita erro de split)
+  if (arrData.length === 1 && data.indexOf("/") > -1) {
+    return data;
+  }
+  return arrData[2] + "/" + arrData[1] + "/" + arrData[0];
+};
+
+/**
+ * Função Auxiliar para desbloquear campos de endereço após a consulta
+ */
+function desbloquearCamposEndereco() {
+  // Adapte para os campos de endereço do seu formulário 14154
+  $("#txtRUA").prop("readonly", false);
+  $("#txtBAIRRO").prop("readonly", false);
+  $("#txtNUMERO").prop("readonly", false);
+  $("#txtCOMPLEMENTO").prop("readonly", false);
+}
+
+/**
+ * Função "Coordenadora": Busca os dados completos na folha de pagamento
+ */
+var consultaFuncionario = function (cpf) {
+  var myLoading = FLUIGC.loading(window, {
+    textMessage: 'Aguarde, procurando informações'
+  });
+  myLoading.show();
+
+  setTimeout(function () {
+    // Adaptado para usar a coligada do seu formulário 14154
+    var empresa = $("#cpSolicitanteColigada").val(); //
+    var filial = ""; // Deixe em branco ou remova a constraint c2 se não for usar
+
+    // D. Cria as "constraints" (filtros) para o dataset principal
+    var c1 = DatasetFactory.createConstraint("id_empresa", empresa, empresa, ConstraintType.MUST);
+    // var c2 = DatasetFactory.createConstraint("id_filial", filial, filial, ConstraintType.MUST); // Remova se a filial não for necessária
+    var c3 = DatasetFactory.createConstraint("cpf", cpf, cpf, ConstraintType.MUST);
+    var c4 = DatasetFactory.createConstraint("matricula", "todasEmpresasFiliais", "todasEmpresasFiliais", ConstraintType.MUST);
+
+    // Ajuste a lista de constraints (removi c2, adicione se precisar)
+    var constraints = [c1, c3, c4];
+
+    var dsConsultaFuncionario = DatasetFactory.getDataset("ds_dpf_ad_consultaFuncionario", null, constraints, null);
+
+    // --- INÍCIO DA LÓGICA CORRIGIDA ---
+    if (dsConsultaFuncionario != null && dsConsultaFuncionario.values && dsConsultaFuncionario.values.length > 0) {
+      var error = dsConsultaFuncionario.values[0].ERROR;
+
+      if (error != null && error != "") {
+        // Se o erro for "CPF não encontrado", trata como sucesso e busca na Serpro
+        if (error == "CPF não encontrado na base") {
+          FLUIGC.toast({ title: 'Atenção:', message: 'CPF não encontrado na folha. Buscando em dados externos...', type: 'info' });
+          PessoaJaExiste(cpf);
+        } else {
+          // Se for qualquer outro erro, exibe o erro
+          FLUIGC.toast({ title: 'Erro: ', message: error, type: 'warning' });
+        }
+        // VERIFICA SE O NOME VEIO VAZIO DA CONSULTA INTERNA
+      } else if (dsConsultaFuncionario.values[0].FUN_NOME == null || dsConsultaFuncionario.values[0].FUN_NOME == "") {
+        // Se o nome está vazio, a consulta interna não foi boa o suficiente.
+        // Vamos forçar a busca externa (Serpro)
+        FLUIGC.toast({ title: 'Atenção:', message: 'CPF encontrado, mas incompleto. Buscando dados externos...', type: 'info' });
+        PessoaJaExiste(cpf);
+
+      } else {
+        // A consulta interna foi um sucesso E o nome veio preenchido.
+        FLUIGC.toast({ title: 'Atenção: ', message: 'Consulta concluida com sucesso', type: 'success' });
+        // Chama a função "Trabalhadora" para preencher os campos
+        preencherInfoFuncionario(dsConsultaFuncionario.values[0]);
+      }
+    } else {
+      // dsConsultaFuncionario era null OU .values não existia OU .values.length era 0.
+      // NENHUM DADO ENCONTRADO NA BASE INTERNA (Folha de Pagamento).
+      // VAMOS TENTAR A BUSCA EXTERNA (API)
+      FLUIGC.toast({ title: 'Atenção:', message: 'CPF não encontrado na folha. Buscando em dados externos...', type: 'info' });
+
+      // Chama a função que busca na API
+      PessoaJaExiste(cpf);
+    }
+    // --- FIM DA LÓGICA CORRIGIDA ---
+
+    myLoading.hide();
+  }, 300);
+};
+
+/**
+ * Função "Trabalhadora": Preenche os campos no formulário 14154
+ * Esta é a versão ATUALIZADA E CORRIGIDA com o mapeamento "DE-PARA" completo.
+ */
+var preencherInfoFuncionario = function (info) {
+
+  desbloquearCamposEndereco();
+
+  // --- Início do Mapeamento (DE-PARA) ---
+  // Sintaxe: $("#ID_DO_SEU_FORMULÁRIO_NOVO").val( info['NOME_DA_COLUNA_DO_DATASET_ORIGINAL'] );
+
+  // Dados Pessoais
+  $("#txtNomeColaborador").val(info['FUN_NOME']);
+  $("#dtDataNascColaborador").val(formatarData(info['FUN_NASCIMENTO']));
+  $("#CORRACA").val(info['FUN_RACACOR']);
+  $("#NACIONALIDADECod").val(info['FUN_NACIONALIDADE']);
+  $("#NACIONALIDADE").val(info['FUN_NACIONALIDADE_DESC_AD']); // Campo Descrição
+  $("#ESTADONatalCod").val(info['FUN_UFNASCIMENTO']); // No form 1007 é FUN_NATURALIDADE
+  $("#ESTADO").val(info['FUN_NATURALIDADE_DESC_AD']); // Campo Descrição
+  $("#txtNaturalidadeCod").val(info['FUN_CODMUNASC']);
+  $("#txtNaturalidade").val(info['FUN_CODMUNASC_DESC_AD']); // Campo Descrição
+  $("#txtSexo").val(info['FUN_SEXO']);
+  $("#txtEstCivilCod").val(info['FUN_ESTADOCIV']);
+  $("#txtEstadoCivil").val(info['FUN_ESTADOCIV_DESC_AD']); // Campo Descrição
+  $("#GRAUINSTRUCAOCod").val(info['FUN_CODGINRAI']);
+  $("#txtEscolaridade").val(info['FUN_CODGINRAI_DESC_AD']); // Campo Descrição
+  $("#TipoSanguineo").val(info['FUN_TIPOSANG']);
+
+  // Filiação (Campos do formulário 14154 estão na aba Dependentes)
+  $("#txtNomDepen2").val(info['FUN_MNOME']); // Campo "Nome Mãe"
+  $("#txtNomDepen3").val(info['FUN_PNOME']); // Campo "Nome Pai"
+
+  // Deficiências
+  $("#DEFICIENTEFISICO").val(info['FUN_DEFICIENTEFISICO']);
+  $("#DEFICIENTEAUDITIVO").val(info['FUN_DEFICIENTEAUDITIVO']);
+  $("#DEFICIENTEFALA").val(info['FUN_DEFICIENTEFALA']);
+  $("#DEFICIENTEVISUAL").val(info['FUN_DEFICIENTEVISUAL']);
+  $("#DEFICIENTEMENTAL").val(info['FUN_DEFICIENTEMENTAL']);
+  $("#DEFICIENTEINTELECTUAL").val(info['FUN_DEFICIENTEINTELECTUAL']);
+
+  // Documentos
+  $("#TxtRg").val(info['FUN_RG']);
+  $("#CODUFCARTIDENTIDADE").val(info['FUN_RGUF']); // Setando o CÓDIGO
+  $("#UFCARTIDENTIDADE").val(info['FUN_RGUF']); // Setando a DESCRIÇÃO (que no 1007 é o mesmo valor)
+  $("#ORGAOCARTIDENTIDADE").val(info['FUN_RGORG']);
+  $("#DTEMISSAOIDENT").val(formatarData(info['FUN_DTRG']));
+  $("#TITULOELEITOR").val(info['FUN_TITULOELEITOR']);
+  $("#ZONATITELEITOR").val(info['FUN_TITULOELEITOR_ZONA']);
+  $("#DTTITELEITOR").val(formatarData(info['FUN_DTTITELEITOR']));
+  $("#SECAOTITELEITOR").val(info['FUN_TITULOELEITOR_SECAO']);
+  $("#CODUFTITULO").val(info['FUN_ESTELEIT']);
+  $("#UFTITULO").val(info['FUN_ESTELEIT']); // Assumindo que o código é a própria UF
+  $("#txtCartTrab").val(info['FUN_CARTEIRAPROF']);
+  $("#txtSerieCart").val(info['FUN_SERCART']);
+  $("#dtDataEmissaoCartTrab").val(formatarData(info['FUN_DTCARTTRAB']));
+  $("#CODUFCTPS").val(info['FUN_UFCP']);
+  $("#UFCARTTRAB").val(info['FUN_UFCP']); // Assumindo que o código é a própria UF
+  $("#CARTMOTORISTA").val(info['FUN_HABILIT']);
+  $("#TIPOCARTHABILIT").val(info['FUN_CNHCAT']);
+  $("#DTVENCHABILIT").val(formatarData(info['FUN_DTCNHVALID']));
+  $("#ORGEMISSORCNH").val(info['FUN_CNHORG']);
+  $("#DTEmPrimCNH").val(formatarData(info['FUN_DATAPRIMEIRACNH']));
+  $("#CodUFCNH").val(info['FUN_UFCNH']);
+  $("#UFCNH").val(info['FUN_UFCNH']); // Assumindo que o código é a própria UF
+  $("#PIS").val(info['FUN_PIS']);
+  $("#CERTIFRESERV").val(info['FUN_NR_CART_RESERVISTA']);
+  $("#DtCERTIFRESERV").val(formatarData(info['DtCERTIFRESERV'])); // Coluna não mapeada, verifique o nome no dataset
+
+  // Endereço
+  $("#txtCEP").val(info['FUN_CEP']);
+  $("#txtCODTIPORUA").val(info['FUN_TPLOGRADOURO']);
+  $("#txtNOMETIPORUA").val(info['FUN_TPLOGRADOURO_DESC_AD']); // Campo Descrição
+  $("#txtRUA").val(info['FUN_LOGRADOURODESC']);
+  $("#txtNUMERO").val(info['FUN_NUMLOGRADOURO']);
+  $("#txtCOMPLEMENTO").val(info['FUN_ENDERECOM']);
+  $("#txtBAIRRO").val(info['FUN_BAIRRO']);
+  $("#txtCODETD").val(info['FUN_UF']);
+  $("#txtNOMECODETD").val(info['FUN_UF']); // Assumindo que o código é a própria UF
+  $("#txtCODMUNICIPIO").val(info['FUN_CODIBGE']);
+  $("#txtNOMEMUNICIPIO").val(info['FUN_CODIBGE_DESC_AD']); // Campo Descrição
+  $("#txtCODPAIS").val(info['FUN_PAIS_ENDERECO']);
+  $("#txtPAIS").val(info['FUN_PAIS_ENDERECO_DESC']); // Campo Descrição
+
+  // Contato
+  $("#txtTELEFONE").val(info['FUN_TELEFONE']);
+  $("#txtCELULAR").val(info['FUN_CELULAR']);
+  $("#txtEmail").val(info['FUN_EMAIL']);
+
+  // ** Lógica que faltava do 14154 **
+  // Esta função é do seu view.js original, vamos chamá-la.
+  VerificaFuncAtivo();
+};
+
+/**
+ * SUBSTITUIÇÃO DA "PessoaJaExiste"
+ * Esta função agora replica a lógica do "getCPF" do processo 1007,
+ * consultando o dataset 'ds_dpf_ad_cpf_serpro' (API Externa).
+ */
+function PessoaJaExiste(cpf) { // Recebe 'cpf' como parâmetro
+
+  // Limpa os campos antes de tentar preencher
+  $("#txtNomeColaborador").val("");
+  $("#dtDataNascColaborador").val("");
+
+  // Constraints para o 'ds_dpf_ad_cpf_serpro' (baseado no form 1007)
+  var c1 = DatasetFactory.createConstraint('cpf', cpf, cpf, ConstraintType.MUST);
+
+  // Tenta obter o número da solicitação para a constraint 'solicitacao'
+  var idProcessoFluig = $("#cpNumeroSolicitacao").val();
+  if (idProcessoFluig == null || idProcessoFluig == "") {
+    // Se ainda não foi salvo (está no início), tenta pegar o WKNumProces
+    if (typeof getValue == 'function' && getValue("WKNumProces") > 0) {
+      idProcessoFluig = getValue("WKNumProces");
+    } else {
+      idProcessoFluig = ""; // Envia vazio se não tiver
+    }
+  }
+
+  var c2 = DatasetFactory.createConstraint('solicitacao', idProcessoFluig, idProcessoFluig, ConstraintType.MUST);
+  var c3 = DatasetFactory.createConstraint('tipo', "F", "F", ConstraintType.MUST); // 'F' de Funcionário
+  var constraints = [c1, c2, c3];
+
+  try {
+    var dsFUN_CPF = DatasetFactory.getDataset("ds_dpf_ad_cpf_serpro", null, constraints, null);
+
+    if (dsFUN_CPF == null || !dsFUN_CPF.values || dsFUN_CPF.values.length == 0) { // Já corrigido
+      FLUIGC.toast({ title: 'Atenção:', message: 'CPF não encontrado em nenhuma base de dados.', type: 'warning' });
+      jQuery("#txtNomeColaborador").prop("readonly", false); // <-- Mudança aqui
+      jQuery("#dtDataNascColaborador").prop("readonly", false); // <-- Mudança aqui
+      jQuery("#txtNomeColaborador").focus(); // <-- Mudança aqui
+      return;
+    }
+
+    // Processa o retorno
+    for (var i = 0; i < dsFUN_CPF.values.length; i++) {
+      if (dsFUN_CPF.values[i].response_code == "200") {
+        if (dsFUN_CPF.values[i].nome_completo != "") {
+          var nome = dsFUN_CPF.values[i].nome_completo;
+          var dataNascimento = dsFUN_CPF.values[i].dt_nascimento;
+
+          // ESTA É A LINHA DO ERRO, AGORA CORRIGIDA
+          jQuery("#txtNomeColaborador").val(nome); // <-- Mudança aqui
+          jQuery("#dtDataNascColaborador").val(dataNascimento); // <-- Mudança aqui
+
+          jQuery("#txtNomeColaborador").prop("readonly", true); // <-- Mudança aqui
+          jQuery("#dtDataNascColaborador").prop("readonly", true); // <-- Mudança aqui
+
+        } else {
+          // ... (resto do código)
+        }
+      } else if (dsFUN_CPF.values[i].response_code == "422" || dsFUN_CPF.values[i].response_code == "503" || dsFUN_CPF.values[i].response_code == "500") {
+        jQuery("#txtNomeColaborador").val(""); // <-- Mudança aqui
+        jQuery("#dtDataNascColaborador").val(""); // <-- Mudança aqui
+        jQuery("#txtNomeColaborador").prop("readonly", false); // <-- Mudança aqui
+        jQuery("#dtDataNascColaborador").prop("readonly", false); // <-- Mudança aqui
+        jQuery("#txtNomeColaborador").focus(); // <-- Mudança aqui
+        // ... (resto do código)
+      } else {
+        // ... (resto do código)
+      }
+    }
+  } catch (erro) {
+    window.alert("Erro ao consultar o dataset ds_dpf_ad_cpf_serpro: " + erro.message);
+  }
+}
+
 function CarregaCPF() {
-  var CPF = $("#cpfcnpj").val();
+  var CPF = jQuery("#cpfcnpj").val(); // <-- Mudança aqui
 
   CPF = CPF.replace(/\./g, "").replace(/\-/g, "").trim();
 
-  $("#cpfcnpjValue").val(CPF);
+  jQuery("#cpfcnpjValue").val(CPF); // <-- Mudança aqui
 
-  PessoaJaExiste();
-}
-
-function PessoaJaExiste() {
-  var CPF = document.getElementById("cpfcnpjValue").value;
-
-  var fields = new Array(CPF);
-
-  var NOME = 0;
-  var DTNASCIMENTO = 0;
-  var CORRACA = 0;
-  var NACIONALIDADE = 0;
-  var ESTADONATAL = 0;
-  var NOME_ESTADO_NATAL = 0;
-  var COD_NATURALIDADE = 0;
-  var NATURALIDADE = 0;
-  var NATURAL_NOME = 0;
-  var SEXO = 0;
-  var ESTADOCIVIL = 0;
-  var GRAUINSTRUCAO = 0;
-  var CARTIDENTIDADE = 0;
-  var DTEMISSAOIDENT = 0;
-  var ORGEMISSORIDENT = 0;
-  var UFCARTIDENT = 0;
-  var TITULOELEITOR = 0;
-  var ZONATITELEITOR = 0;
-  var SECAOTITELEITOR = 0;
-  var CARTEIRATRAB = 0;
-  var SERIECARTTRAB = 0;
-  var DTCARTTRAB = 0;
-  var CERTIFRESERV = 0;
-  var CEP = 0;
-  var CODTIPORUA = 0;
-  var NOME_TIPO_RUA = 0;
-  var RUA = 0;
-  var CODTIPOBAIRRO = 0;
-  var NOME_TIPO_BAIRRO = 0;
-  var BAIRRO = 0;
-  var NUMERO = 0;
-  var CIDADE = 0;
-  var CIDADE_NOME = 0;
-  var ESTADO = 0;
-  var NOME_ESTADO = 0;
-  var COMPLEMENTO = 0;
-  var PAIS = 0;
-  var IDPAIS = "";
-
-  document.getElementById("txtNomeColaborador").value = "";
-  document.getElementById("dtDataNascColaborador").value = "";
-  document.getElementById("CORRACA").value = "";
-  document.getElementById("NACIONALIDADECod").value = "";
-  document.getElementById("NACIONALIDADE").value = "";
-  document.getElementById("ESTADONatalCod").value = "";
-  document.getElementById("ESTADO").value = "";
-  document.getElementById("txtNaturalidadeCod").value = "";
-  document.getElementById("txtNaturalidade").value = "";
-  document.getElementById("txtSexo").value = "";
-  document.getElementById("txtEstCivilCod").value = "";
-  document.getElementById("GRAUINSTRUCAOCod").value = "";
-  document.getElementById("txtCartTrab").value = "";
-  document.getElementById("DTEMISSAOIDENT").value = "";
-  document.getElementById("ORGAOCARTIDENTIDADE").value = "";
-  document.getElementById("CODUFCARTIDENTIDADE").value = "";
-  document.getElementById("TITULOELEITOR").value = "";
-  document.getElementById("ZONATITELEITOR").value = "";
-  document.getElementById("SECAOTITELEITOR").value = "";
-  document.getElementById("txtCartTrab").value = "";
-  document.getElementById("txtSerieCart").value = "";
-  document.getElementById("dtDataEmissaoCartTrab").value = "";
-  document.getElementById("CERTIFRESERV").value = "";
-  document.getElementById("txtCEP").value = "";
-  document.getElementById("txtCODTIPORUA").value = "";
-  document.getElementById("txtNOMETIPORUA").value = "";
-  document.getElementById("txtCODTIPORUA").value = "";
-  document.getElementById("txtRUA").value = "";
-  document.getElementById("txtNOMETIPOBAIRRO").value = "";
-  document.getElementById("txtCODTIPOBAIRRO").value = "";
-  document.getElementById("txtBAIRRO").value = "";
-  document.getElementById("txtNUMERO").value = "";
-  document.getElementById("txtCODMUNICIPIO").value = "";
-  document.getElementById("txtNOMEMUNICIPIO").value = "";
-  document.getElementById("txtCODPAIS").value = "";
-  document.getElementById("txtPAIS").value = "";
-  document.getElementById("txtCODETD").value = "";
-  document.getElementById("txtNOMECODETD").value = "";
-  document.getElementById("txtCOMPLEMENTO").value = "";
-
-  try {
-    var tabela = DatasetFactory.getDataset("DS_FLUIG_0041", fields, null, null);
-
-    if (tabela == null) {
-    } else if (tabela.values.length == "0") {
-    }
-
-    for (var i = 0; i < tabela.values.length; i++) {
-      NOME = tabela.values[i].NOME.toString();
-      DTNASCIMENTO = tabela.values[i].DTNASCIMENTO.toString();
-      CORRACA = tabela.values[i].CORRACA.toString();
-      NACIONALIDADE = tabela.values[i].NACIONALIDADE.toString();
-      ESTADONATAL = tabela.values[i].ESTADONATAL.toString();
-      NOME_ESTADO_NATAL = tabela.values[i].NOME_ESTADO_NATAL.toString();
-      COD_NATURALIDADE = tabela.values[i].COD_NATURALIDADE.toString();
-      NATURALIDADE = tabela.values[i].NATURALIDADE.toString();
-      NATURAL_NOME = tabela.values[i].NATURAL_NOME.toString();
-      SEXO = tabela.values[i].SEXO.toString();
-      ESTADOCIVIL = tabela.values[i].ESTADOCIVIL.toString();
-      GRAUINSTRUCAO = tabela.values[i].GRAUINSTRUCAO.toString();
-      CARTIDENTIDADE = tabela.values[i].CARTIDENTIDADE.toString();
-      DTEMISSAOIDENT = tabela.values[i].DTEMISSAOIDENT.toString();
-      ORGEMISSORIDENT = tabela.values[i].ORGEMISSORIDENT.toString();
-      UFCARTIDENT = tabela.values[i].UFCARTIDENT.toString();
-      TITULOELEITOR = tabela.values[i].TITULOELEITOR.toString();
-      ZONATITELEITOR = tabela.values[i].ZONATITELEITOR.toString();
-      SECAOTITELEITOR = tabela.values[i].SECAOTITELEITOR.toString();
-      CARTEIRATRAB = tabela.values[i].CARTEIRATRAB.toString();
-      SERIECARTTRAB = tabela.values[i].SERIECARTTRAB.toString();
-      DTCARTTRAB = tabela.values[i].DTCARTTRAB.toString();
-      CERTIFRESERV = tabela.values[i].CERTIFRESERV.toString();
-      CEP = tabela.values[i].CEP.toString();
-      CODTIPORUA = tabela.values[i].CODTIPORUA.toString();
-      NOME_TIPO_RUA = tabela.values[i].NOME_TIPO_RUA.toString();
-      RUA = tabela.values[i].RUA.toString();
-      CODTIPOBAIRRO = tabela.values[i].CODTIPOBAIRRO.toString();
-      BAIRRO = tabela.values[i].BAIRRO.toString();
-      NOME_TIPO_BAIRRO = tabela.values[i].NOME_TIPO_BAIRRO.toString();
-      NUMERO = tabela.values[i].NUMERO.toString();
-      CIDADE = tabela.values[i].CIDADE.toString();
-      CIDADE_NOME = tabela.values[i].CIDADE_NOME.toString();
-      ESTADO = tabela.values[i].ESTADO.toString();
-      NOME_ESTADO = tabela.values[i].NOME_ESTADO.toString();
-      COMPLEMENTO = tabela.values[i].COMPLEMENTO.toString();
-      PAIS = tabela.values[i].PAIS.toString();
-      IDPAIS = tabela.values[i].IDPAIS.toString();
-
-      document.getElementById("txtNomeColaborador").value = NOME;
-      document.getElementById("dtDataNascColaborador").value = DTNASCIMENTO;
-      document.getElementById("CORRACA").value = CORRACA;
-      document.getElementById("NACIONALIDADECod").value = "10";
-      document.getElementById("NACIONALIDADE").value = "BRASIL";
-      document.getElementById("ESTADONatalCod").value = ESTADONATAL;
-      document.getElementById("ESTADO").value = NOME_ESTADO_NATAL;
-      document.getElementById("txtNaturalidadeCod").value = COD_NATURALIDADE;
-      document.getElementById("txtNaturalidade").value = NATURALIDADE;
-      document.getElementById("txtSexo").value = SEXO;
-      document.getElementById("txtEstCivilCod").value = ESTADOCIVIL;
-      document.getElementById("GRAUINSTRUCAOCod").value = GRAUINSTRUCAO;
-      document.getElementById("txtCartTrab").value = CARTIDENTIDADE;
-      document.getElementById("DTEMISSAOIDENT").value = DTEMISSAOIDENT;
-      document.getElementById("ORGAOCARTIDENTIDADE").value = ORGEMISSORIDENT;
-      document.getElementById("CODUFCARTIDENTIDADE").value = UFCARTIDENT;
-      document.getElementById("TITULOELEITOR").value = TITULOELEITOR;
-      document.getElementById("ZONATITELEITOR").value = ZONATITELEITOR;
-      document.getElementById("SECAOTITELEITOR").value = SECAOTITELEITOR;
-      document.getElementById("txtCartTrab").value = CARTEIRATRAB;
-      document.getElementById("txtSerieCart").value = SERIECARTTRAB;
-      document.getElementById("dtDataEmissaoCartTrab").value = DTCARTTRAB;
-      document.getElementById("CERTIFRESERV").value = CERTIFRESERV;
-      document.getElementById("txtCEP").value = CEP;
-      document.getElementById("txtCODTIPORUA").value = CODTIPORUA;
-      document.getElementById("txtNOMETIPORUA").value = NOME_TIPO_RUA;
-      document.getElementById("txtCODTIPORUA").value = RUA;
-      document.getElementById("txtRUA").value = RUA;
-      document.getElementById("txtNOMETIPOBAIRRO").value = NOME_TIPO_BAIRRO;
-      document.getElementById("txtCODTIPOBAIRRO").value = CODTIPOBAIRRO;
-      document.getElementById("txtBAIRRO").value = BAIRRO;
-      document.getElementById("txtNUMERO").value = NUMERO;
-      document.getElementById("txtCODMUNICIPIO").value = CIDADE;
-      document.getElementById("txtNOMEMUNICIPIO").value = CIDADE;
-      document.getElementById("txtCODPAIS").value = IDPAIS;
-      document.getElementById("txtPAIS").value = PAIS;
-      document.getElementById("txtCODETD").value = ESTADO;
-      document.getElementById("txtNOMECODETD").value = NOME_ESTADO;
-      document.getElementById("txtCOMPLEMENTO").value = COMPLEMENTO;
-
-      VerificaFuncAtivo();
-    }
-  } catch (erro) {
-    window.alert(erro);
+  // Nova chamada para a busca completa
+  if (CPF.length === 11) {
+    consultaFuncionario(CPF);
   }
-
-  //return DIAS;
-  return 0;
 }
 
 //verifica se o funcionário já está ativo na base pelo CPF
@@ -1933,6 +2017,7 @@ function limpa_formulário_cep() {
     $("#uf").val("");
     $("#ibge").val("");*/
 }
+
 $(document).ready(function () {
   //Quando o campo cep perde o foco.
   $("#txtCEP").blur(function () {
