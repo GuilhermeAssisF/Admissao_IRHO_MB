@@ -1862,6 +1862,7 @@
               </div>
               <div class="panel-body">
                 <div class="row">
+
                   <div class="col-md-4">
                     <div class="form-group">
                       <label class="labelField">UP Front</label>
@@ -1871,7 +1872,24 @@
                         <option value="sim">Sim</option>
                       </select>
                     </div>
+
+                    <div class="col-md-12" id="divUpFrontTipo"
+                      style="display: none; padding-left: 0px; padding-right: 0px;">
+                      <div class="form-group" style="margin-top: 5px;">
+                        <div class="radio-inline">
+                          <label>
+                            <input type="radio" name="cpUpFrontTipo" id="cpUpFrontTipoL" value="liquido"> Líquido
+                          </label>
+                        </div>
+                        <div class="radio-inline">
+                          <label>
+                            <input type="radio" name="cpUpFrontTipo" id="cpUpFrontTipoB" value="bruto"> Bruto
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
                   <div class="col-md-4">
                     <div class="form-group">
                       <label class="labelField">Hiring Bonus</label>
@@ -1881,59 +1899,49 @@
                         <option value="sim">Sim</option>
                       </select>
                     </div>
+
+                    <div class="col-md-12" id="divHiringBonusTipo"
+                      style="display: none; padding-left: 0px; padding-right: 0px;">
+                      <div class="form-group" style="margin-top: 5px;">
+                        <div class="radio-inline">
+                          <label>
+                            <input type="radio" name="cpHiringBonusTipo" id="cpHiringBonusTipoL" value="liquido">
+                            Líquido
+                          </label>
+                        </div>
+                        <div class="radio-inline">
+                          <label>
+                            <input type="radio" name="cpHiringBonusTipo" id="cpHiringBonusTipoB" value="bruto"> Bruto
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
                   <div class="col-md-4">
                     <div class="form-group">
                       <label class="labelField">Bonus</label>
                       <input type="text" class="form-control money" name="cpBonusValor" id="cpBonusValor"
                         placeholder="Informe o valor" />
                     </div>
-                  </div>
-                </div>
 
-                <div class="row">
-                  <div class="col-md-4" id="divUpFrontTipo" style="display: none;">
-                    <div class="form-group" style="margin-top: 5px;">
-                      <div class="radio-inline">
-                        <label>
-                          <input type="radio" name="cpUpFrontTipo" id="cpUpFrontTipoL" value="liquido"> Líquido
-                        </label>
-                      </div>
-                      <div class="radio-inline">
-                        <label>
-                          <input type="radio" name="cpUpFrontTipo" id="cpUpFrontTipoB" value="bruto"> Bruto
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4" id="divHiringBonusTipo" style="display: none;">
-                    <div class="form-group" style="margin-top: 5px;">
-                      <div class="radio-inline">
-                        <label>
-                          <input type="radio" name="cpHiringBonusTipo" id="cpHiringBonusTipoL" value="liquido"> Líquido
-                        </label>
-                      </div>
-                      <div class="radio-inline">
-                        <label>
-                          <input type="radio" name="cpHiringBonusTipo" id="cpHiringBonusTipoB" value="bruto"> Bruto
-                        </label>
+                    <div class="col-md-12" id="divBonusTipo"
+                      style="display: none; padding-left: 0px; padding-right: 0px;">
+                      <div class="form-group" style="margin-top: 5px;">
+                        <div class="radio-inline">
+                          <label>
+                            <input type="radio" name="cpBonusTipo" id="cpBonusTipoM" value="mensal"> Mensal
+                          </label>
+                        </div>
+                        <div class="radio-inline">
+                          <label>
+                            <input type="radio" name="cpBonusTipo" id="cpBonusTipoA" value="anual"> Anual
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4" id="divBonusTipo" style="display: none;">
-                    <div class="form-group" style="margin-top: 5px;">
-                      <div class="radio-inline">
-                        <label>
-                          <input type="radio" name="cpBonusTipo" id="cpBonusTipoM" value="mensal"> Mensal
-                        </label>
-                      </div>
-                      <div class="radio-inline">
-                        <label>
-                          <input type="radio" name="cpBonusTipo" id="cpBonusTipoA" value="anual"> Anual
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
 
                 <div class="row">
