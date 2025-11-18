@@ -13,3 +13,17 @@ table td {
 .LinkManual {
   color: #5bc0de !important;
 }
+
+/* Ajuste do tamanho do calendario com hora (sideBySide) */
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    width: auto !important; /* Força a largura a se ajustar ao conteúdo */
+    min-width: 320px !important; /* Garante que não fique pequeno demais */
+    max-width: none !important; /* Remove limites máximos que possam esticar */
+    padding: 10px !important;
+}
+
+/* Garante que a tabela interna não estique desnecessariamente */
+.bootstrap-datetimepicker-widget table {
+    width: auto !important;
+    margin: 0 auto !important;
+}

@@ -231,6 +231,10 @@ function validateForm(form) {
     if (form.getValue("gratificacao") == "") msg += "Gratificação" + "<br>";
     if (form.getValue("AddInsul") == "")
       msg += "Adicional Insalubridade" + "<br>";
+
+    if (form.getValue("cpEmailCandidatoInicio") == "") {
+      msg += "Selecione o tipo de e-mail que o candidato recebe." + "<br>";
+    }
   }
   //gestor
   if (atividade == 7 && acaoUsuario == "true") {

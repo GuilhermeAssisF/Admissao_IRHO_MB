@@ -643,6 +643,13 @@ $(document).ready(function () {
     });
   }
 
+  // Ativa o calendário com hora
+  FLUIGC.calendar('#cpDataHoraExame', {
+    pickDate: true,
+    pickTime: true,
+    sideBySide: true
+  });
+
 });
 
 var createPickerDinamico = function (elementId, isVencimento) {

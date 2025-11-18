@@ -197,6 +197,11 @@ function enableFields(form) {
     { campo: "TxtChapa", atividade: "0,1,41" },
     { campo: "TxtDiretoriaRH", atividade: "0,1,41" },
 
+    { campo: "cpDataHoraExame", atividade: "0,1,41" },
+    { campo: "cpEnderecoClinica", atividade: "0,1,41" },
+    { campo: "cpNomeClinica", atividade: "0,1,41" },
+    { campo: "cpEmailCandidatoInicio", atividade: "0,1,41" },
+
     { campo: "Ckb1", atividade: "0,1,41" },
     { campo: "Ckb2", atividade: "0,1,41" },
     { campo: "Ckb3", atividade: "0,1,41" },
