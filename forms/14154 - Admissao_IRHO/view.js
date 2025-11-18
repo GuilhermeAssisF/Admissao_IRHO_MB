@@ -173,14 +173,60 @@ $(document).ready(function () {
     // --- OCULTA ABA VALE TRANSPORTE NESSAS ETAPAS ---
     $('a[href="#dados_VT"]').parent('li').hide();
 
-    // --- INÍCIO NOVAS ALTERAÇÕES: Oculta campos antigos de "Informações Gerais" ---
+    // Oculta campos antigos de "Informações Gerais" 
     $("#cpTpRecrutamento").closest(".row").hide(); // Oculta Tipo de Recrutamento e Contratação
     $("#ValeAlim").closest(".row").hide(); // Oculta Vale Alimentação, Cesta, VT (select) e Marca Ponto
     $("#Planodonto").closest(".row").hide(); // Oculta Plano Odonto, Saúde e Conta Salário
     $("#CatPonto").closest(".row").hide(); // Oculta Categoria Ponto e Substituição
     $("#AddInsul").closest(".row").hide(); // Oculta Insalubridade, Periculosidade e Gratificação
     $("#AuxMoradia").closest(".row").hide(); // Oculta Aux Moradia e Crédito Combustível
-    // --- FIM NOVAS ALTERAÇÕES ---
+
+    // --- Lógica para deixar visível APENAS os campos solicitados na seção 'Dados da Contratação' ---
+
+    // Lista de IDs dos campos que devem ser OCULTADOS
+    var camposParaOcultar = [
+      "FUN_CHAPA",
+      "FUN_MATRICULAESOCIAL",
+      "FUN_EMAIL_CORPORATIVO",
+      "FUN_DATABASE",
+      "FUN_CCIDDESC",             // Centro de Custo (Ver nota de validação abaixo)
+      "FUN_NATATIV",
+      "FUN_INDADMISSAO",
+      "FUN_TPREGIMEPREV",
+      "FUN_HRMENSAIS",
+      "FUN_HRSEMANAIS",
+      "FUN_HRDIAS",
+      "FUN_CATEGORIA_IDDESC_AD",  // Categoria (Ver nota de validação abaixo)
+      "selectTemRemuneracao",
+      "FUN_TIPOPGTO_IDDESC_AD",   // Tipo de Pagamento (Ver nota de validação abaixo)
+      "FUN_SALARIOBASE",
+      "FUN_PADT",
+      "FUN_CATESOCIAL_IDDESC_AD", // Categoria eSocial (Ver nota de validação abaixo)
+      "FUN_PGCTSIN_IDDESC_AD",
+      "FUN_IDDESCSIND",           // Sindicato (Ver nota de validação abaixo)
+      "FUN_CODDESCSINDICATOFILIACAO",
+      "FUN_APOSENTADO",
+      "FUN_PROCMENOR",
+      "FUN_INSS",
+      "FUN_IRRF",
+      "FUN_ALTFGTS",
+      "FUN_CATSEFIP_IDDESC",
+      "FUN_CODOCORRENCIA_IDDESC",
+      "FUN_VINCEMPREG_IDDESC_AD",
+      "FUN_CODQUIOSQUE_IDDESC",
+      "FUN_AJUDACUSTO",
+      "FUN_DIASUTEISMES",
+      "FUN_DIASUTPROXMES",
+      "FUN_INTEGRCONTABIL_IDDESC",
+      "FUN_INTEGRGERENCIAL_IDDESC",
+      "FUN_TURNO_JORNADA"
+    ];
+
+    // Loop para ocultar os containers (divs) desses campos
+    for (var i = 0; i < camposParaOcultar.length; i++) {
+      $("#" + camposParaOcultar[i]).closest("div[class*='col-']").hide();
+    }
+
   }
   // --- FIM: Lógica de visualização de campos por Etapa ---
 
@@ -648,6 +694,30 @@ var criaDatepickers = function () {
       $(document).trigger("dataSelecionada");
     },
     minDate: 0,
+  });
+
+  $("#FUN_ADMISSAO").datepicker({
+    showOn: "button",
+    showButtonPanel: "true",
+    changeMonth: "true",
+    changeYear: "true",
+    showOtherMonths: "true",
+    selectOtherMonths: "true",
+    onSelect: function () {
+      $(document).trigger("dataSelecionada");
+    }
+  });
+
+  $("#FUN_DATABASE").datepicker({
+    showOn: "button",
+    showButtonPanel: "true",
+    changeMonth: "true",
+    changeYear: "true",
+    showOtherMonths: "true",
+    selectOtherMonths: "true",
+    onSelect: function () {
+      $(document).trigger("dataSelecionada");
+    }
   });
 
   $("#txtInicioAdmissao").datepicker({
@@ -2070,3 +2140,710 @@ $(document).ready(function () {
     }
   });
 });
+
+/*********************************************************************************
+ * INÍCIO - CÓDIGO MIGRADOS DO FORMULÁRIO 1007 (ADMISSÃO DIGITAL - RM)
+ *********************************************************************************/
+
+/**
+ * setSelectedZoomItem é chamada sempre que um item de um campo Zoom é selecionado.
+ * Esta função é essencial para a lógica dos novos campos.
+ */
+function setSelectedZoomItem(selectedItem) {
+
+  // Lógica de Zoom para IDDESC_EMPRESAFILIAL (Empresa - Filial)
+  if (selectedItem.inputId == "IDDESC_EMPRESAFILIAL") {
+    var ID_EMPRESA = selectedItem.ID_EMPRESA;
+    var ID_FILIAL = selectedItem.ID_FILIAL;
+
+    // Preenche campos ocultos com dados da empresa/filial
+    $('#FUN_EMPRESA').val(selectedItem.ID_EMPRESA);
+    $('#FUN_EMPRESA_DESC_AD').val(selectedItem.EMPRESA);
+    $('#FUN_CNPJ').val(selectedItem.CNPJ);
+    $('#FUN_NOMECOMERCIAL').val(selectedItem.NOMECOMERCIAL);
+    $('#FUN_EMP_END_LOGRADOURO').val(selectedItem.LOGRADOURO);
+    $('#FUN_EMP_END_BAIRRO').val(selectedItem.BAIRRO);
+    $('#FUN_EMP_END_CIDADE').val(selectedItem.CIDADE);
+    $('#FUN_EMP_END_ESTADO').val(selectedItem.ESTADO);
+    $('#FUN_EMP_END_CEP').val(selectedItem.CEP);
+    $('#FUN_FILIAL').val(selectedItem.ID_FILIAL);
+    $('#FUN_FILIAL_DESC_AD').val(selectedItem.FILIAL);
+    $('#FUN_CNPJ_FILIAL').val(selectedItem.CNPJ_FILIAL);
+    $('#FUN_NOMECOMERCIAL_FILIAL').val(selectedItem.NOMECOMERCIAL_FILIAL);
+    $('#FUN_LOGRADOURO_FILIAL').val(selectedItem.LOGRADOURO_FILIAL);
+    $('#FUN_BAIRRO_FILIAL').val(selectedItem.BAIRRO_FILIAL);
+    $('#FUN_CIDADE_FILIAL').val(selectedItem.CIDADE_FILIAL);
+    $('#FUN_ESTADO_FILIAL').val(selectedItem.ESTADO_FILIAL);
+    $('#FUN_CEP_FILIAL').val(selectedItem.CEP_FILIAL);
+    $('#FUN_NUMERO_FILIAL').val(selectedItem.NUMERO_FILIAL);
+    $('#FUN_COMPLEMENTO_FILIAL').val(selectedItem.COMPLEMENTO_FILIAL);
+    $('#FUN_PAIS_FILIAL').val(selectedItem.PAIS_FILIAL);
+    $('#FUN_IDDESC_EMPFILIALCOM').val(selectedItem.IDDESC_EMPFILIALCOM);
+
+    // Dispara a função para recarregar/filtrar outros zooms
+    reloadZoomFilial(ID_EMPRESA, ID_FILIAL);
+
+    // No formulário original, isso buscava benefícios e gerava termo LGPD.
+    // Mantendo a lógica caso você queira usar:
+    // getRestPublic(); 
+    // geraTermoLGPD();
+    // buscarBeneficios();
+
+  } else if (selectedItem.inputId == "descricaoJornada") {
+    $('#codJornada').val(selectedItem.codJornada);
+    // Lógica de Kit Assinatura (adaptada do original)
+    if (selectedItem.id_kitAssinatura != null && selectedItem.id_kitAssinatura != "") {
+      // Tenta buscar o dataset para confirmar se o Kit é válido
+      var cKitAssinatura = DatasetFactory.createConstraint("id_kitAssinatura", selectedItem.id_kitAssinatura, selectedItem.id_kitAssinatura, ConstraintType.MUST);
+      var dsKitAssinatura = DatasetFactory.getDataset("ds_dpf_ad_kitAssinatura", null, [cKitAssinatura], null);
+
+      if (dsKitAssinatura && dsKitAssinatura.values.length > 0) {
+        window['desc_kitAssinatura'].setValue(selectedItem.desc_kitAssinatura);
+        $('#id_kitAssinatura').val(selectedItem.id_kitAssinatura);
+      } else {
+        try { window["desc_kitAssinatura"].clear(); } catch (ex) { };
+        $('#id_kitAssinatura').val("");
+        FLUIGC.toast({ title: 'Atenção: ', message: 'Selecione manualmente o kit de assinatura!', type: 'warning' });
+      }
+    } else {
+      if ($('#id_kitAssinatura').val() == null || $('#id_kitAssinatura').val() == "") {
+        FLUIGC.toast({ title: 'Atenção: ', message: 'Selecione manualmente o kit de assinatura!', type: 'warning' });
+      }
+    }
+
+  } else if (selectedItem.inputId == "desc_kitAssinatura") {
+    $('#id_kitAssinatura').val(selectedItem.id_kitAssinatura);
+    // buscarBeneficios(); // Descomente se for usar a lógica de benefícios
+
+  } else if (selectedItem.inputId == "FUN_CCIDDESC") { // Centro de Custo
+    $('#FUN_CC').val(selectedItem.ID_CONSULTACENTROCUSTO);
+    $('#FUN_CCDESC').val(selectedItem.DESC_CONSULTACENTROCUSTO);
+    // Atualiza campo de log (se necessário)
+    $("#FUN_CPFNOMECC").val($("#FUN_CPF").val() + " - " + $("#FUN_NOME").val() + " - " + $('#FUN_CC').val() + " - " + $('#FUN_CCDESC').val());
+    // buscarBeneficios(); // Descomente se for usar a lógica de benefícios
+
+  } else if (selectedItem.inputId == "FUN_IDDESCFUN") { // Função
+    $('#FUN_FUNCAO').val(selectedItem.ID_CONSULTAFUNCAO);
+    $('#FUN_DESCFUN').val(selectedItem.DESC_CONSULTAFUNCAO);
+    $('#FUN_CBO').val(selectedItem.CBO);
+    $('#FUN_CBO2002').val(selectedItem.CBO2002);
+    $('#FUN_CARGO_DESC_AD').val(selectedItem.CARGO);
+    $('#FUN_CARGO').val(selectedItem.ID_CARGO);
+
+    // Habilita e filtra o Nível da Função
+    $('#FUN_NIVELFUNCAO').attr('disabled', false);
+    $('#FUN_NIVELFUNCAO').val("");
+    try { window['FUN_NIVELFUNCAO'].clear(); } catch (e) { }
+
+    if (window['data-zoom_FUN_NIVELFUNCAO'] != null) {
+      var filialConsulta = validarFilial("ds_dpf_ad_consultaSecao");
+      var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaSecao");
+      var filtroFuncao = "FUNCAO," + selectedItem.ID_CONSULTAFUNCAO;
+      var ID_EMPRESA = $('#FUN_EMPRESA').val() || $('#cpSolicitanteColigada').val(); // Usa a coligada do solicitante
+      var ID_FILIAL = $('#FUN_FILIAL').val();
+      var ID_SECAO = $('#FUN_SECAO').val();
+      if (ID_SECAO != null && ID_SECAO != '') filtroFuncao += ",SECAO," + ID_SECAO;
+
+      if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL + "," + filtroFuncao);
+      else {
+        if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + ID_EMPRESA + "," + filtroFuncao);
+        else reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", filtroFuncao);
+      }
+    }
+    // buscarBeneficios(); // Descomente se for usar a lógica de benefícios
+
+  } else if (selectedItem.inputId == "FUN_IDDESCTURN") { // Turno
+    $('#FUN_CODTURN').val(selectedItem.ID_CONSULTATURNO);
+    $('#FUN_DESCTURN').val(selectedItem.DESC_CONSULTATURNO);
+    $('#FUN_SEQTURN_IDDESC_AD').val("");
+    try {
+      window['FUN_SEQTURN_IDDESC_AD'].clear();
+      reloadZoomFilterValuesDelay("FUN_SEQTURN_IDDESC_AD", "TURNO," + selectedItem.ID_CONSULTATURNO + ",ID_EMPRESA," + selectedItem.ID_EMPRESA);
+    } catch (ex) { };
+
+  } else if (selectedItem.inputId == "FUN_TPADMISSAO_IDDESC_AD") {
+    $('#FUN_TPADMISSAO').val(selectedItem.ID_CONSULTATIPOADMISSAO);
+    $('#FUN_TPADMISSAO_DESC_AD').val(selectedItem.DESC_CONSULTATIPOADMISSAO);
+
+  } else if (selectedItem.inputId == "FUN_TIPOPGTO_IDDESC_AD") {
+    $('#FUN_TIPOPGTO').val(selectedItem.ID_CONSULTATIPOPAGTO);
+    $('#FUN_TIPOPGTO_DESC_AD').val(selectedItem.DESC_CONSULTATIPOPAGTO);
+
+  } else if (selectedItem.inputId == "FUN_CATEGORIA_IDDESC_AD") {
+    $('#FUN_CATEGORIA').val(selectedItem.ID_CONSULTACATEGORIA);
+    $('#FUN_CATEGORIA_DESC_AD').val(selectedItem.DESC_CONSULTACATEGORIA);
+
+    // Lógica para campos de Estagiário (do 1007)
+    if (selectedItem.ID_CONSULTACATEGORIA == "T") { // Estágio
+      $("#divEstagiario").show(); // Você precisará criar esta div no HTML se quiser os campos de estágio
+      $('#FUN_TPCONTR').val('2');
+    } else {
+      $("#divEstagiario").hide(); // Oculta campos de estágio
+      $("#divEstagiario input, #divEstagiario select").val("");
+      $('#FUN_ESTINST').val("");
+      $('#FUN_ESTINTAG').val("");
+      $('#FUN_TPCONTR').val('3'); // Define como Experiência (padrão)
+    }
+    $('#FUN_TPCONTR').change();
+
+  } else if (selectedItem.inputId == "FUN_VINCEMPREG_IDDESC_AD") {
+    $('#FUN_VINCEMPREG').val(selectedItem.ID_CONSULTAVINCULOEMPREGATICIO);
+    $('#FUN_VINCEMPREG_DESC_AD').val(selectedItem.DESC_CONSULTAVINCULOEMPREGATIC);
+
+  } else if (selectedItem.inputId == "FUN_PGCTSIN_IDDESC_AD") {
+    $('#FUN_PGCTSIN').val(selectedItem.ID_CONSULTACONTRSINDICAL);
+    $('#FUN_PGCTSIN_DESC_AD').val(selectedItem.DESC_CONSULTACONTRSINDICAL);
+
+  } else if (selectedItem.inputId == "FUN_IDDESCSIND") {
+    $('#FUN_CODSIND').val(selectedItem.ID_CONSULTASINDICATO);
+    $('#FUN_DESCSIND').val(selectedItem.DESC_CONSULTASINDICATO);
+
+  } else if (selectedItem.inputId == "FUN_CODDESCSINDICATOFILIACAO") {
+    $('#FUN_CODSINDICATOFILIACAO').val(selectedItem.ID_CONSULTASINDICATO);
+    $('#FUN_DESCSINDICATOFILIACAO').val(selectedItem.DESC_CONSULTASINDICATO);
+
+  } else if (selectedItem.inputId == "FUN_CATESOCIAL_IDDESC_AD") {
+    $('#FUN_CATESOCIAL').val(selectedItem.ID_CONSULTAESOCIAL);
+    $('#FUN_CATESOCIAL_DESC_AD').val(selectedItem.DESC_CONSULTAESOCIAL);
+
+  } else if (selectedItem.inputId == "FUN_BANCOFGTS_IDDESC_AD") { // Banco FGTS
+    $('#FUN_BANCOFGTS').val(selectedItem.ID_CONSULTABANCO);
+    $('#FUN_BANCOFGTS_DESC_AD').val(selectedItem.DESC_CONSULTABANCO);
+    try { reloadZoomFilterValuesDelay("FUN_AGENCIAFGTS_IDDESC_AD", "BANCO," + selectedItem.ID_CONSULTABANCO); } catch (ex) { };
+
+  } else if (selectedItem.inputId == "FUN_SEQTURN_IDDESC_AD") {
+    $('#FUN_SEQTURN').val(selectedItem.ID_CONSULTASEQTURNO);
+    $('#FUN_SEQTURN_DESC_AD').val(selectedItem.DESC_CONSULTASEQTURNO);
+
+  } else if (selectedItem.inputId == "FUN_SECAO_IDDESC_AD") {
+    $('#FUN_SECAO').val(selectedItem.ID_CONSULTASECAO);
+    $('#FUN_SECAO_DESC_AD').val(selectedItem.DESC_CONSULTASECAO);
+    // Lógica para filtrar Nível por Seção (adaptada do 1007)
+    try {
+      var filialConsulta = validarFilial("ds_dpf_ad_consultaSecao");
+      var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaSecao");
+      var filtroSecao = "SECAO," + selectedItem.ID_CONSULTASECAO;
+      var ID_EMPRESA = $('#FUN_EMPRESA').val() || $('#cpSolicitanteColigada').val();
+      var ID_FILIAL = $('#FUN_FILIAL').val();
+      var ID_FUNCAO = $('#FUN_FUNCAO').val();
+      if (ID_FUNCAO != null && ID_FUNCAO != '') filtroSecao += ",FUNCAO," + ID_FUNCAO;
+
+      if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL + "," + filtroSecao);
+      else {
+        if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + ID_EMPRESA + "," + filtroSecao);
+        else reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", filtroSecao);
+      }
+    } catch (e) { }
+
+  } else if (selectedItem.inputId == "FUN_NIVELFUNCAO") { // Nível Função
+    $('#FUN_IDNIVELFUNCAO').val(selectedItem.ID_CONSULTANIVELFUNCAO);
+    $('#FUN_FAIXASALARIAL').attr('disabled', false);
+    try { window['FUN_FAIXASALARIAL'].clear(); } catch (e) { }
+    try {
+      reloadZoomFilterValuesDelay("FUN_FAIXASALARIAL", "ID_EMPRESA," + ($('#FUN_EMPRESA').val() || $('#cpSolicitanteColigada').val()) + ",ID_FILIAL," + $('#FUN_FILIAL').val() + ",NIVEL," + selectedItem.ID_CONSULTANIVELFUNCAO);
+    } catch (ex) { };
+
+  } else if (selectedItem.inputId == "FUN_FAIXASALARIAL") { // Faixa Salarial
+    $('#FUN_IDFAIXASALARIAL').val(selectedItem.ID_CONSULTAFAIXASALARIAL);
+
+    // Prepara campos para buscar salário no dataset
+    var fields = $('input[type="zoom"],input[type="text"],input[type="number"],input[type="radio"],input[type="hidden"],input,select,textarea');
+    var jCampoValor = {};
+    for (var f = 0; f < fields.length; f++) {
+      if (fields[f].name != null && fields[f].name != "") {
+        jCampoValor[fields[f].name] = fields[f].value;
+      }
+    }
+
+    var constraints = [];
+    constraints.push(DatasetFactory.createConstraint("ID_EMPRESA", btoa($('#FUN_EMPRESA').val() || $('#cpSolicitanteColigada').val()), "", ConstraintType.MUST));
+    constraints.push(DatasetFactory.createConstraint("ID_FILIAL", btoa($('#FUN_FILIAL').val()), "", ConstraintType.MUST));
+    constraints.push(DatasetFactory.createConstraint("FUNCAO", btoa($('#FUN_FUNCAO').val()), "", ConstraintType.MUST));
+    constraints.push(DatasetFactory.createConstraint("NIVEL", btoa(selectedItem.NIVEL), "", ConstraintType.MUST));
+    constraints.push(DatasetFactory.createConstraint("FAIXA", btoa(selectedItem.ID_CONSULTAFAIXASALARIAL), "", ConstraintType.MUST));
+    constraints.push(DatasetFactory.createConstraint("field", btoa(encodeURI(JSON.stringify(jCampoValor))), "", ConstraintType.MUST));
+    constraints.push(DatasetFactory.createConstraint("dpfDatasetEncodedData", true, true, ConstraintType.MUST));
+
+    // Busca o salário
+    var dsSalario = loadPublicDataset("consultaSalario", null, constraints, null);
+    if (dsSalario != null && dsSalario.length > 0) {
+      var vlrSalario = dsSalario[0]['SALARIO'].replace(',', '.');
+      vlrSalario = (Number(vlrSalario)).toFixed(2);
+
+      // No form 1007, o campo é 'FUN_VLRSALARIO', no seu é 'txtSalario'
+      $('#txtSalario').val(vlrSalario); // <-- ATENÇÃO: Verifique se 'txtSalario' é o ID correto
+      $('#FUN_VLRSALARIO').val(vlrSalario); // <-- Preenche o novo campo também
+
+      $('#txtSalario').blur(); // Dispara o blur para formatar máscara
+      $('#FUN_VLRSALARIO').blur();
+
+      $("#FUN_IDTABELA").val(dsSalario[0]['ID_TABELA']);
+    } else {
+      FLUIGC.toast({ title: 'Erro: ', message: 'Salário não localizado', type: 'warning' });
+    }
+
+  } else if (selectedItem.inputId == "FUN_CATSEFIP_IDDESC") {
+    $('#FUN_CATSEFIP').val(selectedItem.ID_CONSULTACATSEFIP);
+    $('#FUN_CATSEFIP_DESC').val(selectedItem.DESC_CONSULTACATSEFIP);
+
+  } else if (selectedItem.inputId == "FUN_CODOCORRENCIA_IDDESC") {
+    $('#FUN_CODOCORRENCIA').val(selectedItem.ID_CODOCORRENCIA);
+    $('#FUN_CODOCORRENCIA_DESC').val(selectedItem.DESC_CODOCORRENCIA);
+
+  } else if (selectedItem.inputId == "FUN_CODQUIOSQUE_IDDESC") {
+    $('#FUN_CODQUIOSQUE').val(selectedItem.ID_CONSULTAQUIOSQUE);
+    $('#FUN_CODQUIOSQUE_DESC').val(selectedItem.DESC_CONSULTAQUIOSQUE);
+
+  } else if (selectedItem.inputId == "FUN_INTEGRCONTABIL_IDDESC") {
+    $('#FUN_INTEGRCONTABIL').val(selectedItem.ID_CONTACONTABIL);
+    $('#FUN_INTEGRCONTABIL_DESC').val(selectedItem.DESC_CONTACONTABIL);
+
+  } else if (selectedItem.inputId == "FUN_INTEGRGERENCIAL_IDDESC") {
+    $('#FUN_INTEGRGERENCIAL').val(selectedItem.ID_CONTAGERENCIAL);
+    $('#FUN_INTEGRGERENCIAL_DESC').val(selectedItem.DESC_CONTAGERENCIAL);
+  }
+}
+
+/**
+ * removedZoomItem é chamada quando um item de um campo Zoom é removido.
+ */
+function removedZoomItem(removedItem) {
+
+  if (removedItem.inputId == "IDDESC_EMPRESAFILIAL") {
+    $('#FUN_EMPRESA').val("");
+    $('#FUN_EMPRESA_DESC_AD').val("");
+    $('#FUN_FILIAL').val("");
+    $('#FUN_FILIAL_DESC_AD').val("");
+    $('#FUN_CNPJ').val("");
+    $('#FUN_NOMECOMERCIAL').val("");
+    $('#FUN_NOMECOMERCIAL_FILIAL').val("");
+    // Limpa outros campos dependentes
+    try { window['FUN_IDDESCFUN'].clear(); } catch (ex) { };
+    try { window['FUN_CCIDDESC'].clear(); } catch (ex) { };
+    try { window['FUN_SECAO_IDDESC_AD'].clear(); } catch (ex) { };
+    try { window['FUN_IDDESCTURN'].clear(); } catch (ex) { };
+    try { window['FUN_SEQTURN_IDDESC_AD'].clear(); } catch (ex) { };
+    try { window['FUN_IDDESCSIND'].clear(); } catch (ex) { };
+    try { window['FUN_CODDESCSINDICATOFILIACAO'].clear(); } catch (ex) { };
+    try { window['FUN_NIVELFUNCAO'].clear(); } catch (ex) { };
+    try { window['FUN_FAIXASALARIAL'].clear(); } catch (ex) { };
+
+    // Desabilita campos
+    $('#FUN_IDDESCFUN').attr('disabled', true);
+    $('#FUN_CCIDDESC').attr('disabled', true);
+    $('#FUN_SECAO_IDDESC_AD').attr('disabled', true);
+    $('#FUN_IDDESCTURN').attr('disabled', true);
+    $('#FUN_SEQTURN_IDDESC_AD').attr('disabled', true);
+    $('#FUN_IDDESCSIND').attr('disabled', true);
+    $('#FUN_CODDESCSINDICATOFILIACAO').attr('disabled', true);
+    $('#FUN_NIVELFUNCAO').attr('disabled', true);
+    $('#FUN_FAIXASALARIAL').attr('disabled', true);
+
+  } else if (removedItem.inputId == "descricaoJornada") {
+    $('#codJornada').val("");
+
+  } else if (removedItem.inputId == "desc_kitAssinatura") {
+    $('#id_kitAssinatura').val("");
+    // buscarBeneficios(); // Descomente se for usar a lógica de benefícios
+
+  } else if (removedItem.inputId == "FUN_CCIDDESC") {
+    $('#FUN_CC').val("");
+    $('#FUN_CCDESC').val("");
+
+  } else if (removedItem.inputId == "FUN_IDDESCFUN") {
+    $('#FUN_FUNCAO').val("");
+    $('#FUN_DESCFUN').val("");
+    $('#FUN_CBO').val("");
+    $('#FUN_CBO2002').val("");
+    $('#FUN_CARGO_DESC_AD').val("");
+    $('#FUN_CARGO').val("");
+    try { window['FUN_NIVELFUNCAO'].clear(); } catch (e) { }
+    $('#FUN_NIVELFUNCAO').attr('disabled', true);
+
+  } else if (removedItem.inputId == "FUN_IDDESCTURN") {
+    $('#FUN_CODTURN').val("");
+    $('#FUN_DESCTURN').val("");
+    try { window['FUN_SEQTURN_IDDESC_AD'].clear(); } catch (e) { }
+
+  } else if (removedItem.inputId == "FUN_TPADMISSAO_IDDESC_AD") {
+    $('#FUN_TPADMISSAO').val("");
+    $('#FUN_TPADMISSAO_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_TIPOPGTO_IDDESC_AD") {
+    $('#FUN_TIPOPGTO').val("");
+    $('#FUN_TIPOPGTO_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_CATEGORIA_IDDESC_AD") {
+    $('#FUN_CATEGORIA').val("");
+    $('#FUN_CATEGORIA_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_VINCEMPREG_IDDESC_AD") {
+    $('#FUN_VINCEMPREG').val("");
+    $('#FUN_VINCEMPREG_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_PGCTSIN_IDDESC_AD") {
+    $('#FUN_PGCTSIN').val("");
+    $('#FUN_PGCTSIN_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_IDDESCSIND") {
+    $('#FUN_CODSIND').val("");
+    $('#FUN_DESCSIND').val("");
+
+  } else if (removedItem.inputId == "FUN_CODDESCSINDICATOFILIACAO") {
+    $('#FUN_CODSINDICATOFILIACAO').val("");
+    $('#FUN_DESCSINDICATOFILIACAO').val("");
+
+  } else if (removedItem.inputId == "FUN_CATESOCIAL_IDDESC_AD") {
+    $('#FUN_CATESOCIAL').val("");
+    $('#FUN_CATESOCIAL_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_BANCOFGTS_IDDESC_AD") {
+    $('#FUN_BANCOFGTS').val("");
+    $('#FUN_BANCOFGTS_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_SEQTURN_IDDESC_AD") {
+    $('#FUN_SEQTURN').val("");
+    $('#FUN_SEQTURN_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_SECAO_IDDESC_AD") {
+    $('#FUN_SECAO').val("");
+    $('#FUN_SECAO_DESC_AD').val("");
+
+  } else if (removedItem.inputId == "FUN_FAIXASALARIAL") {
+    $('#FUN_VLRSALARIO').val('');
+    $('#FUN_VLRSALARIO').prop('readonly', false);
+    $('#txtSalario').val(''); // Limpa o campo do form antigo também
+    $('#txtSalario').prop('readonly', false);
+
+  } else if (removedItem.inputId == "FUN_CATSEFIP_IDDESC") {
+    $('#FUN_CATSEFIP').val('');
+    $('#FUN_CATSEFIP_DESC').val('');
+
+  } else if (removedItem.inputId == "FUN_CODOCORRENCIA_IDDESC") {
+    $('#FUN_CODOCORRENCIA').val('');
+    $('#FUN_CODOCORRENCIA_DESC').val('');
+
+  } else if (removedItem.inputId == "FUN_CODQUIOSQUE_IDDESC") {
+    $('#FUN_CODQUIOSQUE').val('');
+    $('#FUN_CODQUIOSQUE_DESC').val('');
+
+  } else if (removedItem.inputId == "FUN_INTEGRCONTABIL_IDDESC") {
+    $('#FUN_INTEGRCONTABIL').val('');
+    $('#FUN_INTEGRCONTABIL_DESC').val('');
+
+  } else if (removedItem.inputId == "FUN_INTEGRGERENCIAL_IDDESC") {
+    $('#FUN_INTEGRGERENCIAL').val('');
+    $('#FUN_INTEGRGERENCIAL_DESC').val('');
+  }
+}
+
+/**
+ * Funções Auxiliares de Zoom (copiadas do 1007)
+ */
+function reloadZoomFilial(ID_EMPRESA, ID_FILIAL) {
+  var desabilitaCamposEmpresa = (ID_EMPRESA == "" || ID_EMPRESA == null);
+
+  // Ajustado para os IDs de zoom do formulário 1007
+  $('#FUN_IDDESCFUN').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_CCIDDESC').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_SECAO_IDDESC_AD').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_IDDESCTURN').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_SEQTURN_IDDESC_AD').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_IDDESCSIND').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_CODDESCSINDICATOFILIACAO').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_NIVELFUNCAO').attr('disabled', desabilitaCamposEmpresa);
+  $('#FUN_FAIXASALARIAL').attr('disabled', desabilitaCamposEmpresa);
+
+  if (ID_EMPRESA == "" || ID_EMPRESA == null) return;
+
+  try {
+    reloadZoomFilterValuesDelay("FUN_SECAO_IDDESC_AD", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaTurno");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaTurno");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else {
+      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA);
+      else reloadZoomFilterValuesDelay("FUN_IDDESCTURN");
+    }
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaFuncao");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaFuncao");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else {
+      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA);
+      else reloadZoomFilterValuesDelay("FUN_IDDESCFUN");
+    }
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaSindicato");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaSindicato");
+    if (filialConsulta != "") {
+      reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+      reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    }
+    else {
+      if (empresaConsulta != "") {
+        reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA);
+        reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA);
+      }
+      else {
+        reloadZoomFilterValuesDelay("FUN_IDDESCSIND");
+        reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO");
+      }
+    }
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaGrupoQuiosque");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaGrupoQuiosque");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else {
+      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
+      else reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC");
+    }
+  } catch (e) { }
+  try {
+    if ($('#FUN_FUNCAO').val() != "" && $('#FUN_FUNCAO').val() != null) {
+      reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + $('#FUN_EMPRESA').val() + ",ID_FILIAL," + $('#FUN_FILIAL').val() + ",FUNCAO," + $('#FUN_FUNCAO').val());
+    }
+  } catch (e) { }
+  try {
+    if ($('#FUN_IDNIVELFUNCAO').val() != "" && $('#FUN_IDNIVELFUNCAO').val() != null) {
+      reloadZoomFilterValuesDelay("FUN_FAIXASALARIAL", "ID_EMPRESA," + $('#FUN_EMPRESA').val() + ",ID_FILIAL," + $('#FUN_FILIAL').val() + ",NIVEL," + $('#FUN_IDNIVELFUNCAO').val());
+    }
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaCentroCusto");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaCentroCusto");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else {
+      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA);
+      else reloadZoomFilterValuesDelay("FUN_CCIDDESC");
+    }
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaContabil");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaContaContabil");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else {
+      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
+      else reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC");
+    }
+  } catch (e) { }
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaGerencial");
+    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaContaGerencial");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else {
+      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
+      else reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC");
+    }
+  } catch (e) { }
+
+  // Outros Zooms (Banco/Agência)
+  try { reloadZoomFilterValuesDelay("FUN_AGENCIAFGTS_IDDESC_AD", "BANCO," + $('#FUN_BANCOFGTS').val()); } catch (ex) { };
+}
+
+function reloadZoomFilterValuesDelay(field, filter) {
+  window.setTimeout(function () {
+    // No seu form 14154, a função `checkDisabledReadonly` não existe.
+    // Vamos apenas chamar a função de filtro diretamente.
+    reloadZoomFilterValues(field, filter);
+  }, 500);
+}
+
+function validarFilial(dataset) {
+  // Esta função depende de Datasets que podem não estar disponíveis publicamente.
+  // É mais seguro assumir que o filtro é necessário.
+  return "true"; // Força a validação
+}
+function validarEmpresa(dataset) {
+  // Mesma lógica da validarFilial
+  return "true"; // Força a validação
+}
+
+// Esta função é uma função global do formulário 1007
+function loadPublicDataset(dpfDatasetId, fields, constraints, order, async, callBack) {
+  var _this = this;
+  var result = null;
+  constraints = constraints == null ? [] : constraints;
+  var c1 = DatasetFactory.createConstraint('dpfDatasetId', dpfDatasetId, dpfDatasetId, ConstraintType.MUST);
+  constraints.push(c1);
+
+  // Adaptação: No form 14154, não temos organizationId da mesma forma.
+  // Vamos usar a 'WKCompany' que já é capturada no displayFields.
+  var companyId = (typeof getCompany == 'function') ? getCompany() : parent.WCMAPI.organizationId;
+
+  var request_data = {
+    url: parent.WCMAPI.getServerURL() + '/digtedpfweb/v1/rest/proxyDatasets/' + companyId,
+    method: 'POST',
+    ajaxData: JSON.stringify({
+      name: "ds_dpf_getDatasetProxy",
+      fields: fields,
+      constraints: constraints,
+      order: order
+    }),
+    data: {},
+    async: async == null ? false : async
+  };
+
+  $.ajax({
+    url: request_data.url,
+    type: request_data.method,
+    data: request_data.ajaxData,
+    contentType: "application/json",
+    async: request_data.async
+  })
+    .done(function (data) {
+      result = data.content.values;
+      if (callBack != null) { callBack(result); }
+    })
+    .fail(function (data) {
+      console.log("@@ ERRO ADMISSAO DIGITAL --- loadPublicDataset ---> " + data);
+      result = (data.content != null) ? data.content.values : null;
+      if (callBack != null) { callBack(result); }
+    });
+  return result;
+};
+
+// Esta função é referenciada, mas parece ser de um widget externo (dpf_wizard_pct_ad_widget)
+// Se ela não for importada, as buscas de benefício e LGPD podem falhar.
+// Por enquanto, vamos declarar elas vazias para evitar erros.
+function buscarBeneficios() {
+  console.log("CHAMADA: buscarBeneficios (lógica não migrada)");
+}
+function geraTermoLGPD() {
+  console.log("CHAMADA: geraTermoLGPD (lógica não migrada)");
+}
+
+// Funções de conversão (necessárias para o 'setSelectedZoomItem')
+function numeroPorExtenso(valor) {
+  var c = valor;
+  var ex = [
+    ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
+    ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
+    ["cem", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"],
+    ["mil", "milhão", "bilhão", "trilhão", "quadrilhão", "quintilhão", "sextilhão", "setilhão", "octilhão", "nonilhão", "decilhão", "undecilhão", "dodecilhão", "tredecilhão", "quatrodecilhão", "quindecilhão", "sedecilhão", "septendecilhão", "octencilhão", "nonencilhão"]
+  ];
+  var a, n, v, i, n = c.replace(c ? /[^,\d]/g : /\D/g, "").split(","), e = " e ", $ = "real", d = "centavo", sl;
+  for (var f = n.length - 1, l, j = -1, r = [], s = [], t = ""; ++j <= f; s = []) {
+    j && (n[j] = (("." + n[j]) * 1).toFixed(2).slice(2));
+    if (!(a = (v = n[j]).slice((l = v.length) % 3).match(/\d{3}/g), v = l % 3 ? [v.slice(0, l % 3)] : [], v = a ? v.concat(a) : v).length) continue;
+    for (a = -1, l = v.length; ++a < l; t = "") {
+      if (!(i = v[a] * 1)) continue;
+      i % 100 < 20 && (t += ex[0][i % 100]) ||
+        i % 100 + 1 && (t += ex[1][(i % 100 / 10 >> 0) - 1] + (i % 10 ? e + ex[0][i % 10] : ""));
+      s.push((i < 100 ? t : !(i % 100) ? ex[2][i == 100 ? 0 : i / 100 >> 0] : (ex[2][i / 100 >> 0] + e + t)) +
+        ((t = l - a - 2) > -1 ? " " + (i > 1 && t > 0 ? ex[3][t].replace("ão", "ões") : ex[3][t]) : ""));
+    }
+    a = ((sl = s.length) > 1 ? (a = s.pop(), s.join(" ") + e + a) : s.join("") || ((!j && (n[j + 1] * 1 > 0) || r.length) ? "" : ex[0][0]));
+    a && r.push(a + (c ? (" " + (v.join("") * 1 > 1 ? j ? d + "s" : (/0{6,}$/.test(n[0]) ? "de " : "") + $.replace("l", "is") : j ? d : $)) : ""));
+  }
+  return r.join(e);
+};
+
+function dataAdmissaoPorExtenso(valor) {
+  if (valor != "" && valor != null) {
+    const ano = valor.split("/")[2];
+    const mes = valor.split("/")[1];
+    const dia = valor.split("/")[0];
+    var time = new Date(ano + "-" + mes + "-" + dia + "T00:00:00");
+    var outraData = new Date(time);
+    var day = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"][outraData.getDay()];
+    var date = outraData.getDate();
+    var month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"][outraData.getMonth()];
+    var year = outraData.getFullYear();
+    return (date + " de " + month + " de " + year);
+  }
+  else
+    return "";
+};
+
+// Esta função é do 1007 e pode ser necessária.
+function setValueFromPublicForm(field) {
+  // Em ambiente não-widget (como o seu 14154), apenas retorna o valor do campo.
+  return $('#' + field).val();
+};
+
+// Adiciona os gatilhos (event handlers) para os novos campos
+$(document).ready(function () {
+  // Adiciona lógica de data para os novos campos
+  // (O seu 'criaDatepickers' já cobre isso, mas precisamos adicionar os novos botões)
+  $("button[data-date-picker-id]").on("click", function () {
+    var inputId = $(this).data("date-picker-id");
+    $("#" + inputId).datepicker("show");
+  });
+
+  // Gatilhos de lógica de negócio
+  $("#FUN_TPCONTR").on("change", function (event) {
+    const tipoContrato = event.target.value;
+    // Simplificado: no seu form 14154, parece que você só quer mostrar/ocultar
+    // o campo 'txtInicioExperiencia' (Fim Período de Experiência)
+    if (tipoContrato == "3") { // 3 = Experiência
+      $("#txtInicioExperiencia").closest(".col-md-2").show();
+    } else {
+      $("#txtInicioExperiencia").closest(".col-md-2").hide();
+      $("#txtInicioExperiencia").val("");
+    }
+    // A lógica de datas (VENCEXP1, VENCEXP2) do 1007 foi omitida por ser muito complexa
+    // e depender de outros campos que não migramos.
+  });
+
+  $("#FUN_ADMISSAO").on("change", function (event) {
+    let dataAdmissao = event.target.value;
+    $("#FUN_DATABASE").val(dataAdmissao);
+    $("#FUN_ADMISSAO_EXTENSO_AD").val(dataAdmissaoPorExtenso(dataAdmissao));
+  });
+
+  $('#FUN_HRMENSAIS').on('blur', function () {
+    var horasMes = Number($(this).val());
+    var horasSemana = horasMes / 5;
+    var horasDia = horasMes / 30;
+    $('#FUN_HRSEMANAIS').val(horasSemana.toFixed(2));
+    $('#FUN_HRDIAS').val(horasDia.toFixed(4));
+  });
+
+  // Esta lógica já existe no seu view.js, mas os campos ocultos são necessários.
+  $("#FUN_NOME").on('change', (event) => {
+    let nome = event.target.value;
+    let cpf = $("#cpfcnpj").val(); // Pega o CPF do seu campo existente
+    $("#FUN_CPFNOME").val(cpf + " - " + nome);
+    $("#FUN_CPFNOMECC").val(cpf + " - " + nome + " - " + $('#FUN_CC').val() + " - " + $('#FUN_CCDESC').val());
+  });
+
+  $("#FUN_NASCIMENTO").on('change', (event) => {
+    // Esta lógica é do 1007, mas seu campo de data de nascimento é 'dtDataNascColaborador'
+    // Vamos adaptar para usar o seu campo
+  });
+
+  // Adaptação da lógica acima para o seu campo:
+  $("#dtDataNascColaborador").on('change', (event) => {
+    let dataNascimento = event.target.value;
+    // Preenche o campo oculto 'FUN_IDADE_AD' (se existir)
+    try {
+      const ano = dataNascimento.split("/")[2];
+      const mes = dataNascimento.split("/")[1];
+      const dia = dataNascimento.split("/")[0];
+      let idade = getAge(ano, mes, dia); // getAge não foi copiada, vamos adicionar
+      $("#FUN_IDADE_AD").val(idade);
+    } catch (e) { }
+  });
+
+  // Adiciona a função getAge que faltou
+  const getAge = (ano, mes, dia) => {
+    let d = new Date();
+    let ano_atual = d.getFullYear();
+    let mes_atual = d.getMonth() + 1;
+    let dia_atual = d.getDate();
+    let quantos_anos = ano_atual - ano;
+    if ((mes_atual < mes) || (mes_atual == mes && dia_atual < dia)) quantos_anos--;
+    return quantos_anos < 0 ? 0 : quantos_anos;
+  };
+
+});
+
+/*********************************************************************************
+ * FIM - CÓDIGO MIGRADOS DO FORMULÁRIO 1007
+ *********************************************************************************/

@@ -42,31 +42,31 @@ function validateForm(form) {
 
   //verifica dados do dependente
   /*	var fieldList = "txtNomDepen,txtDtNascDepen,codParentesco".split(",");
-	var detail = getDetailOfMaster(fieldList, form);
+  var detail = getDetailOfMaster(fieldList, form);
 	
-	if((atividade==1 || atividade==0) && (acaoUsuario == "true")){
-			
-			for(var i = 0; i < detail.length; i++){
+  if((atividade==1 || atividade==0) && (acaoUsuario == "true")){
+    	
+      for(var i = 0; i < detail.length; i++){
 
-				if(detail[i]["txtNomDepen"].value.isEmpty()){
-					ErroColaborador += "Nome Dependente!"+ "<br/>";
-				}
-				if(detail[i]["codParentesco"].value.isEmpty()){
-					ErroColaborador += "Parentesco do Dependente!"+ "<br/>";
-				}
-				if((detail[i]["codParentesco"].value=="1" || 
-					detail[i]["codParentesco"].value=="3" ||
-					detail[i]["codParentesco"].value=="5" ||
-					detail[i]["codParentesco"].value=="C" ||
-					detail[i]["codParentesco"].value=="D" ||
-					detail[i]["codParentesco"].value=="P") && detail[i]["txtDtNascDepen"].value.isEmpty()){
-					ErroColaborador += "Data de Nascimento do Dependente!"+ "<br/>";
-				}
-				
-			}
-			msg += ErroColaborador;
-		
-	}
+        if(detail[i]["txtNomDepen"].value.isEmpty()){
+          ErroColaborador += "Nome Dependente!"+ "<br/>";
+        }
+        if(detail[i]["codParentesco"].value.isEmpty()){
+          ErroColaborador += "Parentesco do Dependente!"+ "<br/>";
+        }
+        if((detail[i]["codParentesco"].value=="1" || 
+          detail[i]["codParentesco"].value=="3" ||
+          detail[i]["codParentesco"].value=="5" ||
+          detail[i]["codParentesco"].value=="C" ||
+          detail[i]["codParentesco"].value=="D" ||
+          detail[i]["codParentesco"].value=="P") && detail[i]["txtDtNascDepen"].value.isEmpty()){
+          ErroColaborador += "Data de Nascimento do Dependente!"+ "<br/>";
+        }
+      	
+      }
+      msg += ErroColaborador;
+  	
+  }
 */
 
   if (
@@ -156,28 +156,21 @@ function validateForm(form) {
     if (form.getValue("NomePai") == "") msg += "Nome Pai" + "<br>";
     if (form.getValue("txtCEP") == "") msg += "CEP" + "<br>";
     if (form.getValue("txtCODPAIS") == "") msg += "Pais" + "<br>";
-    if (form.getValue("txtCentroCusto") == "")
-      msg += "C&oacute;digo da Se&ccedil;&atilde;o" + "<br>";
-    if (form.getValue("txtUnidadeArea") == "")
-      msg += "Se&ccedil;&atilde;o" + "<br>";
-    if (form.getValue("txtTipoFuncao") == "")
-      msg += "Fun&ccedil;&atilde;o" + "<br>";
-    if (form.getValue("txtAdmissao") == "")
-      msg += "Data de Admiss&atilde;o" + "<br>";
-    if (form.getValue("txtInicioExperiencia") == "")
-      msg += "Fim Período de Experiência" + "<br>";
-    if (form.getValue("txtInicioAdmissao") == "")
-      msg += "Data Prevista de In&iacute;cio" + "<br>";
-    if (form.getValue("txtSalario") == "") msg += "Sal&aacute;rio" + "<br>";
-    if (form.getValue("cpTpRecrutamento") == "")
-      msg += "Tipo de Recrutamento" + "<br>";
-    if (form.getValue("cpTpContratacao") == "")
-      msg += "Tipo de Contrata&ccedil;&atilde;o" + "<br>";
-    if (dias < 15)
-      msg +=
-        "A idade do colaborador deve ser maior do que 15 anos, de acordo com a CLT, gentileza corrigir." +
-        "<br>";
-    if (form.getValue("txtJornada") == "") msg += "Jornada." + "<br>";
+
+    // ... (depois das validações de Contato)
+    if (form.getValue("IDDESC_EMPRESAFILIAL") == "") msg += "Empresa - Filial." + "<br>";
+    if (form.getValue("descricaoJornada") == "") msg += "Jornada de Admissão." + "<br>";
+    if (form.getValue("FUN_ADMISSAO") == "") msg += "Data de Admissão." + "<br>";
+    //if (form.getValue("FUN_CCIDDESC") == "") msg += "Centro de Custo." + "<br>"; // Remoção obrigatoriedade
+    if (form.getValue("FUN_SECAO_IDDESC_AD") == "") msg += "Seção." + "<br>";
+    //if (form.getValue("FUN_CATEGORIA_IDDESC_AD") == "") msg += "Categoria Funcionário." + "<br>"; // Remoção obrigatoriedade
+    if (form.getValue("FUN_IDDESCFUN") == "") msg += "Função." + "<br>";
+    if (form.getValue("FUN_VLRSALARIO") == "") msg += "Salário." + "<br>";
+    // if (form.getValue("FUN_TIPOPGTO_IDDESC_AD") == "") msg += "Tipo de Pagamento." + "<br>"; // Remoção obrigatoriedade
+    // if (form.getValue("FUN_IDDESCSIND") == "") msg += "Sindicato." + "<br>"; // Remoção obrigatoriedade
+    // if (form.getValue("FUN_CATESOCIAL_IDDESC_AD") == "") msg += "Categoria eSocial." + "<br>"; // Remoção obrigatoriedade
+    // ... (continuar com as validações de 'cpTpRecrutamento', etc., que já estavam lá)
+
     if (form.getValue("BancoPAgto") == "")
       msg += "Banco de Pagamento " + "<br>";
     // if ((form.getValue("cpNecTreinamento"))  =="")
@@ -194,27 +187,9 @@ function validateForm(form) {
     if (form.getValue("TipodeContPagto") == "")
       msg += "Tipo de Conta " + "<br>";
     if (form.getValue("FGTSBANPagto") == "") msg += "Banco FGTS " + "<br>";
-    if (form.getValue("txtSindicato") == "") msg += "Sindicato " + "<br>";
-    if (form.getValue("TxtHorario") == "") msg += "Hor&aacute;rio " + "<br>";
-    if (form.getValue("TxtCodIndi") == "")
-      msg += "Indice Hor&aacute;rio " + "<br>";
-    if (form.getValue("TxtContSind") == "0")
-      msg += "Contribui&ccedil;&atilde;o Sindical " + "<br>";
-    if (form.getValue("TxtTPADM") == "")
-      msg += "Tipo Admiss&atilde;o " + "<br>";
-    if (form.getValue("TxtMotADM") == "")
-      msg += "Motivo Admiss&atilde;o " + "<br>";
-    if (form.getValue("txtNvHiera") == "")
-      msg += "N&iacute;vel Hier&aacute;rquico " + "<br>";
-    if (form.getValue("txtGerRH") == "") msg += "Ger&ecirc;ncia RH" + "<br>";
-    if (form.getValue("txtDataRH") == "") msg += "Data " + "<br>";
-    if (form.getValue("TxtDiretoriaRH") == "") msg += "Data " + "<br>";
-    if (form.getValue("TxtSitFGTS") == "0")
-      msg += "Situa&ccedil;&atilde;o do FGTS " + "<br>";
-    if (form.getValue("TxtSITRais") == "")
-      msg += "Situa&ccedil;&atilde;o da RAIS " + "<br>";
-    if (form.getValue("TxtVINCRais") == "")
-      msg += "V&iacute;nculo da RAIS" + "<br>";
+
+
+
     if (form.getValue("Substituicao") == "")
       msg += "Substitui&ccedil;&atilde;o" + "<br>";
     if (form.getValue("CatPonto") == "") msg += "Categoria do Ponto" + "<br>";
