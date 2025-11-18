@@ -650,6 +650,16 @@ $(document).ready(function () {
     sideBySide: true
   });
 
+  // Dentro do setTimeout que carrega os dados iniciais (aprox linha 1290 do seu view.js original)
+  setTimeout(() => {
+    tratarVisibilidadeObrigatoridadeCampos("privado");
+
+    // ESTA LINHA É CRITICA: Ela dispara o bloqueio inicial
+    reloadZoomFilial($("#FUN_EMPRESA").val(), $("#FUN_FILIAL").val());
+
+    getRestPublic();
+  }, 2500);
+
 });
 
 var createPickerDinamico = function (elementId, isVencimento) {
@@ -2548,108 +2558,111 @@ function removedZoomItem(removedItem) {
  * Funções Auxiliares de Zoom (copiadas do 1007)
  */
 function reloadZoomFilial(ID_EMPRESA, ID_FILIAL) {
+  // 1. Define se deve bloquear ou não (se não tem empresa, bloqueia)
   var desabilitaCamposEmpresa = (ID_EMPRESA == "" || ID_EMPRESA == null);
 
-  // Ajustado para os IDs de zoom do formulário 1007
+  // 2. Aplica o bloqueio/desbloqueio visual
   $('#FUN_IDDESCFUN').attr('disabled', desabilitaCamposEmpresa);
   $('#FUN_CCIDDESC').attr('disabled', desabilitaCamposEmpresa);
   $('#FUN_SECAO_IDDESC_AD').attr('disabled', desabilitaCamposEmpresa);
+
+  // Campos de Turno (Garante que fiquem travados se não tiver empresa)
   $('#FUN_IDDESCTURN').attr('disabled', desabilitaCamposEmpresa);
   $('#FUN_SEQTURN_IDDESC_AD').attr('disabled', desabilitaCamposEmpresa);
+
   $('#FUN_IDDESCSIND').attr('disabled', desabilitaCamposEmpresa);
   $('#FUN_CODDESCSINDICATOFILIACAO').attr('disabled', desabilitaCamposEmpresa);
   $('#FUN_NIVELFUNCAO').attr('disabled', desabilitaCamposEmpresa);
   $('#FUN_FAIXASALARIAL').attr('disabled', desabilitaCamposEmpresa);
 
-  if (ID_EMPRESA == "" || ID_EMPRESA == null) return;
+  // 3. Se não tiver empresa, encerra aqui (já bloqueou tudo acima)
+  if (desabilitaCamposEmpresa) {
+    // Limpa os campos dependentes para evitar dados órfãos
+    window['FUN_IDDESCTURN'].clear();
+    window['FUN_SEQTURN_IDDESC_AD'].clear();
+    return;
+  }
 
+  // 4. Lógica de Recarga dos Filtros (Reload)
+
+  // Recarrega Seção
   try {
     reloadZoomFilterValuesDelay("FUN_SECAO_IDDESC_AD", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
   } catch (e) { }
+
+  // Recarrega Turno de Trabalho
   try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaTurno");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaTurno");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else {
-      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA);
-      else reloadZoomFilterValuesDelay("FUN_IDDESCTURN");
+    // Força a validação para garantir que o filtro seja aplicado
+    // Se ID_FILIAL existir, usa ele, senão usa só a empresa
+    if (ID_FILIAL && ID_FILIAL != "") {
+      reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    } else {
+      reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA);
     }
-  } catch (e) { }
+    // Se o turno for recarregado, limpa a sequência para obrigar nova seleção
+    window['FUN_SEQTURN_IDDESC_AD'].clear();
+  } catch (e) { console.log("Erro ao recarregar turno: " + e); }
+
+  // Recarrega Função
   try {
     var filialConsulta = validarFilial("ds_dpf_ad_consultaFuncao");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaFuncao");
     if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else {
-      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA);
-      else reloadZoomFilterValuesDelay("FUN_IDDESCFUN");
-    }
+    else reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA);
   } catch (e) { }
+
+  // Recarrega Sindicato
   try {
     var filialConsulta = validarFilial("ds_dpf_ad_consultaSindicato");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaSindicato");
     if (filialConsulta != "") {
       reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
       reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    }
-    else {
-      if (empresaConsulta != "") {
-        reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA);
-        reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA);
-      }
-      else {
-        reloadZoomFilterValuesDelay("FUN_IDDESCSIND");
-        reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO");
-      }
-    }
-  } catch (e) { }
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaGrupoQuiosque");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaGrupoQuiosque");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else {
-      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
-      else reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC");
-    }
-  } catch (e) { }
-  try {
-    if ($('#FUN_FUNCAO').val() != "" && $('#FUN_FUNCAO').val() != null) {
-      reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + $('#FUN_EMPRESA').val() + ",ID_FILIAL," + $('#FUN_FILIAL').val() + ",FUNCAO," + $('#FUN_FUNCAO').val());
-    }
-  } catch (e) { }
-  try {
-    if ($('#FUN_IDNIVELFUNCAO').val() != "" && $('#FUN_IDNIVELFUNCAO').val() != null) {
-      reloadZoomFilterValuesDelay("FUN_FAIXASALARIAL", "ID_EMPRESA," + $('#FUN_EMPRESA').val() + ",ID_FILIAL," + $('#FUN_FILIAL').val() + ",NIVEL," + $('#FUN_IDNIVELFUNCAO').val());
-    }
-  } catch (e) { }
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaCentroCusto");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaCentroCusto");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else {
-      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA);
-      else reloadZoomFilterValuesDelay("FUN_CCIDDESC");
-    }
-  } catch (e) { }
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaContabil");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaContaContabil");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else {
-      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
-      else reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC");
-    }
-  } catch (e) { }
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaGerencial");
-    var empresaConsulta = validarEmpresa("ds_dpf_ad_consultaContaGerencial");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else {
-      if (empresaConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
-      else reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC");
+    } else {
+      reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA);
+      reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA);
     }
   } catch (e) { }
 
-  // Outros Zooms (Banco/Agência)
+  // Recarrega Grupo Quiosque
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaGrupoQuiosque");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
+  } catch (e) { }
+
+  // Recarrega Nível/Faixa (se já houver função selecionada)
+  try {
+    if ($('#FUN_FUNCAO').val() != "" && $('#FUN_FUNCAO').val() != null) {
+      reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL + ",FUNCAO," + $('#FUN_FUNCAO').val());
+    }
+  } catch (e) { }
+
+  try {
+    if ($('#FUN_IDNIVELFUNCAO').val() != "" && $('#FUN_IDNIVELFUNCAO').val() != null) {
+      reloadZoomFilterValuesDelay("FUN_FAIXASALARIAL", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL + ",NIVEL," + $('#FUN_IDNIVELFUNCAO').val());
+    }
+  } catch (e) { }
+
+  // Recarrega Centro de Custo
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaCentroCusto");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA);
+  } catch (e) { }
+
+  // Recarrega Contábil/Gerencial
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaContabil");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
+  } catch (e) { }
+
+  try {
+    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaGerencial");
+    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    else reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
+  } catch (e) { }
+
+  // Outros Zooms
   try { reloadZoomFilterValuesDelay("FUN_AGENCIAFGTS_IDDESC_AD", "BANCO," + $('#FUN_BANCOFGTS').val()); } catch (ex) { };
 }
 

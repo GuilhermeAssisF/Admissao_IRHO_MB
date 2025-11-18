@@ -1932,6 +1932,72 @@
             <input type="text" name="FUN_VLRSALARIO" id="FUN_VLRSALARIO" class="form-control"
               mask="#00.000.000.000.000,00">
           </div>
+
+          <div class="col-sm-4">
+            <label for="FUN_IDDESCTURN" class="control-label">Turno de Trabalho:</label>
+            <input type="zoom" id="FUN_IDDESCTURN" name="FUN_IDDESCTURN" data-zoom="{
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha o turno de trabalho',
+                'displayKey':'IDDESC_CONSULTATURNO',
+                'datasetId':'ds_dpf_ad_consultaTurno',
+                'fields':[
+                    {
+                        'field':'ID_CONSULTATURNO',
+                        'visible':'false'
+                    },
+                    {
+                        'field':'DESC_CONSULTATURNO',
+                        'visible':'false'
+                    },
+                    {
+                        'field':'ID_EMPRESA',
+                        'visible':'false'
+                    },
+                    {
+                        'field':'IDDESC_CONSULTATURNO',
+                        'label':'ID - Descrição',
+                        'standard':'true'
+                    }
+                ]
+            }" />
+            <input type="hidden" name="FUN_DESCTURN" id="FUN_DESCTURN">
+          </div>
+
+          <div class="col-sm-4">
+            <label for="FUN_SEQTURN_IDDESC_AD" class="control-label">Sequência do Turno:</label>
+            <input type="zoom" id="FUN_SEQTURN_IDDESC_AD" name="FUN_SEQTURN_IDDESC_AD" data-zoom="{
+                'maximumSelectionLength':'1',
+                'placeholder':'Escolha a sequência do turno',
+                'displayKey':'IDDESC_CONSULTASEQTURNO',
+                'datasetId':'ds_dpf_ad_consultaSeqTurno',
+                'fields':[
+                    {
+                        'field':'ID_CONSULTASEQTURNO',
+                        'visible':'false'
+                    },{
+                        'field':'DESC_CONSULTASEQTURNO',
+                        'visible':'false'
+                    },{
+                        'field':'IDDESC_CONSULTASEQTURNO',
+                        'label':'ID - Descrição',
+                        'standard':'true'
+                    }
+                ]
+            }" />
+            <input type="hidden" name="FUN_SEQTURN_DESC_AD" id="FUN_SEQTURN_DESC_AD">
+          </div>
+
+          <div class="col-sm-4">
+            <label for="FUN_TPJORNADA" class="control-label">Tipo de Jornada:</label>
+            <select id="FUN_TPJORNADA" name="FUN_TPJORNADA" class="form-control">
+              <option value="1">Submetidos a Horário de Trabalho (Cap. II da CLT)</option>
+              <option value="2">Atividade Externa Específicada no Inciso I do Art. 62 da CLT</option>
+              <option value="3">Funções Específicadas no Inciso II do Art. 62 da CLT</option>
+              <option value="4">Teletrabalho, previsto no Inciso III do Art. 62 da CLT</option>
+            </select>
+            <input type="hidden" name="FUN_TPJORNADA_DESC_AD" id="FUN_TPJORNADA_DESC_AD">
+          </div>
+
           <div class="col-sm-4">
             <label for="FUN_SALARIOBASE" class="control-label">Salário Base Dissídio:</label>
             <input type="text" name="FUN_SALARIOBASE" id="FUN_SALARIOBASE" class="form-control"
