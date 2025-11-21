@@ -1,0 +1,4388 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>FLUIG-0002</processId>
+    </processDefinitionPK>
+    <processDescription>Admissão</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Departamento Pessoal</categoryId>
+    <managerEngineAllocationId></managerEngineAllocationId>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Admissão</processId>
+      <version>7</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>14154</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>true</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>70</positionX>
+      <positionY>121</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>7</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Gestor</stateName>
+      <stateDescription>Aprovação do Gestor</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;admin&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>330</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>8</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Diretor</stateName>
+      <stateDescription>Aprovação do Diretor</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;admin&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>155</positionX>
+      <positionY>565</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>41</sequence>
+      </processStatePK>
+      <stateName>Correção da Solicitação</stateName>
+      <stateDescription>Correção da Solicitação</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;1&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>580</positionX>
+      <positionY>90</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>74</sequence>
+      </processStatePK>
+      <stateName>Admissão RH</stateName>
+      <stateDescription>Admissão RH</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;admin&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>780</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>89</sequence>
+      </processStatePK>
+      <stateName>Gerar Kit Admissional</stateName>
+      <stateDescription>Gerar Kit Admissional</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>57600</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;admin&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>160</positionX>
+      <positionY>950</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>97</sequence>
+      </processStatePK>
+      <stateName>Validar Kit Admissão</stateName>
+      <stateDescription>Validar Kit Admissão</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>28800</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;admin&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>680</positionX>
+      <positionY>779</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Gestor</stateName>
+      <stateDescription>Aprovação do Gestor</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>340</positionX>
+      <positionY>50</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>11</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Diretor</stateName>
+      <stateDescription>Aprovação do Diretor</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>350</positionX>
+      <positionY>122</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>13</sequence>
+      </processStatePK>
+      <stateName>Admissão RH</stateName>
+      <stateDescription>Admissão RH</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>350</positionX>
+      <positionY>190</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>21</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Gestor</stateName>
+      <stateDescription>Aprovação do Gestor</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>80</positionX>
+      <positionY>350</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>22</sequence>
+      </processStatePK>
+      <stateName>Aprovação do Diretor</stateName>
+      <stateDescription>Aprovação do Diretor</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>75</positionX>
+      <positionY>582</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>28</sequence>
+      </processStatePK>
+      <stateName>Aprovação Diretor</stateName>
+      <stateDescription>Aprovação Diretor</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>250</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>30</sequence>
+      </processStatePK>
+      <stateName>Correção da Solicitação</stateName>
+      <stateDescription>Correção da Solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>380</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>33</sequence>
+      </processStatePK>
+      <stateName>Admissão RH</stateName>
+      <stateDescription>Admissão RH</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>317</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>42</sequence>
+      </processStatePK>
+      <stateName>Reabertura - Verificar Hierarquia</stateName>
+      <stateDescription>Reabertura - Verificar Hierarquia</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>810</positionX>
+      <positionY>30</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>51</sequence>
+      </processStatePK>
+      <stateName>Correção da Solicitação</stateName>
+      <stateDescription>Correção da Solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>530</positionX>
+      <positionY>112</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>55</sequence>
+      </processStatePK>
+      <stateName>Admissão RH</stateName>
+      <stateDescription>Admissão RH</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>515</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>57</sequence>
+      </processStatePK>
+      <stateName>Correção da Solicitação</stateName>
+      <stateDescription>Correção da Solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>582</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>75</sequence>
+      </processStatePK>
+      <stateName>Admissão RH</stateName>
+      <stateDescription>Admissão RH</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>70</positionX>
+      <positionY>790</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>76</sequence>
+      </processStatePK>
+      <stateName>Reabertura - Verificar Hierarquia</stateName>
+      <stateDescription>Reabertura - Verificar Hierarquia</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>70</positionX>
+      <positionY>180</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>81</sequence>
+      </processStatePK>
+      <stateName>Gerar Kit Admissional</stateName>
+      <stateDescription>Gerar Kit Admissional</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>730</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>83</sequence>
+      </processStatePK>
+      <stateName>Correção da Solicitação</stateName>
+      <stateDescription>Correção da Solicitação</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>790</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>90</sequence>
+      </processStatePK>
+      <stateName>Gerar Kit Admissional</stateName>
+      <stateDescription>Gerar Kit Admissional</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>70</positionX>
+      <positionY>967</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>92</sequence>
+      </processStatePK>
+      <stateName>Validar Kit Admissão</stateName>
+      <stateDescription>Validar Kit Admissão</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>435</positionX>
+      <positionY>967</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>100</sequence>
+      </processStatePK>
+      <stateName>Validar Kit Admissão</stateName>
+      <stateDescription>Validar Kit Admissão</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>610</positionX>
+      <positionY>790</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>102</sequence>
+      </processStatePK>
+      <stateName>Gerar Kit Admissional</stateName>
+      <stateDescription>Gerar Kit Admissional</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>890</positionX>
+      <positionY>730</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Verificar Hierarquia</stateName>
+      <stateDescription>Verificar Hierarquia</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>230</positionX>
+      <positionY>90</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>26</sequence>
+      </processStatePK>
+      <stateName>Aprovacao</stateName>
+      <stateDescription>Aprovacao</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>310</positionX>
+      <positionY>314</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>44</sequence>
+      </processStatePK>
+      <stateName>Aprovacao</stateName>
+      <stateDescription>Aprovacao</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>720</positionX>
+      <positionY>70</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>53</sequence>
+      </processStatePK>
+      <stateName>Aprovacao</stateName>
+      <stateDescription>Aprovacao</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>310</positionX>
+      <positionY>550</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>79</sequence>
+      </processStatePK>
+      <stateName>Aprovacao</stateName>
+      <stateDescription>Aprovacao</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>310</positionX>
+      <positionY>757</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>98</sequence>
+      </processStatePK>
+      <stateName>Aprovacao</stateName>
+      <stateDescription>Aprovacao</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>810</positionX>
+      <positionY>763</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>43</sequence>
+      </processStatePK>
+      <stateName>Fim com cancelamento de processo</stateName>
+      <stateDescription>Fim com cancelamento de processo</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>820</positionX>
+      <positionY>180</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>104</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>900</positionX>
+      <positionY>850</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>110</sequence>
+      </processStatePK>
+      <stateName>Fim com cancelamento de processo</stateName>
+      <stateDescription>Fim com cancelamento de processo</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>450</positionX>
+      <positionY>450</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>114</sequence>
+      </processStatePK>
+      <stateName>Fim com cancelamento de processo</stateName>
+      <stateDescription>Fim com cancelamento de processo</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>650</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>118</sequence>
+      </processStatePK>
+      <stateName>Fim com cancelamento de processo</stateName>
+      <stateDescription>Fim com cancelamento de processo</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>440</positionX>
+      <positionY>850</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>7</version>
+        <sequence>5</sequence>
+      </conditionProcessStatePK>
+      <condition>VerifHierarquia()==1</condition>
+      <destinationSequenceId>13</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>7</version>
+        <sequence>5</sequence>
+      </conditionProcessStatePK>
+      <condition>VerifHierarquia()==3</condition>
+      <destinationSequenceId>9</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>7</version>
+        <sequence>26</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;1&quot;</condition>
+      <destinationSequenceId>33</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>7</version>
+        <sequence>26</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;2&quot;</condition>
+      <destinationSequenceId>30</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>7</version>
+        <sequence>26</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;3&quot;</condition>
+      <destinationSequenceId>110</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>7</version>
+        <sequence>44</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpReaberturaChamado&apos;)==&quot;1&quot;  </condition>
+      <destinationSequenceId>42</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>7</version>
+        <sequence>44</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpReaberturaChamado&apos;)==&quot;2&quot;  </condition>
+      <destinationSequenceId>43</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>7</version>
+        <sequence>53</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;1&quot;</condition>
+      <destinationSequenceId>55</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>7</version>
+        <sequence>53</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;2&quot;</condition>
+      <destinationSequenceId>57</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>7</version>
+        <sequence>53</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;3&quot;</condition>
+      <destinationSequenceId>114</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>7</version>
+        <sequence>79</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;1&quot;</condition>
+      <destinationSequenceId>81</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>7</version>
+        <sequence>79</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;2&quot;</condition>
+      <destinationSequenceId>83</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>7</version>
+        <sequence>79</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;3&quot;</condition>
+      <destinationSequenceId>118</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>7</version>
+        <sequence>98</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoKit&apos;)==&quot;1&quot;</condition>
+      <destinationSequenceId>104</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>7</version>
+        <sequence>98</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&apos;cpAprovacaoKit&apos;)==&quot;2&quot;</condition>
+      <destinationSequenceId>102</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>6</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>1</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>10</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>12</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>11</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>14</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>13</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>23</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>7</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>24</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>22</initialStateSequence>
+      <finalStateSequence>8</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>27</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>26</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>31</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>26</initialStateSequence>
+      <finalStateSequence>30</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>32</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>26</initialStateSequence>
+      <finalStateSequence>28</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>34</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>26</initialStateSequence>
+      <finalStateSequence>33</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>45</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>41</initialStateSequence>
+      <finalStateSequence>44</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>46</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>42</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>47</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>43</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>52</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>51</initialStateSequence>
+      <finalStateSequence>41</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>54</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>8</initialStateSequence>
+      <finalStateSequence>53</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>56</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
+      <finalStateSequence>55</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>58</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
+      <finalStateSequence>57</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>77</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>76</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name>Reabertura</name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>78</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>75</initialStateSequence>
+      <finalStateSequence>74</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>80</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>74</initialStateSequence>
+      <finalStateSequence>79</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>82</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>79</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>84</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>79</initialStateSequence>
+      <finalStateSequence>83</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>91</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>90</initialStateSequence>
+      <finalStateSequence>89</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>93</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>89</initialStateSequence>
+      <finalStateSequence>92</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>99</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>97</initialStateSequence>
+      <finalStateSequence>98</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>101</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>100</initialStateSequence>
+      <finalStateSequence>97</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>103</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>98</initialStateSequence>
+      <finalStateSequence>102</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>105</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>98</initialStateSequence>
+      <finalStateSequence>104</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>111</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>26</initialStateSequence>
+      <finalStateSequence>110</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>115</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
+      <finalStateSequence>114</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>119</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>79</initialStateSequence>
+      <finalStateSequence>118</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>122</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>9</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>123</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>22</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>124</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>13</initialStateSequence>
+      <finalStateSequence>75</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>125</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>30</initialStateSequence>
+      <finalStateSequence>51</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>126</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>28</initialStateSequence>
+      <finalStateSequence>22</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>127</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>33</initialStateSequence>
+      <finalStateSequence>75</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>128</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>42</initialStateSequence>
+      <finalStateSequence>76</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>129</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>55</initialStateSequence>
+      <finalStateSequence>75</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>130</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>57</initialStateSequence>
+      <finalStateSequence>51</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>131</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>81</initialStateSequence>
+      <finalStateSequence>90</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>132</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>83</initialStateSequence>
+      <finalStateSequence>51</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>133</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>92</initialStateSequence>
+      <finalStateSequence>100</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>134</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>102</initialStateSequence>
+      <finalStateSequence>90</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>135</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>9</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>136</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>22</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>137</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>13</initialStateSequence>
+      <finalStateSequence>75</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>138</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>28</initialStateSequence>
+      <finalStateSequence>22</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>139</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>33</initialStateSequence>
+      <finalStateSequence>75</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>140</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>30</initialStateSequence>
+      <finalStateSequence>51</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>141</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>42</initialStateSequence>
+      <finalStateSequence>76</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>142</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>55</initialStateSequence>
+      <finalStateSequence>75</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>143</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>57</initialStateSequence>
+      <finalStateSequence>51</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>144</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>81</initialStateSequence>
+      <finalStateSequence>90</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>145</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>83</initialStateSequence>
+      <finalStateSequence>51</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>146</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>92</initialStateSequence>
+      <finalStateSequence>100</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>147</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>102</initialStateSequence>
+      <finalStateSequence>90</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+      <movementTitle></movementTitle>
+      <movementDescription></movementDescription>
+      <movementAccessLinkDescription></movementAccessLinkDescription>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>Aprovacoes</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function VerifHierarquia(){&#xd;
+	var codGestor = hAPI.getCardValue(&apos;codGestor&apos;);&#xd;
+	var codDiretor = hAPI.getCardValue(&apos;codDiretor&apos;);&#xd;
+	var Solicitante = hAPI.getCardValue(&apos;cpLoginFluig&apos;);&#xd;
+	var retorno;&#xd;
+	&#xd;
+	if(codDiretor==Solicitante || codGestor==Solicitante){&#xd;
+		retorno=1;&#xd;
+	}else{&#xd;
+		retorno=3;&#xd;
+	}&#xd;
+	return retorno;&#xd;
+}&#xd;
+&#xd;
+function Abertura(){&#xd;
+&#xd;
+    var cpLoginFluig = hAPI.getCardValue(&apos;cpLoginFluig&apos;);&#xd;
+    var codGestorDestino = hAPI.getCardValue(&apos;codGestorDestino&apos;);&#xd;
+    var codGestorOrigem = hAPI.getCardValue(&apos;codGestorOrigem&apos;);&#xd;
+    var codDiretorOrigem = hAPI.getCardValue(&apos;codDiretorOrigem&apos;); &#xd;
+    &#xd;
+		if(cpLoginFluig!=codGestor &amp;&amp;  cpLoginFluig!=codDiretor!=&quot;&quot;){&#xd;
+			retorno=&quot;GO&quot;;&#xd;
+			//passa gestor origem&#xd;
+		}&#xd;
+		if(cpLoginFluig==codGestor &amp;&amp;  cpLoginFluig!=codDiretor &amp;&amp; codDiretor!=&quot;&quot;){&#xd;
+			retorno=&quot;DO&quot;;&#xd;
+			//passa diretor origem&#xd;
+		}&#xd;
+		if(cpLoginFluig==codGestor &amp;&amp;  (cpLoginFluig==codDiretor || codDiretor==&quot;&quot;) &amp;&amp; CodNovaSecao!=&quot;&quot;){&#xd;
+			retorno=&quot;GD&quot;;&#xd;
+			//passa gestor destino&#xd;
+		}&#xd;
+		if(cpLoginFluig==codGestor &amp;&amp;  (cpLoginFluig==codDiretor || codDiretor==&quot;&quot;) &amp;&amp; CodNovaSecao==&quot;&quot;){&#xd;
+			retorno=&quot;RH&quot;;&#xd;
+			//passa RH&#xd;
+		}&#xd;
+}&#xd;
+&#xd;
+function AprovaDiretor(){&#xd;
+	var Aprovacao = hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;);&#xd;
+	&#xd;
+	if(AprovacaoGestor==&quot;1&quot;){&#xd;
+		return true;&#xd;
+	}else{&#xd;
+		return false;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function AprovaRH(){&#xd;
+	var Aprovacao = hAPI.getCardValue(&apos;cpAprovacaoRH&apos;);&#xd;
+	&#xd;
+	if(AprovacaoGestor==&quot;1&quot;){&#xd;
+		return true;&#xd;
+	}else{&#xd;
+		return false;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+function AprovaKit(){&#xd;
+	var Aprovacao = hAPI.getCardValue(&apos;cpAprovacaoKit&apos;);&#xd;
+&#xd;
+	if(AprovacaoGestor==&quot;1&quot;){&#xd;
+		return true;&#xd;
+	}else{&#xd;
+		return false;&#xd;
+	}&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>inicioSchemaPessoa</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function inicioSchemaPessoa() {
+	return &quot; &lt;RhuPessoa&gt;&quot;;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterProcessCreate</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterProcessCreate(processId){
+	hAPI.setCardValue( &quot;cpNumeroSolicitacao&quot;, getValue(&quot;WKNumProces&quot;) );
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>getIndex</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/**
+ * Recupera os indices das linhas de um pai x filho.
+ * 
+ * @param fieldReference: id de um campo do pai x filho. Util para quando o formulario possui mais de um pai x filho.
+ * @returns {java.util.TreeSet}: indice das linhas.
+ */
+function getIndexes(fieldReference){
+	var regex = new RegExp(fieldReference+&apos;___&apos;);
+	var map = hAPI.getCardData(parseInt(getValue(&apos;WKNumProces&apos;)));
+	var iterator = map.keySet().iterator();
+	var indexes = new java.util.TreeSet();	
+	
+	while(iterator.hasNext()){
+		var id = iterator.next();
+		
+		if(id.match(regex) == null) continue;
+		else indexes.add(id.split(&apos;___&apos;)[1]);
+	}
+	
+	return indexes;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+    // Executa apenas na atividade inicial (0 ou 4) ou na atividade de Correção (41)&#xd;
+    // Adapte os IDs das atividades conforme seu diagrama&#xd;
+    var atividadeAtual = getValue(&quot;WKNumState&quot;);&#xd;
+&#xd;
+    // Verifica se está avançando o processo (não é apenas um &quot;Salvar&quot;)&#xd;
+    if (atividadeAtual == 0 || atividadeAtual == 4 || atividadeAtual == 41) {&#xd;
+&#xd;
+        // 1. Recupera os dados do formulário&#xd;
+        var nomeColaborador = hAPI.getCardValue(&quot;txtNomeColaborador&quot;);&#xd;
+        var emailDestino = hAPI.getCardValue(&quot;txtEmail&quot;);&#xd;
+        var numeroSolicitacao = getValue(&quot;WKNumProces&quot;);&#xd;
+&#xd;
+        // Valida se tem e-mail preenchido&#xd;
+        if (emailDestino != null &amp;&amp; emailDestino != &quot;&quot;) {&#xd;
+&#xd;
+            try {&#xd;
+                // 2. Configuração do E-mail&#xd;
+                // TAMPLE_CODE: Código de um template de e-mail cadastrado no Fluig (Painel de Controle &gt; Templates de E-mail)&#xd;
+                // Se não tiver template, pode usar &quot;TPL_PADRAO_CUSTOM&quot; ou criar um simples via HTML&#xd;
+                var codigoTemplate = &quot;TPL_ADMISSAO_BOASVINDAS&quot;; // Exemplo: Você precisa criar esse template ou usar um existente&#xd;
+&#xd;
+                var parametros = new java.util.HashMap();&#xd;
+                parametros.put(&quot;NOME_CANDIDATO&quot;, nomeColaborador);&#xd;
+                parametros.put(&quot;NUM_SOLICITACAO&quot;, numeroSolicitacao);&#xd;
+                parametros.put(&quot;subject&quot;, &quot;Confirmação de Recebimento - Solicitação &quot; + numeroSolicitacao); // Assunto do E-mail&#xd;
+&#xd;
+                // 3. Destinatários&#xd;
+                var destinatarios = new java.util.ArrayList();&#xd;
+                destinatarios.add(emailDestino);&#xd;
+&#xd;
+                // 4. Envio (notifier)&#xd;
+                // &quot;admin&quot; é o usuário remetente (deve ser um usuário válido no Fluig)&#xd;
+                notifier.notify(&quot;admin&quot;, codigoTemplate, parametros, destinatarios, &quot;text/html&quot;);&#xd;
+&#xd;
+                log.info(&quot;&gt;&gt;&gt; E-mail de admissão enviado com sucesso para: &quot; + emailDestino);&#xd;
+&#xd;
+            } catch (e) {&#xd;
+                log.error(&quot;&gt;&gt;&gt; Erro ao enviar e-mail de admissão: &quot; + e);&#xd;
+            }&#xd;
+        }&#xd;
+    }&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeStateEntry</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>var BSE_FIM_APROVADO = 74;&#xd;
+function beforeStateEntry(sequenceId)&#xd;
+{&#xd;
+	log.info(&apos;Executando beforeStateEntry: &apos; + sequenceId);&#xd;
+	// Só grava no RM se for evento final&#xd;
+	if (sequenceId == BSE_FIM_APROVADO)&#xd;
+	{&#xd;
+		var cpfCnpj = hAPI.getCardValue(&quot;cpfcnpjValue&quot;);&#xd;
+		var fields = new Array(cpfCnpj);&#xd;
+		var tabela = DatasetFactory.getDataset(&quot;DS_FLUIG_0041&quot;, fields, null, null);&#xd;
+		log.info(&quot;tabela: &quot; + tabela.values.length);&#xd;
+&#xd;
+		if (tabela == null || tabela.values.length &lt; 1)&#xd;
+		{&#xd;
+			montaXMLFunc();&#xd;
+			montaXMLDependente();&#xd;
+		}		&#xd;
+	}&#xd;
+&#xd;
+}&#xd;
+function montaXMLFunc()&#xd;
+{&#xd;
+	log.info(&quot;Iniciando montaXMLFunc...&quot;);&#xd;
+	var CONNECT = DatasetFactory.getDataset(&quot;ds_connector&quot;, null, null, null);&#xd;
+	var USUARIO = CONNECT.getValue(0,&quot;INTEGRADOR&quot;);&#xd;
+	var SENHA = CONNECT.getValue(0, &quot;SENHA&quot;);&#xd;
+&#xd;
+	log.info(&quot;Recuperou usuario e senha do ds_connector...&quot;);&#xd;
+&#xd;
+	var formatoInput = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;);&#xd;
+	var formatoOutput = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&apos;T&apos;00:00:00&quot;);&#xd;
+&#xd;
+	var DatAdm = formatoInput.parse(hAPI.getCardValue(&quot;txtAdmissao&quot;));&#xd;
+	DTAdmissao = formatoOutput.format(DatAdm);&#xd;
+&#xd;
+	//DATA DE NASCIMENTO&#xd;
+	var Nasc = hAPI.getCardValue(&quot;dtDataNascColaborador&quot;);&#xd;
+	if(Nasc!=&quot;&quot;){&#xd;
+&#xd;
+		var DataNascimento = formatoInput.parse(hAPI.getCardValue(&quot;dtDataNascColaborador&quot;));&#xd;
+		DTNASC = formatoOutput.format(DataNascimento);&#xd;
+	}if(Nasc==&quot;&quot;){&#xd;
+		DTNASC=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DTNASC: &quot; + DTNASC);&#xd;
+&#xd;
+	// DATE DE EMISSAO DA IDENTIDADE&#xd;
+	var dtEmRG =hAPI.getCardValue(&quot;DTEMISSAOIDENT&quot;);&#xd;
+	if(dtEmRG!=&quot;&quot;){&#xd;
+&#xd;
+		var DataRG = formatoInput.parse(hAPI.getCardValue(&quot;DTEMISSAOIDENT&quot;));&#xd;
+		DTRG= formatoOutput.format(DataRG);&#xd;
+	}if(dtEmRG==&quot;&quot;){&#xd;
+		DTRG=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DTRG: &quot; + DTRG);&#xd;
+&#xd;
+	// DATA DE TITULO DE ELEITOR&#xd;
+	var DtTitu =hAPI.getCardValue(&quot;DTTITELEITOR&quot;);&#xd;
+	if(DtTitu!=&quot;&quot;){&#xd;
+&#xd;
+		var DataTitu = formatoInput.parse(hAPI.getCardValue(&quot;DTTITELEITOR&quot;));&#xd;
+		DataTitulo = formatoOutput.format(DataTitu);&#xd;
+	}if(DtTitu==&quot;&quot;){&#xd;
+		DataTitulo=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DTRG: &quot; + DTRG);&#xd;
+&#xd;
+	// DATA DE EMISSAO DO CTPS&#xd;
+	var EmCarttrabDt =hAPI.getCardValue(&quot;dtDataEmissaoCartTrab&quot;);&#xd;
+	if(EmCarttrabDt!=&quot;&quot;){&#xd;
+&#xd;
+		var dtDataEmissaoCartTrab = formatoInput.parse(hAPI.getCardValue(&quot;dtDataEmissaoCartTrab&quot;));&#xd;
+		DTCTPS = formatoOutput.format(dtDataEmissaoCartTrab);&#xd;
+	}if(EmCarttrabDt==&quot;&quot;){&#xd;
+		DTCTPS=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DTCTPS: &quot; + DTCTPS);&#xd;
+&#xd;
+	// DATA DE VENCIMENTO DA CNH&#xd;
+	var dtVencCNH=hAPI.getCardValue(&quot;DTVENCHABILIT&quot;);&#xd;
+	if(dtVencCNH!=&quot;&quot;){&#xd;
+&#xd;
+		var DTVENCHABILIT = formatoInput.parse(hAPI.getCardValue(&quot;DTVENCHABILIT&quot;));&#xd;
+		DTCNH = formatoOutput.format(DTVENCHABILIT);&#xd;
+	}if(dtVencCNH==&quot;&quot;){&#xd;
+		DTCNH=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DTCNH: &quot; + DTCNH);&#xd;
+&#xd;
+	// DATA DE EMISSAO DA CNH&#xd;
+	var DtCNHEm=hAPI.getCardValue(&quot;DTEMISSAOCNH&quot;);&#xd;
+	if(DtCNHEm!=&quot;&quot;){&#xd;
+&#xd;
+		var DTEMISSAOCNH = formatoInput.parse(hAPI.getCardValue(&quot;DTEMISSAOCNH&quot;));&#xd;
+		DTEMICNH = formatoOutput.format(DTEMISSAOCNH);&#xd;
+	}if(DtCNHEm==&quot;&quot;){&#xd;
+		DTEMICNH=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DTEMICNH: &quot; + DTEMICNH);&#xd;
+&#xd;
+	// DATA DE EMISSAO DO RIC&#xd;
+	var RICDt=hAPI.getCardValue(&quot;DtEmRIC&quot;);&#xd;
+	if(RICDt!=&quot;&quot;){&#xd;
+&#xd;
+		var DtEmRIC = formatoInput.parse(hAPI.getCardValue(&quot;DtEmRIC&quot;));&#xd;
+		DtEMRIC = formatoOutput.format(DtEmRIC);&#xd;
+	}if(RICDt==&quot;&quot;){&#xd;
+		DtEMRIC=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DtEMRIC: &quot; + DtEMRIC);&#xd;
+&#xd;
+	// DATA DE EMISSAO DO RNE&#xd;
+	var RNEDt=hAPI.getCardValue(&quot;DTRNE&quot;);&#xd;
+	if(RNEDt!=&quot;&quot;){&#xd;
+&#xd;
+		var DTRNE = formatoInput.parse(hAPI.getCardValue(&quot;DTRNE&quot;));&#xd;
+		DtRNE = formatoOutput.format(DTRNE);&#xd;
+	}if(RNEDt==&quot;&quot;){&#xd;
+		DtRNE=&quot;&quot;;&#xd;
+	}&#xd;
+	log.info(&quot;#### DtRNE: &quot; + DtRNE);&#xd;
+&#xd;
+	// DATA DE CHEGADA NO BRASIL&#xd;
+	var chegada= hAPI.getCardValue(&quot;DtChegBras&quot;);&#xd;
+	if(chegada!=&quot;&quot;){&#xd;
+&#xd;
+		var DtChegBras = formatoInput.parse(hAPI.getCardValue(&quot;DtChegBras&quot;));&#xd;
+		DTChegBRASIL = formatoOutput.format(DtChegBras);&#xd;
+	}if(chegada==&quot;&quot;){&#xd;
+		DTChegBRASIL=&quot;&quot;;	&#xd;
+	}&#xd;
+	log.info(&quot;#### DTChegBRASIL: &quot; + DTChegBRASIL);	&#xd;
+&#xd;
+	// DATA DE EMISSAO DA primeira via CNH&#xd;
+	var EmCNH= hAPI.getCardValue(&quot;DTEmPrimCNH&quot;);&#xd;
+	if(EmCNH!=&quot;&quot;){&#xd;
+&#xd;
+		var EmCNH2 = formatoInput.parse(hAPI.getCardValue(&quot;DTEmPrimCNH&quot;));&#xd;
+		EmCNH22 = formatoOutput.format(EmCNH2);&#xd;
+	}if(EmCNH==&quot;&quot;){&#xd;
+		EmCNH22=&quot;&quot;;	&#xd;
+	}&#xd;
+	log.info(&quot;#### EmCNH22: &quot; + EmCNH22);&#xd;
+&#xd;
+	// DATA CONT SINDICAL&#xd;
+	var DtContSindical= hAPI.getCardValue(&quot;TxtDtContSind&quot;);&#xd;
+	if(DtContSindical!=&quot;&quot;){&#xd;
+&#xd;
+		var DtSin = formatoInput.parse(hAPI.getCardValue(&quot;TxtDtContSind&quot;));&#xd;
+		DTTContSindical = formatoOutput.format(DtSin);&#xd;
+	}if(DtContSindical==&quot;&quot;){&#xd;
+		DTTContSindical=&quot;&quot;;	&#xd;
+	}&#xd;
+	log.info(&quot;#### DTTContSindical: &quot; + DTTContSindical);&#xd;
+&#xd;
+&#xd;
+	var xmlFunc=&apos;&apos;;&#xd;
+&#xd;
+	xmlFunc +=&apos;	&lt;FopFunc&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PFunc&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODCOLIGADA&gt;&apos;+hAPI.getCardValue(&quot;txtCodcoligada&quot;)+&apos;&lt;/CODCOLIGADA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CHAPA&gt;&apos;+hAPI.getCardValue(&quot;TxtChapa&quot;)+&apos;&lt;/CHAPA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NROFICHAREG&gt;&lt;/NROFICHAREG&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODRECEBIMENTO&gt;M&lt;/CODRECEBIMENTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODSITUACAO&gt;A&lt;/CODSITUACAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODTIPO&gt;N&lt;/CODTIPO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODSECAO&gt;&apos;+hAPI.getCardValue(&quot;txtCentroCusto&quot;)+&apos;&lt;/CODSECAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODFUNCAO&gt;&apos;+hAPI.getCardValue(&quot;txtCodFuncao&quot;)+&apos;&lt;/CODFUNCAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODSINDICATO&gt;&apos;+hAPI.getCardValue(&quot;TxtCodSind&quot;)+&apos;&lt;/CODSINDICATO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODHORARIO&gt;&apos;+hAPI.getCardValue(&quot;TxtCodHor&quot;)+&apos;&lt;/CODHORARIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NRODEPIRRF&gt;0&lt;/NRODEPIRRF&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NRODEPSALFAM&gt;0&lt;/NRODEPSALFAM&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTBASE&gt;&apos;+DTAdmissao+&apos;&lt;/DTBASE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SALARIO&gt;&apos;+hAPI.getCardValue(&quot;txtSalario&quot;)+&apos;&lt;/SALARIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SITUACAOFGTS&gt;2&lt;/SITUACAOFGTS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CONTRIBSINDICAL&gt;J&lt;/CONTRIBSINDICAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;APOSENTADO&gt;0&lt;/APOSENTADO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TEMMAIS65ANOS&gt;0&lt;/TEMMAIS65ANOS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DATAADMISSAO&gt;&apos;+DTAdmissao+&apos;&lt;/DATAADMISSAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TIPOADMISSAO&gt;&apos;+hAPI.getCardValue(&quot;TxtCodTPADM&quot;)+&apos;&lt;/TIPOADMISSAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MOTIVOADMISSAO&gt;&apos;+hAPI.getCardValue(&quot;TxtCodMotADM&quot;)+&apos;&lt;/MOTIVOADMISSAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TEMPRAZOCONTR&gt;1&lt;/TEMPRAZOCONTR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;FIMPRAZOCONTR&gt;&apos;+DTAdmissao+&apos;&lt;/FIMPRAZOCONTR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTVENCFERIAS&gt;&apos;+DTAdmissao+&apos;&lt;/DTVENCFERIAS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NDIASLICREM1&gt;0.00&lt;/NDIASLICREM1&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NDIASLICREM2&gt;0.00&lt;/NDIASLICREM2&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MEDIASALMATERN&gt;0.00&lt;/MEDIASALMATERN&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SITUACAORAIS&gt;1&lt;/SITUACAORAIS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MEMBROSINDICAL&gt;0&lt;/MEMBROSINDICAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;VINCULORAIS&gt;7&lt;/VINCULORAIS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MUDOUADMISSAO&gt;0&lt;/MUDOUADMISSAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MUDOUDTOPCAO&gt;1&lt;/MUDOUDTOPCAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PISPARAFGTS&gt;&apos;+hAPI.getCardValue(&quot;PIS&quot;)+&apos;&lt;/PISPARAFGTS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ULTIMORECALCULODATA&gt;&apos;+DTAdmissao+&apos;&lt;/ULTIMORECALCULODATA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ULTIMORECALCULOHORA&gt;&apos;+DTAdmissao+&apos;&lt;/ULTIMORECALCULOHORA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DESCONTAAVISOPREVIO&gt;0&lt;/DESCONTAAVISOPREVIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODFILIAL&gt;1&lt;/CODFILIAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NOME&gt;&apos;+hAPI.getCardValue(&quot;txtNomeColaborador&quot;)+&apos;&lt;/NOME&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;INDINICIOHOR&gt;1&lt;/INDINICIOHOR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PISPASEP&gt;&apos;+hAPI.getCardValue(&quot;PIS&quot;)+&apos;&lt;/PISPASEP&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODPESSOA&gt;0&lt;/CODPESSOA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODBANCOPAGTO&gt;999&lt;/CODBANCOPAGTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODBANCOPIS&gt;104&lt;/CODBANCOPIS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;RESCISAOCALCULADA&gt;0&lt;/RESCISAOCALCULADA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MEMBROCIPA&gt;0&lt;/MEMBROCIPA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;USASALCOMPOSTO&gt;0&lt;/USASALCOMPOSTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;REGATUAL&gt;1&lt;/REGATUAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;JORNADAMENSAL&gt;13200&lt;/JORNADAMENSAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODOCORRENCIA&gt;0&lt;/CODOCORRENCIA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODCATEGORIA&gt;11&lt;/CODCATEGORIA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESUPERVISOR&gt;0&lt;/ESUPERVISOR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;USACONTROLEDESALDO&gt;0&lt;/USACONTROLEDESALDO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MUDOUCI&gt;0&lt;/MUDOUCI&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;FGTSMESANTRECOLGRFP&gt;0&lt;/FGTSMESANTRECOLGRFP&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TRABALHOUNADEMISSAO&gt;0&lt;/TRABALHOUNADEMISSAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SITUACAOINSS&gt;1&lt;/SITUACAOINSS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TEMDEDUCAOCPMF&gt;1&lt;/TEMDEDUCAOCPMF&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NRODIASFERIASCORRIDOS&gt;0&lt;/NRODIASFERIASCORRIDOS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NRODIASABONOCORRIDOS&gt;0&lt;/NRODIASABONOCORRIDOS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;POSICAOABONO&gt;0&lt;/POSICAOABONO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;QUERADIANTAMENTO&gt;0&lt;/QUERADIANTAMENTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SEXO&gt;&apos;+hAPI.getCardValue(&quot;txtSexo&quot;)+&apos;&lt;/SEXO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NACIONALIDADE&gt;10&lt;/NACIONALIDADE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;GRAUINSTRUCAO&gt;&apos;+hAPI.getCardValue(&quot;GRAUINSTRUCAOCod&quot;)+&apos;&lt;/GRAUINSTRUCAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NATURALIDADE&gt;&apos;+hAPI.getCardValue(&quot;txtNaturalidade&quot;)+&apos;&lt;/NATURALIDADE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;APELIDO&gt;&apos;+hAPI.getCardValue(&quot;txtNomeColaborador&quot;)+&apos;&lt;/APELIDO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTNASCIMENTO&gt;&apos;+DTNASC+&apos;&lt;/DTNASCIMENTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CARTIDENTIDADE&gt;&apos;+hAPI.getCardValue(&quot;TxtRg&quot;)+&apos;&lt;/CARTIDENTIDADE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ORGEMISSORIDENT&gt;&apos;+hAPI.getCardValue(&quot;ORGAOCARTIDENTIDADE&quot;)+&apos;&lt;/ORGEMISSORIDENT&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;UFCARTIDENT&gt;&apos;+hAPI.getCardValue(&quot;CODUFCARTIDENTIDADE&quot;)+&apos;&lt;/UFCARTIDENT&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CARTEIRATRAB&gt;&apos;+hAPI.getCardValue(&quot;txtCartTrab&quot;)+&apos;&lt;/CARTEIRATRAB&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SERIECARTTRAB&gt;&apos;+hAPI.getCardValue(&quot;txtSerieCart&quot;)+&apos;&lt;/SERIECARTTRAB&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;UFCARTTRAB&gt;&apos;+hAPI.getCardValue(&quot;CODUFCTPS&quot;)+&apos;&lt;/UFCARTTRAB&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TITULOELEITOR&gt;&apos;+hAPI.getCardValue(&quot;TITULOELEITOR&quot;)+&apos;&lt;/TITULOELEITOR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CERTIFRESERV&gt;&apos;+hAPI.getCardValue(&quot;CERTIFRESERV&quot;)+&apos;&lt;/CERTIFRESERV&gt;	&apos;;&#xd;
+&#xd;
+&#xd;
+	log.info(&quot;#### CPF: &quot; + hAPI.getCardValue(&quot;cpfcnpj&quot;));&#xd;
+	log.info(&quot;#### CPF VALUE: &quot; + hAPI.getCardValue(&quot;cpfcnpjValue&quot;));&#xd;
+&#xd;
+	xmlFunc +=&apos;	&lt;CPF&gt;&apos;+ hAPI.getCardValue(&quot;cpfcnpjValue&quot;) + &apos;&lt;/CPF&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;RUA&gt;&apos;+hAPI.getCardValue(&quot;txtRUA&quot;)+&apos;&lt;/RUA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NUMERO&gt;&apos;+hAPI.getCardValue(&quot;txtNUMERO&quot;)+&apos;&lt;/NUMERO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;BAIRRO&gt;&apos;+hAPI.getCardValue(&quot;txtBAIRRO&quot;)+&apos;&lt;/BAIRRO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CIDADE&gt;&apos;+hAPI.getCardValue(&quot;txtNOMEMUNICIPIO&quot;)+&apos;&lt;/CIDADE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESTADO&gt;&apos;+hAPI.getCardValue(&quot;txtCODETD&quot;)+&apos;&lt;/ESTADO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PAIS&gt;&apos;+hAPI.getCardValue(&quot;txtPAIS&quot;)+&apos;&lt;/PAIS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CEP&gt;&apos;+hAPI.getCardValue(&quot;txtCEP&quot;)+&apos;&lt;/CEP&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NOMEBANCOPGTO&gt;Cheque&lt;/NOMEBANCOPGTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NOMEPAI&gt;CARLOS MAIA DE OLIVEIRA&lt;/NOMEPAI&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NOMEMAE&gt;DIRCE POLICARPO DE OLIVEIRA&lt;/NOMEMAE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODIGO&gt;0&lt;/CODIGO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;Jornada_Mensal&gt;220:00&lt;/Jornada_Mensal&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;Hora&gt;91190.91&lt;/Hora&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DEFICIENTEFISICO&gt;0&lt;/DEFICIENTEFISICO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DEFICIENTEAUDITIVO&gt;0&lt;/DEFICIENTEAUDITIVO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DEFICIENTEFALA&gt;0&lt;/DEFICIENTEFALA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DEFICIENTEVISUAL&gt;0&lt;/DEFICIENTEVISUAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DEFICIENTEMENTAL&gt;0&lt;/DEFICIENTEMENTAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;BRPDH&gt;0&lt;/BRPDH&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;HSTAFT_ESTTEMPOSERVICO&gt;false&lt;/HSTAFT_ESTTEMPOSERVICO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;INDICADORSINDICALIZADO&gt;0&lt;/INDICADORSINDICALIZADO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos; &lt;NOMEFUNC&gt;&apos;+hAPI.getCardValue(&quot;txtNomeColaborador&quot;)+&apos;&lt;/NOMEFUNC&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CORRACA&gt;&apos;+hAPI.getCardValue(&quot;CORRACA&quot;)+&apos;&lt;/CORRACA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESTADOCIVIL&gt;&apos;+hAPI.getCardValue(&quot;txtEstCivilCod&quot;)+&apos;&lt;/ESTADOCIVIL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESTADONATAL&gt;&apos;+hAPI.getCardValue(&quot;ESTADONatalCod&quot;)+&apos;&lt;/ESTADONATAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CANDIDATO&gt;1&lt;/CANDIDATO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos; &lt;CODTIPOBAIRRO&gt;&apos;+hAPI.getCardValue(&quot;txtCODTIPOBAIRRO&quot;)+&apos;&lt;/CODTIPOBAIRRO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODTIPORUA&gt;&apos;+hAPI.getCardValue(&quot;txtCODTIPORUA&quot;)+&apos;&lt;/CODTIPORUA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;TPREGIMEPREV&gt;1&lt;/TPREGIMEPREV&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DEFICIENTEINTELECTUAL&gt;0&lt;/DEFICIENTEINTELECTUAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODMUNICIPIO&gt;&apos;+hAPI.getCardValue(&quot;txtCODMUNICIPIO&quot;)+&apos;&lt;/CODMUNICIPIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;SITUACAOIRRF&gt;1&lt;/SITUACAOIRRF&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CARREGOUAVISOPREVIO&gt;0&lt;/CARREGOUAVISOPREVIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;RECEBSEGDESEMP&gt;0&lt;/RECEBSEGDESEMP&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;INDPAGTOJUIZO&gt;0&lt;/INDPAGTOJUIZO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODIGORECEITA3533&gt;0&lt;/CODIGORECEITA3533&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;IDADE&gt;27&lt;/IDADE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODCATEGORIAESOCIAL&gt;101&lt;/CODCATEGORIAESOCIAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESOCIALFUNCAOCONF&gt;0&lt;/ESOCIALFUNCAOCONF&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;FUMANTE&gt;0&lt;/FUMANTE&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;FERIASDIASUTEIS&gt;0&lt;/FERIASDIASUTEIS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;Periodo_Aquisitivo&gt;&lt;/Periodo_Aquisitivo&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;Limite_Ferias_Dobro&gt;&lt;/Limite_Ferias_Dobro&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DiasFaltasFeriasNormais&gt;0&lt;/DiasFaltasFeriasNormais&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CONJUGEBRASIL&gt;0&lt;/CONJUGEBRASIL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;NATURALIZADO&gt;0&lt;/NATURALIZADO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;FILHOSBRASIL&gt;0&lt;/FILHOSBRASIL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;INVESTTREINANT&gt;0.00&lt;/INVESTTREINANT&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;AJUSTATAMANHOFOTO&gt;0&lt;/AJUSTATAMANHOFOTO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DATAAPROVACAOCURR&gt;&lt;/DATAAPROVACAOCURR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESTELEIT xml:space=&quot;preserve&quot;&gt; &lt;/ESTELEIT&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ESTADOROW&gt;0&lt;/ESTADOROW&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ROWVALIDA&gt;0&lt;/ROWVALIDA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;ALUNO&gt;0&lt;/ALUNO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PROFESSOR&gt;0&lt;/PROFESSOR&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;USUARIOBIBLIOS&gt;0&lt;/USUARIOBIBLIOS&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;FUNCIONARIO&gt;0&lt;/FUNCIONARIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;EXFUNCIONARIO&gt;1&lt;/EXFUNCIONARIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODNATURALIDADE&gt;04805&lt;/CODNATURALIDADE&gt;	&apos;;&#xd;
+&#xd;
+	// DATAS&#xd;
+	xmlFunc +=&apos;	&lt;DTMUDANCASALARIO&gt;&apos; + DTAdmissao + &apos;&lt;/DTMUDANCASALARIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTMUDANCAFUNCAO&gt;&apos; + DTAdmissao + &apos;&lt;/DTMUDANCAFUNCAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;HSTSIT_DATAMUDANCA&gt;&apos; + DTAdmissao + &apos;&lt;/HSTSIT_DATAMUDANCA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTMUDANCASECAO&gt;&apos; + DTAdmissao + &apos;&lt;/DTMUDANCASECAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTMUDANCACONTRIBSINDICAL&gt;&apos; + DTAdmissao + &apos;&lt;/DTMUDANCACONTRIBSINDICAL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;HSTSEFIP_DTMUDANCA&gt;&apos; + DTAdmissao + &apos;&lt;/HSTSEFIP_DTMUDANCA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;HSTBANCO_DTMUDANCA&gt;&apos; + DTAdmissao + &apos;&lt;/HSTBANCO_DTMUDANCA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;DTMUDANCAHORARIO&gt;&apos; + DTAdmissao + &apos;&lt;/DTMUDANCAHORARIO&gt;	&apos;;&#xd;
+&#xd;
+	// MOTIVOS&#xd;
+	xmlFunc +=&apos;	&lt;MOTMUDANCASALARIO&gt;01&lt;/MOTMUDANCASALARIO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MOTMUDANCASECAO&gt;01&lt;/MOTMUDANCASECAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;MOTMUDANCAFUNCAO&gt;1&lt;/MOTMUDANCAFUNCAO&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;HSTSIT_MOTIVO&gt;01&lt;/HSTSIT_MOTIVO&gt;	&apos;;&#xd;
+	&#xd;
+	xmlFunc +=&apos;	&lt;/PFunc&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PFCOMPL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODCOLIGADA&gt;&apos;+hAPI.getCardValue(&quot;txtCodcoligada&quot;)+&apos;&lt;/CODCOLIGADA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CHAPA&gt;&apos;+hAPI.getCardValue(&quot;TxtChapa&quot;)+&apos;&lt;/CHAPA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PROPAY_50&gt;01&lt;/PROPAY_50&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PROPAY_112&gt;1 - PRESIDENCIA E DIRETORIA&lt;/PROPAY_112&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PROPAY_117&gt;01&lt;/PROPAY_117&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;PROPAY_132&gt;01&lt;/PROPAY_132&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;/PFCOMPL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;VPCOMPL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;CODPESSOA&gt;0&lt;/CODPESSOA&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;/VPCOMPL&gt;	&apos;;&#xd;
+	xmlFunc +=&apos;	&lt;/FopFunc&gt;	&apos;;&#xd;
+	&#xd;
+	log.info(&quot;#### xmlFunc: &quot; + xmlFunc);&#xd;
+&#xd;
+	/*&#xd;
+	- Campo DTMUDANCASALARIO - Data da Mudança do Salário é obrigatório na inclusão do funcionário&#xd;
+	- Campo DTMUDANCAFUNCAO - Data da Mudança da Função é obrigatório na inclusão do funcionário&#xd;
+	- Campo HSTSIT_DATAMUDANCA - Data da Mudança da Situação é obrigatório na inclusão do funcionário&#xd;
+	- Campo DTMUDANCASECAO - Data de Mudança da Seção é obrigatório na inclusão do funcionário&#xd;
+	- Campo DTMUDANCACONTRIBSINDICAL - Data da Mudança da Contribuição Sindical é obrigatório na inclusão do funcionário&#xd;
+	- Campo HSTSEFIP_DTMUDANCA - Data da Mudança do SEFIP é obrigatório na inclusão do funcionário&#xd;
+	- Campo HSTBANCO_DTMUDANCA - Data da Mudança do Banco Principal é obrigatório na inclusão do funcionário&#xd;
+	- Campo DTMUDANCAHORARIO - Data da Mudança do Horário é obrigatório na inclusão do funcionário&#xd;
+	*/&#xd;
+	&#xd;
+	var CONNECT = DatasetFactory.getDataset(&quot;ds_connector&quot;, null, null, null);&#xd;
+	var USUARIO = CONNECT.getValue(0,&quot;INTEGRADOR&quot;);&#xd;
+	var SENHA = CONNECT.getValue(0, &quot;SENHA&quot;);&#xd;
+	var NOME_SERVICO = &quot;WSDATASERVER&quot;;&#xd;
+	var CAMINHO_SERVICO = &quot;com.totvs.WsDataServer&quot;;&#xd;
+&#xd;
+	var servico = ServiceManager.getServiceInstance(NOME_SERVICO);&#xd;
+	log.info(&quot;#### instanciou servico...&quot;);&#xd;
+&#xd;
+	var serviceHelper = servico.getBean();&#xd;
+	log.info(&quot;#### instanciou serviceHelper...&quot;);&#xd;
+&#xd;
+	var instancia = servico.instantiate(CAMINHO_SERVICO);&#xd;
+	log.info(&quot;#### criou a instancia: &quot; + CAMINHO_SERVICO);&#xd;
+&#xd;
+	var ws = instancia.getRMIwsDataServer();&#xd;
+&#xd;
+	var authenticatedService = serviceHelper.getBasicAuthenticatedClient(ws, &quot;com.totvs.IwsDataServer&quot;, USUARIO, SENHA); &#xd;
+&#xd;
+	log.info(&quot;#### Criou authenticatedService e vai chamar saveRecordEmail::FopFuncData&quot;);&#xd;
+&#xd;
+	try&#xd;
+	{&#xd;
+		var result = authenticatedService.saveRecordEmail(&apos;FopFuncData&apos;, xmlFunc, &apos;CODCOLIGADA=1;CODSISTEMA=P&apos;,&quot;suportesoter@consultoriainterativa.com.br&quot;);&#xd;
+&#xd;
+		log.info(&quot;#### Resultado da comunicação com o TOTVS TBC: &quot; + result);&#xd;
+&#xd;
+		if ((result != null) &amp;&amp; (result.indexOf(&quot;===&quot;) != -1))&#xd;
+		{&#xd;
+			var msgErro = result.substring(0, result.indexOf(&quot;===&quot;));&#xd;
+			log.info(&quot;#### Erro na comunicação com o TOTVS TBC: &quot; + msgErro);&#xd;
+			throw msgErro;&#xd;
+&#xd;
+		}&#xd;
+		else&#xd;
+		{&#xd;
+			log.info(&quot;#### Nao houve erro. Integracao FUNC realizada com SUCESSO!&quot;);&#xd;
+		}&#xd;
+	}&#xd;
+	catch (e)&#xd;
+	{&#xd;
+		if (e == null)&#xd;
+		{&#xd;
+			e = &quot;Erro desconhecido; verifique o log do AppServer&quot;;&#xd;
+		}&#xd;
+&#xd;
+		var mensagemErro = &quot;Erro na comunicação com o TOTVS TBC: &quot; + e;&#xd;
+		log.error(mensagemErro + &quot; ---&gt; &quot; + xmlFunc);&#xd;
+		throw mensagemErro;&#xd;
+	}&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function montaXMLDependente(){&#xd;
+	log.info(&quot;Iniciando montaXMLDependente...&quot;);&#xd;
+	//Para cada campo de data tenho que fazer a conversão dela.&#xd;
+	var formatoInput = new java.text.SimpleDateFormat(&quot;dd/MM/yyyy&quot;);&#xd;
+	var formatoOutput = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd&apos;T&apos;hh:mm:ss&quot;);&#xd;
+&#xd;
+&#xd;
+	var indexes = getIndexes(&apos;txtNomDepen&apos;);&#xd;
+	log.info(&quot;indexes Depente&quot;+ indexes);&#xd;
+	var Tamanho = indexes.size();&#xd;
+	log.info(&quot;Tamanho Depente&quot;+ Tamanho);&#xd;
+	var iterator = indexes.iterator();	&#xd;
+	log.info(&quot;iterator Depente&quot;+ iterator);&#xd;
+	var Seq=0;&#xd;
+	var SeqParentesco = 0;&#xd;
+&#xd;
+	while(iterator.hasNext()){&#xd;
+		Seq++;&#xd;
+		var index = iterator.next();&#xd;
+		log.info(&quot;index Depente&quot;+ index);&#xd;
+		var Next = iterator.hasNext();	&#xd;
+		log.info(&quot;Next Depente&quot;+ Next);&#xd;
+		//var SeqEstoque = 0;&#xd;
+&#xd;
+		var NOME = hAPI.getCardValue(&quot;txtNomDepen___&quot;+ index);&#xd;
+		log.info(&quot;index NOME&quot;+ NOME);&#xd;
+		var PARENTESCO =hAPI.getCardValue(&quot;codParentesco___&quot;+index);&#xd;
+		log.info(&quot;index PARENTESCO&quot;+ PARENTESCO);&#xd;
+		var SEXO = hAPI.getCardValue(&quot;txtSexoDepen___&quot;+index);&#xd;
+		var CHAPA = hAPI.getCardValue(&quot;TxtChapa&quot;); &#xd;
+		var INCSALFAM = hAPI.getCardValue(&quot;TxtIncSalFamilia___&quot;+index); &#xd;
+		var INCIRRF= hAPI.getCardValue(&quot;TxtIncIRRF___&quot;+index); &#xd;
+		var INCINSS = hAPI.getCardValue(&quot;TxtIncINSS___&quot;+index); &#xd;
+		var INCPENSAO = hAPI.getCardValue(&quot;TxtIncPensao___&quot;+index); &#xd;
+		var INCASSMED = hAPI.getCardValue(&quot;TxtIncMedica___&quot;+index); &#xd;
+		var CARTORIO = hAPI.getCardValue(&quot;TxtCartorio___&quot;+index); &#xd;
+		var REGISTRO = hAPI.getCardValue(&quot;TxtRegistro___&quot;+index); &#xd;
+		var LIVRO = hAPI.getCardValue(&quot;TxtLivro___&quot;+index); &#xd;
+		var FOLHA = hAPI.getCardValue(&quot;TxtFolha___&quot;+index);&#xd;
+		var cpfDepend = hAPI.getCardValue(&quot;TxtCPFDep___&quot;+index); &#xd;
+		//var CARTVACINA = hAPI.getCardValue(&quot;TxtEntVacina___&quot;+index);  &#xd;
+		//var FREQESCOL = hAPI.getCardValue(&quot;TxtEscolar___&quot;+index);   &#xd;
+&#xd;
+&#xd;
+&#xd;
+		var DTNASCIMENTO = hAPI.getCardValue(&quot;txtDtNascDepen___&quot;+index);&#xd;
+		log.info(&quot;indexAndre&quot;+ index);&#xd;
+		log.info(&quot;DTNASCIMENTOandre&quot;+ DTNASCIMENTO);&#xd;
+		if(DTNASCIMENTO!=&quot;&quot;){&#xd;
+&#xd;
+			var DataNascimento = formatoInput.parse(hAPI.getCardValue(&quot;txtDtNascDepen___&quot;+index));&#xd;
+			DTNAS = formatoOutput.format(DataNascimento);&#xd;
+		}if(DTNASCIMENTO==&quot;&quot;){&#xd;
+			DTNAS=&quot;&quot;;&#xd;
+		}&#xd;
+&#xd;
+		if(NOME !=&quot;&quot; &amp;&amp; PARENTESCO !=&quot;&quot;){&#xd;
+&#xd;
+&#xd;
+			SeqParentesco++;&#xd;
+&#xd;
+			log.info(&quot;SeqParentesco&quot; + SeqParentesco);&#xd;
+&#xd;
+			var xmldepen=&apos;&apos;;&#xd;
+&#xd;
+			xmldepen += &apos;&lt;PFDepend&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;CODCOLIGADA&gt;1&lt;/CODCOLIGADA&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;CHAPA&gt;&apos;+CHAPA+&apos;&lt;/CHAPA&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;NRODEPEND&gt;&apos;+SeqParentesco+&apos;&lt;/NRODEPEND&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;NOME&gt;&apos;+NOME+&apos;&lt;/NOME&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;CPF&gt;&apos;+cpfDepend+&apos;&lt;/CPF&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;DTNASCIMENTO&gt;&apos;+DTNAS+&apos;&lt;/DTNASCIMENTO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;SEXO&gt;&apos;+SEXO+&apos;&lt;/SEXO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;ESTADOCIVIL&gt;O&lt;/ESTADOCIVIL&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;INCIRRF&gt;&apos;+INCIRRF+&apos;&lt;/INCIRRF&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;INCINSS&gt;&apos;+INCINSS+&apos;&lt;/INCINSS&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;INCASSISTMEDICA&gt;&apos;+INCASSMED+&apos;&lt;/INCASSISTMEDICA&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;INCPENSAO&gt;&apos;+INCPENSAO+&apos;&lt;/INCPENSAO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;GRAUPARENTESCO&gt;&apos;+PARENTESCO+&apos;&lt;/GRAUPARENTESCO&gt;&apos;;&#xd;
+			//xmldepen += &apos;&lt;CARTAOVACINA&gt;&apos;+CARTVACINA+&apos;&lt;/CARTAOVACINA&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;PERCENTUAL&gt;0.00&lt;/PERCENTUAL&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;BRUTO&gt;0&lt;/BRUTO&gt;&apos;;&#xd;
+			//xmldepen += &apos;&lt;FREQESCOLAR&gt;&apos;+FREQESCOL+&apos;&lt;/FREQESCOLAR&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;UNIVERSITARIO&gt;0&lt;/UNIVERSITARIO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;INCSALFAM&gt;&apos;+INCSALFAM+&apos;&lt;/INCSALFAM&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;CARTORIO&gt;&apos;+CARTORIO+&apos;&lt;/CARTORIO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;NROREGISTRO&gt;&apos;+REGISTRO+&apos;&lt;/NROREGISTRO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;NROLIVRO&gt;&apos;+LIVRO+&apos;&lt;/NROLIVRO&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;NROFOLHA&gt;&apos;+FOLHA+&apos;&lt;/NROFOLHA&gt;&apos;&#xd;
+			xmldepen += &apos;&lt;/PFDepend&gt;&apos;;&#xd;
+&#xd;
+			xmldepen += &apos;&lt;PFDEPENDCOMPL&gt;&apos;;&#xd;
+			xmldepen += &apos;  &lt;CODCOLIGADA&gt;1&lt;/CODCOLIGADA&gt;&apos;;&#xd;
+			xmldepen += &apos;  &lt;CHAPA&gt;&apos;+CHAPA+&apos;&lt;/CHAPA&gt;&apos;;&#xd;
+			xmldepen += &apos;  &lt;NRODEPEND&gt;&apos;+SeqParentesco+&apos;&lt;/NRODEPEND&gt;&apos;;&#xd;
+			xmldepen += &apos;  &lt;PLANOSAUDE&gt;00&lt;/PLANOSAUDE&gt;&apos;;&#xd;
+			xmldepen += &apos;&lt;/PFDEPENDCOMPL&gt;&apos;;&#xd;
+&#xd;
+		}&#xd;
+&#xd;
+		var CONNECT = DatasetFactory.getDataset(&quot;ds_connector&quot;, null, null, null);&#xd;
+		var USUARIO = CONNECT.getValue(0,&quot;INTEGRADOR&quot;);&#xd;
+		var SENHA = CONNECT.getValue(0, &quot;SENHA&quot;);&#xd;
+		var NOME_SERVICO = &quot;WSDATASERVER&quot;;&#xd;
+		var CAMINHO_SERVICO = &quot;com.totvs.WsDataServer&quot;;&#xd;
+		var servico = ServiceManager.getServiceInstance(NOME_SERVICO);&#xd;
+		var serviceHelper = servico.getBean();&#xd;
+		var instancia = servico.instantiate(CAMINHO_SERVICO);&#xd;
+		var ws = instancia.getRMIwsDataServer();&#xd;
+		var authenticatedService = serviceHelper.getBasicAuthenticatedClient(ws, &quot;com.totvs.IwsDataServer&quot;, USUARIO, SENHA); &#xd;
+&#xd;
+		//var inicioxml=&quot;&lt;FopFunc&gt;&quot;;&#xd;
+		//var FimXML = &quot;&lt;/FopFunc&gt;&quot;;&#xd;
+		var xml = xmldepen;&#xd;
+		var inicioxml=&quot;&lt;FopDepend&gt;&quot;;&#xd;
+		var FimXML = &quot;&lt;/FopDepend&gt;&quot;;&#xd;
+&#xd;
+&#xd;
+		try&#xd;
+		{&#xd;
+			//var result = authenticatedService.saveRecordEmail(&apos;FopDependData&apos;, inicioxml + xml + FimXML, &apos;CODCOLIGADA=1;CODSISTEMA=P&apos;,&quot;andre.oliveirabpit@gmail.com&quot;); //&quot;suportesoter@consultoriainterativa.com.br&quot;&#xd;
+			var result = authenticatedService.saveRecord(&apos;FopDependData&apos;, inicioxml + xml + FimXML, &apos;CODCOLIGADA=1;CODSISTEMA=P&apos;);&#xd;
+&#xd;
+			if ((result != null) &amp;&amp; (result.indexOf(&quot;===&quot;) != -1))&#xd;
+			{&#xd;
+				var msgErro = result.substring(0, result.indexOf(&quot;===&quot;));&#xd;
+&#xd;
+				throw msgErro;&#xd;
+&#xd;
+			}&#xd;
+			else&#xd;
+			{&#xd;
+				log.info(&quot;#### Nao houve erro. Integracao Dependente realizada com SUCESSO!&quot;);&#xd;
+			}&#xd;
+		}&#xd;
+		catch (e)&#xd;
+		{&#xd;
+			if (e == null)&#xd;
+			{&#xd;
+				e = &quot;Erro desconhecido; verifique o log do AppServer&quot;;&#xd;
+			}&#xd;
+&#xd;
+			var mensagemErro = &quot;Erro na comunicação com o TOTVS TBC: &quot; + e;&#xd;
+			log.error(mensagemErro + &quot; ---&gt; &quot; + xml);&#xd;
+&#xd;
+			throw mensagemErro;&#xd;
+		}&#xd;
+&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskCreate</eventId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>/*function afterTaskCreate(colleagueId){&#xd;
+	&#xd;
+	var Dia =hAPI.getCardValue(&quot;txtDiaLimiteProc&quot;);; &#xd;
+	var Mes =hAPI.getCardValue(&quot;txtMesLimiteProc&quot;); &#xd;
+	var Ano =hAPI.getCardValue(&quot;txtAnoLimiteProc&quot;); &#xd;
+	var mesCerto=Mes-1;&#xd;
+	&#xd;
+&#xd;
+	&#xd;
+	 var nrProxAtividade = getValue(&quot;WKNextState&quot;);&#xd;
+	    if (nrProxAtividade == &quot;18&quot;){ //atividade entre paralelas&#xd;
+	 &#xd;
+	        var data = new Date();&#xd;
+	        var numEmpresa = getValue(&quot;WKCompany&quot;);&#xd;
+	     &#xd;
+	        //seta o dia, m?s (Janeiro ? 0) e ano&#xd;
+	        data.setDate(Dia);&#xd;
+	        data.setMonth(mesCerto);&#xd;
+	        data.setFullYear(Ano);&#xd;
+	        &#xd;
+	        // Recupera o numero da solicita??o&#xd;
+	        var numProcesso = getValue(&quot;WKNumProces&quot;);&#xd;
+	     &#xd;
+	        // Seta o prazo para as 18:00&#xd;
+	        hAPI.setDueDate(numProcesso, hAPI.getActualThread(numEmpresa, numProcesso, nrProxAtividade), colleagueId, data, 64800);&#xd;
+}&#xd;
+	    &#xd;
+		 var nrProxAtividade = getValue(&quot;WKNextState&quot;);&#xd;
+		    if (nrProxAtividade == &quot;66&quot;){ //atividade entre paralelas&#xd;
+		 &#xd;
+		        var data = new Date();&#xd;
+		        var numEmpresa = getValue(&quot;WKCompany&quot;);&#xd;
+		     &#xd;
+		        //seta o dia, m?s (Janeiro ? 0) e ano&#xd;
+		        data.setDate(Dia);&#xd;
+		        data.setMonth(mesCerto);&#xd;
+		        data.setFullYear(Ano);&#xd;
+		        &#xd;
+		        // Recupera o numero da solicita??o&#xd;
+		        var numProcesso = getValue(&quot;WKNumProces&quot;);&#xd;
+		     &#xd;
+		        // Seta o prazo para as 18:00&#xd;
+		        hAPI.setDueDate(numProcesso, hAPI.getActualThread(numEmpresa, numProcesso, nrProxAtividade), colleagueId, data, 64800);&#xd;
+	}&#xd;
+}*/</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>d0daae</color>
+      <height>221</height>
+      <width>1141</width>
+      <positionX>0</positionX>
+      <positionY>500</positionY>
+      <stateName>Diretor</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>adc9ac</color>
+      <height>261</height>
+      <width>1141</width>
+      <positionX>0</positionX>
+      <positionY>240</positionY>
+      <stateName>Gestor</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>243</height>
+      <width>1141</width>
+      <positionX>0</positionX>
+      <positionY>0</positionY>
+      <stateName>Verifica Hierarquia</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d6e0d0</color>
+      <height>184</height>
+      <width>1141</width>
+      <positionX>0</positionX>
+      <positionY>720</positionY>
+      <stateName>Admissão RH</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>c9c3ac</color>
+      <height>168</height>
+      <width>1141</width>
+      <positionX>0</positionX>
+      <positionY>903</positionY>
+      <stateName>Analista BPO</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>40</positionX>
+      <positionY>30</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>3</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Início do Processo</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>400</positionX>
+      <positionY>40</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>15</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Aprovação do Gestor</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>400</positionX>
+      <positionY>105</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>17</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Aprovação do Diretor</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>400</positionX>
+      <positionY>170</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>18</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Admissão RH</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>500</positionX>
+      <positionY>250</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>35</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Aprovação do Diretor</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>500</positionX>
+      <positionY>310</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>37</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Admissão RH</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>500</positionX>
+      <positionY>370</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>39</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Correção da Solicitação</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>870</positionX>
+      <positionY>30</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>48</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Reabertura - Verificar Hierarquia</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>880</positionX>
+      <positionY>170</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>50</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Chamado Cancelado - Solicitante</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>495</positionX>
+      <positionY>515</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>66</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Admissão RH</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>494</positionX>
+      <positionY>573</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>68</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Correção da Solicitação</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>490</positionX>
+      <positionY>730</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>85</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Gerar Kit Admissional</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>490</positionX>
+      <positionY>790</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>87</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Correção da Solicitação</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>490</positionX>
+      <positionY>950</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>94</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Validar Kit Admissão</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>930</positionX>
+      <positionY>740</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>106</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Gerar Kit Admissional</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>940</positionX>
+      <positionY>830</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>108</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Fim do Processo</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>500</positionX>
+      <positionY>430</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>112</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Processos Cancelado - Reprovado</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>490</positionX>
+      <positionY>630</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>116</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Processos Cancelado - Reprovado</stateName>
+    </ProcessComponGraf>
+    <ProcessComponGraf>
+      <componType>1</componType>
+      <positionX>490</positionX>
+      <positionY>850</positionY>
+      <processComponGrafPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <componGrafSequence>120</componGrafSequence>
+      </processComponGrafPK>
+      <stateName>Processos Cancelado - Reprovado</stateName>
+    </ProcessComponGraf>
+  </list>
+  <list>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>4</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>3</initialStateSequence>
+      <finalStateSequence>1</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>16</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>15</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>19</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>17</initialStateSequence>
+      <finalStateSequence>11</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>20</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>18</initialStateSequence>
+      <finalStateSequence>13</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>36</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>35</initialStateSequence>
+      <finalStateSequence>28</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>38</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>33</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>40</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>39</initialStateSequence>
+      <finalStateSequence>30</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>49</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>48</initialStateSequence>
+      <finalStateSequence>42</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>63</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>50</initialStateSequence>
+      <finalStateSequence>43</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>67</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>66</initialStateSequence>
+      <finalStateSequence>55</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>69</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>68</initialStateSequence>
+      <finalStateSequence>57</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>86</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>85</initialStateSequence>
+      <finalStateSequence>81</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>88</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>87</initialStateSequence>
+      <finalStateSequence>83</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>95</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>94</initialStateSequence>
+      <finalStateSequence>92</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>107</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>106</initialStateSequence>
+      <finalStateSequence>102</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>109</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>108</initialStateSequence>
+      <finalStateSequence>104</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>113</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>112</initialStateSequence>
+      <finalStateSequence>110</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>117</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>116</initialStateSequence>
+      <finalStateSequence>114</finalStateSequence>
+    </ProcessLinkAssoc>
+    <ProcessLinkAssoc>
+      <processLinkAssocPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>1</version>
+        <linkSequence>121</linkSequence>
+      </processLinkAssocPK>
+      <initialStateSequence>120</initialStateSequence>
+      <finalStateSequence>118</finalStateSequence>
+    </ProcessLinkAssoc>
+  </list>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>6</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>174</positionX>
+      <positionY>138</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>10</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>253</positionX>
+      <positionY>67</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>14</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>261</positionX>
+      <positionY>207</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>31</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>390</positionX>
+      <positionY>399</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>32</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>338</positionX>
+      <positionY>267</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>34</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>370</positionX>
+      <positionY>337</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>46</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>755</positionX>
+      <positionY>47</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>47</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>759</positionX>
+      <positionY>197</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>56</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>338</positionX>
+      <positionY>532</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>77</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>191</positionX>
+      <positionY>199</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>82</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>344</positionX>
+      <positionY>746</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>103</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>841</positionX>
+      <positionY>746</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>105</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>850</positionX>
+      <positionY>865</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>111</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>340</positionX>
+      <positionY>467</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>115</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>338</positionX>
+      <positionY>667</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>FLUIG-0002</processId>
+        <version>7</version>
+        <linkSequence>119</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>341</positionX>
+      <positionY>867</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>

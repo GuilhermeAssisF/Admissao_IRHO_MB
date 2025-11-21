@@ -1,4 +1,51 @@
 $(document).ready(function () {
+
+  // Verifica se não há empresa selecionada
+  if ($("#FUN_EMPRESA").val() == "" || $("#FUN_EMPRESA").val() == null) {
+
+    var camposParaBloquear = [
+      'FUN_IDDESCFUN',
+      'FUN_IDDESCTURN',
+      'FUN_SEQTURN_IDDESC_AD',
+      'FUN_CCIDDESC',
+      'FUN_SECAO_IDDESC_AD',
+      'FUN_IDDESCSIND',
+      'FUN_CODDESCSINDICATOFILIACAO',
+      'FUN_NIVELFUNCAO',
+      'FUN_FAIXASALARIAL',
+      'FUN_INTEGRCONTABIL_IDDESC',
+      'FUN_INTEGRGERENCIAL_IDDESC'
+    ];
+
+    // Função que força o bloqueio
+    function forcarBloqueio() {
+      $.each(camposParaBloquear, function (index, idCampo) {
+        // 1. Bloqueio via API do Fluig (para o componente visual cinza)
+        try {
+          if (window[idCampo] && window[idCampo].disable) {
+            window[idCampo].disable(true);
+          }
+        } catch (e) { }
+
+        // 2. Bloqueio via HTML (para o input em si)
+        $("#" + idCampo).attr('disabled', 'disabled');
+        $("#" + idCampo).prop('disabled', true);
+      });
+    }
+
+    // Executa imediatamente
+    forcarBloqueio();
+
+    // Executa novamente a cada 500ms durante 3 segundos para garantir
+    // que pegue o componente Zoom assim que ele terminar de carregar
+    var tentativas = 0;
+    var intervaloBloqueio = setInterval(function () {
+      forcarBloqueio();
+      tentativas++;
+      if (tentativas >= 6) clearInterval(intervaloBloqueio); // Para após 3s
+    }, 500);
+  }
+
   var atividade = getWKNumState();
 
   // --- INÍCIO DA ALTERAÇÃO: LÓGICA DO BOTÃO DE ANEXO ---
@@ -75,6 +122,9 @@ $(document).ready(function () {
 
   // --- INÍCIO: Lógica de visualização de campos por Etapa ---
   if (atividade == 0 || atividade == 1 || atividade == 41) {
+
+    // CHAMA A NOVA FUNÇÃO PARA MARCAR OS CAMPOS APENAS NESSAS ATIVIDADES
+    marcarCamposObrigatoriosIniciais();
 
     // Oculta campos da seção "Dados do Colaborador"
 
@@ -233,7 +283,7 @@ $(document).ready(function () {
   Compartilhados.expandePainel(atividade);
   Compartilhados.destacaAprovacoes();
   Compartilhados.destacaParecer();
-  Compartilhados.camposObrigatorio();
+  Compartilhados.camposObrigatorio(); // <-- Garante que a marcação ocorra
 
   if (atividade !== 41 && $("#cpReaberturaChamado").val() == "") {
     $("#divReabertura").hide();
@@ -650,6 +700,17 @@ $(document).ready(function () {
     sideBySide: true
   });
 
+  // TRAVA DE SEGURANÇA INICIAL
+  // Se não houver empresa selecionada, desabilita os campos dependentes imediatamente
+  if ($("#FUN_EMPRESA").val() == "" || $("#FUN_EMPRESA").val() == null) {
+    var camposDependentes = [
+      '#FUN_IDDESCFUN', '#FUN_IDDESCTURN', '#FUN_SEQTURN_IDDESC_AD',
+      '#FUN_CCIDDESC', '#FUN_SECAO_IDDESC_AD', '#FUN_IDDESCSIND',
+      '#FUN_CODDESCSINDICATOFILIACAO', '#FUN_NIVELFUNCAO', '#FUN_FAIXASALARIAL'
+    ];
+    $(camposDependentes.join(",")).attr('disabled', true);
+  }
+
   // Dentro do setTimeout que carrega os dados iniciais (aprox linha 1290 do seu view.js original)
   setTimeout(() => {
     tratarVisibilidadeObrigatoridadeCampos("privado");
@@ -661,6 +722,31 @@ $(document).ready(function () {
   }, 2500);
 
 });
+
+var marcarCamposObrigatoriosIniciais = function () {
+  var camposObrigatorios = [
+    // DADOS DO COLABORADOR
+    "cpfcnpj", "txtNomeColaborador", "dtDataNascColaborador",
+    // DADOS DE CONTATO (OS TRÊS TELEFONES + EMAIL)
+    "txtTELEFONE", "txtCELULAR", "txtTElCont", "txtEmail",
+    // DADOS DA CONTRATAÇÃO (ZOOMS E INPUTS)
+    "IDDESC_EMPRESAFILIAL", "descricaoJornada", "FUN_ADMISSAO", "FUN_TPADMISSAO_IDDESC_AD",
+    "FUN_SECAO_IDDESC_AD", "FUN_IDDESCFUN", "FUN_VLRSALARIO", "FUN_IDDESCTURN",
+    "FUN_SEQTURN_IDDESC_AD",
+    // Tipo Jornada é um SELECT
+    "FUN_TPJORNADA",
+    // INFORMAÇÕES GERAIS (EXAME/RH)
+    "cpDataHoraExame", "cpEnderecoClinica", "cpNomeClinica", "cpEmailCandidatoInicio"
+  ];
+
+  for (var i = 0; i < camposObrigatorios.length; i++) {
+    var fieldId = camposObrigatorios[i];
+    var $field = $("#" + fieldId);
+
+    // Adiciona o atributo 'obrigatorio' para que o framework o marque visualmente
+    $field.attr('obrigatorio', 'true');
+  }
+};
 
 var createPickerDinamico = function (elementId, isVencimento) {
   var options = {
@@ -2558,112 +2644,134 @@ function removedZoomItem(removedItem) {
  * Funções Auxiliares de Zoom (copiadas do 1007)
  */
 function reloadZoomFilial(ID_EMPRESA, ID_FILIAL) {
-  // 1. Define se deve bloquear ou não (se não tem empresa, bloqueia)
-  var desabilitaCamposEmpresa = (ID_EMPRESA == "" || ID_EMPRESA == null);
+  // 1. Verifica se deve bloquear (se não tem empresa)
+  var desabilitaCamposEmpresa = (ID_EMPRESA == "" || ID_EMPRESA == null || ID_EMPRESA == undefined);
 
-  // 2. Aplica o bloqueio/desbloqueio visual
-  $('#FUN_IDDESCFUN').attr('disabled', desabilitaCamposEmpresa);
-  $('#FUN_CCIDDESC').attr('disabled', desabilitaCamposEmpresa);
-  $('#FUN_SECAO_IDDESC_AD').attr('disabled', desabilitaCamposEmpresa);
+  // Lista dos IDs dos campos (sem o #) para acessar o objeto Zoom
+  var listaCamposZoom = [
+    'FUN_IDDESCFUN',
+    'FUN_IDDESCTURN',
+    'FUN_SEQTURN_IDDESC_AD',
+    'FUN_CCIDDESC',
+    'FUN_SECAO_IDDESC_AD',
+    'FUN_IDDESCSIND',
+    'FUN_CODDESCSINDICATOFILIACAO',
+    'FUN_NIVELFUNCAO',
+    'FUN_FAIXASALARIAL',
+    'FUN_INTEGRCONTABIL_IDDESC',
+    'FUN_INTEGRGERENCIAL_IDDESC'
+  ];
 
-  // Campos de Turno (Garante que fiquem travados se não tiver empresa)
-  $('#FUN_IDDESCTURN').attr('disabled', desabilitaCamposEmpresa);
-  $('#FUN_SEQTURN_IDDESC_AD').attr('disabled', desabilitaCamposEmpresa);
+  // 2. Aplica o bloqueio/desbloqueio CORRETO no componente Visual e no HTML
+  $.each(listaCamposZoom, function (index, idCampo) {
+    try {
+      // AÇÃO NO COMPONENTE FLUIG (AQUI ESTÁ A CORREÇÃO)
+      // Se tiver empresa (desabilitaCamposEmpresa = false), ele executa disable(false), habilitando o campo.
+      if (window[idCampo] && window[idCampo].disable) {
+        window[idCampo].disable(desabilitaCamposEmpresa);
+      }
+    } catch (e) {
+      console.log("Erro ao manipular estado do Zoom: " + idCampo);
+    }
 
-  $('#FUN_IDDESCSIND').attr('disabled', desabilitaCamposEmpresa);
-  $('#FUN_CODDESCSINDICATOFILIACAO').attr('disabled', desabilitaCamposEmpresa);
-  $('#FUN_NIVELFUNCAO').attr('disabled', desabilitaCamposEmpresa);
-  $('#FUN_FAIXASALARIAL').attr('disabled', desabilitaCamposEmpresa);
+    // AÇÃO NO HTML (Fallback)
+    if (desabilitaCamposEmpresa) {
+      $("#" + idCampo).attr('disabled', 'disabled');
+    } else {
+      $("#" + idCampo).removeAttr('disabled');
+    }
+  });
 
-  // 3. Se não tiver empresa, encerra aqui (já bloqueou tudo acima)
+  // 3. Se não tiver empresa, limpa os campos e encerra a execução
   if (desabilitaCamposEmpresa) {
-    // Limpa os campos dependentes para evitar dados órfãos
-    window['FUN_IDDESCTURN'].clear();
-    window['FUN_SEQTURN_IDDESC_AD'].clear();
+    try { window['FUN_IDDESCFUN'].clear(); } catch (ex) { };
+    try { window['FUN_IDDESCTURN'].clear(); } catch (ex) { };
+    try { window['FUN_SEQTURN_IDDESC_AD'].clear(); } catch (ex) { };
     return;
   }
 
-  // 4. Lógica de Recarga dos Filtros (Reload)
+  // 4. Prepara as strings de filtro
 
-  // Recarrega Seção
+  // Filtro A: Apenas Empresa (Para campos globais como Função)
+  var filtroApenasEmpresa = "ID_EMPRESA," + ID_EMPRESA;
+
+  // Filtro B: Empresa + Filial (Para campos específicos como Seção/Turno)
+  var filtroEmpresaFilial = filtroApenasEmpresa;
+  var temFilial = (ID_FILIAL && ID_FILIAL.trim() !== "" && ID_FILIAL !== "null" && ID_FILIAL !== "undefined");
+
+  if (temFilial) {
+    filtroEmpresaFilial += ",ID_FILIAL," + ID_FILIAL;
+  }
+
+  // --- RECARGAS DOS ZOOMS ---
+
+  // FUNÇÃO: Usa apenas filtro de Empresa
   try {
-    reloadZoomFilterValuesDelay("FUN_SECAO_IDDESC_AD", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
+    reloadZoomFilterValuesDelay("FUN_IDDESCFUN", filtroApenasEmpresa);
   } catch (e) { }
 
-  // Recarrega Turno de Trabalho
+  // TURNO: Alterado para usar apenas filtro de Empresa (para trazer dados)
   try {
-    // Força a validação para garantir que o filtro seja aplicado
-    // Se ID_FILIAL existir, usa ele, senão usa só a empresa
-    if (ID_FILIAL && ID_FILIAL != "") {
-      reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    } else {
-      reloadZoomFilterValuesDelay("FUN_IDDESCTURN", "ID_EMPRESA," + ID_EMPRESA);
-    }
-    // Se o turno for recarregado, limpa a sequência para obrigar nova seleção
     window['FUN_SEQTURN_IDDESC_AD'].clear();
-  } catch (e) { console.log("Erro ao recarregar turno: " + e); }
+    reloadZoomFilterValuesDelay("FUN_IDDESCTURN", filtroApenasEmpresa);
+  } catch (e) {
+    console.log("Erro reload Turno: " + e);
+  }
 
-  // Recarrega Função
+  // SEÇÃO: Usa filtro completo
   try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaFuncao");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else reloadZoomFilterValuesDelay("FUN_IDDESCFUN", "ID_EMPRESA," + ID_EMPRESA);
+    reloadZoomFilterValuesDelay("FUN_SECAO_IDDESC_AD", filtroEmpresaFilial);
   } catch (e) { }
 
-  // Recarrega Sindicato
+  // SINDICATOS
   try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaSindicato");
-    if (filialConsulta != "") {
-      reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-      reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    } else {
-      reloadZoomFilterValuesDelay("FUN_IDDESCSIND", "ID_EMPRESA," + ID_EMPRESA);
-      reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", "ID_EMPRESA," + ID_EMPRESA);
+    reloadZoomFilterValuesDelay("FUN_IDDESCSIND", filtroEmpresaFilial);
+    reloadZoomFilterValuesDelay("FUN_CODDESCSINDICATOFILIACAO", filtroEmpresaFilial);
+  } catch (e) { }
+
+  // CENTRO DE CUSTO
+  try {
+    reloadZoomFilterValuesDelay("FUN_CCIDDESC", filtroEmpresaFilial);
+  } catch (e) { }
+
+  // GRUPO QUIOSQUE
+  try {
+    reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", filtroEmpresaFilial);
+  } catch (e) { }
+
+  // CONTÁBIL / GERENCIAL
+  try {
+    reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", filtroEmpresaFilial);
+    reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", filtroEmpresaFilial);
+  } catch (e) { }
+
+  // RECARGA TOMADORES (Pai x Filho)
+  var camposTomador = $('[name*="FUN_TOMADOR_NOME___"]');
+  $(camposTomador).each(function () {
+    var name = $(this).attr('name');
+    try {
+      reloadZoomFilterValuesDelay(name, filtroApenasEmpresa);
     }
-  } catch (e) { }
+    catch (ex) { };
+  });
 
-  // Recarrega Grupo Quiosque
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaGrupoQuiosque");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else reloadZoomFilterValuesDelay("FUN_CODQUIOSQUE_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
-  } catch (e) { }
+  // Outros Zooms independentes da estrutura
+  try { reloadZoomFilterValuesDelay("FUN_AGENCIAFGTS_IDDESC_AD", "BANCO," + $('#FUN_BANCOFGTS').val()); } catch (ex) { };
+  try { reloadZoomFilterValuesDelay("FUN_AGENCIA_IDDESC_AD", "BANCO," + $('#FUN_BANCO').val()); } catch (ex) { };
+  try { reloadZoomFilterValuesDelay("FUN_AGENCIA_IDDESC_AD2", "BANCO," + $('#FUN_BANCO2').val()); } catch (ex) { };
 
-  // Recarrega Nível/Faixa (se já houver função selecionada)
+  // RECARGA NÍVEL/FAIXA (se já houver função selecionada)
   try {
     if ($('#FUN_FUNCAO').val() != "" && $('#FUN_FUNCAO').val() != null) {
-      reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL + ",FUNCAO," + $('#FUN_FUNCAO').val());
+      reloadZoomFilterValuesDelay("FUN_NIVELFUNCAO", filtroApenasEmpresa + ",FUNCAO," + $('#FUN_FUNCAO').val());
     }
   } catch (e) { }
 
   try {
     if ($('#FUN_IDNIVELFUNCAO').val() != "" && $('#FUN_IDNIVELFUNCAO').val() != null) {
-      reloadZoomFilterValuesDelay("FUN_FAIXASALARIAL", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL + ",NIVEL," + $('#FUN_IDNIVELFUNCAO').val());
+      reloadZoomFilterValuesDelay("FUN_FAIXASALARIAL", filtroApenasEmpresa + ",NIVEL," + $('#FUN_IDNIVELFUNCAO').val());
     }
   } catch (e) { }
-
-  // Recarrega Centro de Custo
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaCentroCusto");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else reloadZoomFilterValuesDelay("FUN_CCIDDESC", "ID_EMPRESA," + ID_EMPRESA);
-  } catch (e) { }
-
-  // Recarrega Contábil/Gerencial
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaContabil");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else reloadZoomFilterValuesDelay("FUN_INTEGRCONTABIL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
-  } catch (e) { }
-
-  try {
-    var filialConsulta = validarFilial("ds_dpf_ad_consultaContaGerencial");
-    if (filialConsulta != "") reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA + ",ID_FILIAL," + ID_FILIAL);
-    else reloadZoomFilterValuesDelay("FUN_INTEGRGERENCIAL_IDDESC", "ID_EMPRESA," + ID_EMPRESA);
-  } catch (e) { }
-
-  // Outros Zooms
-  try { reloadZoomFilterValuesDelay("FUN_AGENCIAFGTS_IDDESC_AD", "BANCO," + $('#FUN_BANCOFGTS').val()); } catch (ex) { };
 }
 
 function reloadZoomFilterValuesDelay(field, filter) {

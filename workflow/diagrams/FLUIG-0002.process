@@ -3992,7 +3992,7 @@
   <bpmn2:BpmnAnnotation id="annotationtask112" name="Processos Cancelado - Reprovado" outgoing="flow113" type="0"/>
   <bpmn2:BpmnAnnotation id="annotationtask116" name="Processos Cancelado - Reprovado" outgoing="flow117" type="0"/>
   <bpmn2:BpmnAnnotation id="annotationtask120" name="Processos Cancelado - Reprovado" outgoing="flow121" type="0"/>
-  <bpmn2:BpmnProcess id="FLUIG-0002" name="Admiss&#xe3;o" serverId="MonteBravo_Hom" version="6" author="" extendedFields="&lt;list/>" cardIndex="14154" formSource="server" category="Departamento Pessoal" volume="Default" expedient="Default" instruction="" mobileReady="true" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true"/>
+  <bpmn2:BpmnProcess id="FLUIG-0002" name="Admiss&#xe3;o" serverId="MonteBravo_Hom" version="7" author="" extendedFields="&lt;list/>" cardIndex="14154" formSource="server" category="Departamento Pessoal" volume="Default" expedient="Default" instruction="" mobileReady="true" complementsLevel="1" notifyResponsibleComplements="true" notifyRequisitionerComplements="true"/>
   <bpmn2:SequenceFlow id="flow6" name="" sourceRef="startevent1" targetRef="exclusivegateway5" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:SequenceFlow id="flow10" name="" sourceRef="exclusivegateway5" targetRef="intermediatelink9" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:SequenceFlow id="flow12" name="" sourceRef="exclusivegateway5" targetRef="intermediatelink11" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>

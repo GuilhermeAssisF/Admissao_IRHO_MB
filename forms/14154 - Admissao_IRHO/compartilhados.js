@@ -1,12 +1,12 @@
 var Compartilhados = (function () {
   /*
-	// FUNÇÕES COMPARTILHADAS PARA USO DE DATASETS
-	//  ALEM DE PADRONIZAR RESOLVE OS SEGUINTES PROBLEMAS
-	// - FORÇA A UTILIZAÇÃO DO USUARIO ADM COMO EXECUTOR ASSIM EVITANDO DAR PERMISSÃO DIRETA NOS FORMULARIOS
-	// - FAZ UM CACHE DE RAPIDA UTLIZAÇÃO, ASSIM EVITANDO ACESSOS DESNECESSARIOS E OTIMIZANDO A RESPOSTA POS PRIMEIRO ACESSO
-	// - AUTOR: LEANDRO LUIZ DE SOUZA - 17-10-2017
-	// - ULTIMA UTILIZAÇÃO: LEANDRO LUIZ DE SOUZA - 17-10-2017
-	*/
+  // FUNÇÕES COMPARTILHADAS PARA USO DE DATASETS
+  //  ALEM DE PADRONIZAR RESOLVE OS SEGUINTES PROBLEMAS
+  // - FORÇA A UTILIZAÇÃO DO USUARIO ADM COMO EXECUTOR ASSIM EVITANDO DAR PERMISSÃO DIRETA NOS FORMULARIOS
+  // - FAZ UM CACHE DE RAPIDA UTLIZAÇÃO, ASSIM EVITANDO ACESSOS DESNECESSARIOS E OTIMIZANDO A RESPOSTA POS PRIMEIRO ACESSO
+  // - AUTOR: LEANDRO LUIZ DE SOUZA - 17-10-2017
+  // - ULTIMA UTILIZAÇÃO: LEANDRO LUIZ DE SOUZA - 17-10-2017
+  */
 
   var cache = {};
 
@@ -46,8 +46,8 @@ var Compartilhados = (function () {
   };
 
   /*
-	// FIM - FUNÇÕES COMPARTILHADAS PARA USO DE DATASETS
-	*/
+  // FIM - FUNÇÕES COMPARTILHADAS PARA USO DE DATASETS
+  */
 
   window.loadingLayer = FLUIGC.loading(window, {
     textMessage: "<h3>Carregando...</h3>",
@@ -197,18 +197,44 @@ var Compartilhados = (function () {
   var camposObrigatorio = function () {
     var new_span =
       '<span class="CampoObrigatorio" data-placement="right" title="Campo obrigatório"> *</span>';
+
     $("[obrigatorio]").each(function () {
-      $(this).closest(".form-group").find(".labelField").append(new_span);
+      var $input = $(this);
+      var $group = $input.closest(".form-group");
+      var $label = $group.find("label.labelField");
+
+      // 1. Tenta encontrar a label com a classe específica (.labelField)
+      if ($label.length === 0) {
+        // 2. Se falhar, tenta encontrar a label que é filha direta do form-group
+        $label = $group.find("label");
+      }
+
+      // 3. Caso seja um input/zoom sem um wrapper de form-group adequado, tenta pelo for
+      if ($label.length === 0 && $input.attr('id')) {
+        $label = $('label[for="' + $input.attr('id') + '"]');
+      }
+
+      // 4. Se a label estiver encapsulando o input (sem atributo for), tenta a anterior ao elemento container
+      if ($label.length === 0) {
+        $label = $group.prev('label');
+      }
+
+      if ($label.length > 0) {
+        // Evita duplicar o asterisco
+        if ($label.html().indexOf('<span class="CampoObrigatorio"') === -1) {
+          $label.append(new_span);
+        }
+      }
     });
   };
 
   var carregaDescricaoProcesso = function (codProcesso) {
     var c1 = DatasetFactory.createConstraint(
-        "processDefinitionPK.processId",
-        codProcesso,
-        codProcesso,
-        ConstraintType.MUST
-      ),
+      "processDefinitionPK.processId",
+      codProcesso,
+      codProcesso,
+      ConstraintType.MUST
+    ),
       c3 = DatasetFactory.createConstraint(
         "userSecurityId",
         "soter_ti",
@@ -231,11 +257,11 @@ var Compartilhados = (function () {
 
   var getCodigoManual = function (codigoProcesso) {
     var c1 = DatasetFactory.createConstraint(
-        "advancedProcessPropertiesPK.processId",
-        codigoProcesso,
-        codigoProcesso,
-        ConstraintType.MUST
-      ),
+      "advancedProcessPropertiesPK.processId",
+      codigoProcesso,
+      codigoProcesso,
+      ConstraintType.MUST
+    ),
       c2 = DatasetFactory.createConstraint(
         "advancedProcessPropertiesPK.propertyId",
         "NumeroManual",
@@ -416,7 +442,7 @@ var Compartilhados = (function () {
         title: titulo,
         label: textoBotao,
       },
-      function (el, ev) {}
+      function (el, ev) { }
     );
   };
 

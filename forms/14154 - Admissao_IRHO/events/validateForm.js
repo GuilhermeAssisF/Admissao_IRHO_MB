@@ -73,169 +73,41 @@ function validateForm(form) {
     (atividade == 1 || atividade == 0 || atividade == 41) &&
     acaoUsuario == "true"
   ) {
-    if (form.getValue("txtNomeColaborador") == "")
-      msg += "Nome Colaborador." + "<br>";
-    if (form.getValue("dtDataNascColaborador") == "")
-      msg += "Data de Nascimento do Colaborador." + "<br>";
-    if (form.getValue("CORRACA") == "") msg += "COR/RA&Ccedil;a." + "<br>";
-    if (form.getValue("NACIONALIDADECod") == "")
-      msg += "Nacionalidade." + "<br>";
-    if (form.getValue("ESTADONatalCod") == "") msg += "Estado Natal." + "<br>";
-    if (form.getValue("txtNaturalidadeCod") == "")
-      msg += "Naturalidade." + "<br>";
-    if (form.getValue("txtSexo") == "0") msg += "Sexo." + "<br>";
-    if (form.getValue("txtEstCivilCod") == "") msg += "Estado Civil." + "<br>";
-    if (form.getValue("GRAUINSTRUCAOCod") == "")
-      msg += "Grau Instru&ccedil;&atilde;o." + "<br>";
-    if (form.getValue("DEFICIENTEFISICO") == "")
-      msg += "Dificiente F&iacute;sica." + "<br>";
-    if (form.getValue("DEFICIENTEAUDITIVO") == "")
-      msg += "Deficiente Auditivo." + "<br>";
-    if (form.getValue("DEFICIENTEFALA") == "")
-      msg += "Deficiente Fala." + "<br>";
-    if (form.getValue("DEFICIENTEVISUAL") == "")
-      msg += "Deficiente Visual." + "<br>";
-    if (form.getValue("DEFICIENTEMENTAL") == "")
-      msg += "Deficiente Mental." + "<br>";
-    if (form.getValue("DEFICIENTEINTELECTUAL") == "")
-      msg += "Deficiente Intelectual." + "<br>";
-    if (form.getValue("DEFICIENTEREAB") == "")
-      msg += "Deficiente Reabilitada." + "<br>";
 
-    if (form.getValue("READABITADO") == "")
-      msg += "Reabilitado ou readaptado?" + "<br>";
-    if (form.getValue("PREENCHECOTA") == "") msg += "Preenche cota?" + "<br>";
+    // DADOS DO COLABORADOR
+    if (form.getValue("cpfcnpj") == "") msg += "CPF." + "<br>";
+    if (form.getValue("txtNomeColaborador") == "") msg += "Nome Colaborador." + "<br>";
+    if (form.getValue("dtDataNascColaborador") == "") msg += "Data de Nascimento do Colaborador." + "<br>";
 
-    if (form.getValue("TipoSanguineo") == "")
-      msg += "Tipo Sangu&iacute;neo." + "<br>";
-    if (form.getValue("TxtRg") == "") msg += "RG." + "<br>";
-    if (form.getValue("UFCARTIDENTIDADE") == "") msg += "UF RG." + "<br>";
-    if (form.getValue("ORGAOCARTIDENTIDADE") == "")
-      msg += "Org&atilde;o Emissor RG." + "<br>";
-    if (form.getValue("DTEMISSAOIDENT") == "")
-      msg += "Data Emiss&atilde;o RG." + "<br>";
-    if (form.getValue("TITULOELEITOR") == "")
-      msg += "T&iacute;tulo de Eleitor." + "<br>";
-    if (form.getValue("TITULOELEITOR") == "")
-      msg += "Zona do T&iacute;tulo de Eleitor" + "<br>";
-    if (form.getValue("DTTITELEITOR") == "")
-      msg += "Data Emiss&atilde;o do T&iacute;tulo de Eleitor" + "<br>";
-    if (form.getValue("SECAOTITELEITOR") == "")
-      msg += "Se&ccedil;&atilde;o do T&iacute;tulo de Eleitor" + "<br>";
-    if (form.getValue("UFTITULO") == "")
-      msg += "UF do T&iacute;tulo de Eleitor" + "<br>";
-    if (form.getValue("txtCartTrab") == "") msg += "CTPS" + "<br>";
-    if (form.getValue("txtSerieCart") == "")
-      msg += "S&eacute;rie da CTPS" + "<br>";
-    if (form.getValue("dtDataEmissaoCartTrab") == "")
-      msg += "Data Emiss&atilde;o CTPS" + "<br>";
-    if (form.getValue("CODUFCTPS") == "") msg += "UF CTPS" + "<br>";
-    if (form.getValue("txtTELEFONE") == "") msg += "Telefone" + "<br>";
-    if (form.getValue("txtCELULAR") == "") msg += "Celular" + "<br>";
-    if (form.getValue("txtTElCont") == "")
-      msg += "Telefone de Contato" + "<br>";
-    if (form.getValue("CERTIFRESERV") == "" && form.getValue("txtSexo") == "M")
-      msg += "Certificado de Reservista" + "<br>";
-    if (
-      form.getValue("DtCERTIFRESERV") == "" &&
-      form.getValue("txtSexo") == "M"
-    )
-      msg += "Data Emiss&atilde;o do Certificado de Reservista" + "<br>";
-    if (form.getValue("PIS") == "") msg += "PIS" + "<br>";
-    if (form.getValue("txtCODTIPORUA") == "")
-      msg += "Tipo de Logradouro" + "<br>";
-    if (form.getValue("txtRUA") == "") msg += "Logradouro/Rua" + "<br>";
-    if (form.getValue("txtNUMERO") == "") msg += "N&uacute;mero" + "<br>";
-    if (form.getValue("txtNOMETIPOBAIRRO") == "")
-      msg += "Tipo de Bairro" + "<br>";
-    if (form.getValue("txtBAIRRO") == "") msg += "Bairro" + "<br>";
-    if (form.getValue("txtNOMECODETD") == "") msg += "Estado" + "<br>";
-    if (form.getValue("txtCODMUNICIPIO") == "")
-      msg += "Munic&iacute;pio" + "<br>";
-    if (form.getValue("NomeMae") == "") msg += "Nome M&atilde;e" + "<br>";
-    if (form.getValue("NomePai") == "") msg += "Nome Pai" + "<br>";
-    if (form.getValue("txtCEP") == "") msg += "CEP" + "<br>";
-    if (form.getValue("txtCODPAIS") == "") msg += "Pais" + "<br>";
+    // DADOS DE CONTATO
+    if (form.getValue("txtEmail") == "") msg += "E-mail de Contato." + "<br>";
+    if (form.getValue("txtCELULAR") == "") msg += "Celular." + "<br>";
+    if (form.getValue("txtTELEFONE") == "") msg += "Telefone." + "<br>";
+    if (form.getValue("txtTElCont") == "") msg += "Telefone de Contato." + "<br>";
 
-    // ... (depois das validações de Contato)
+    // DADOS DA CONTRATAÇÃO
     if (form.getValue("IDDESC_EMPRESAFILIAL") == "") msg += "Empresa - Filial." + "<br>";
     if (form.getValue("descricaoJornada") == "") msg += "Jornada de Admissão." + "<br>";
     if (form.getValue("FUN_ADMISSAO") == "") msg += "Data de Admissão." + "<br>";
-    //if (form.getValue("FUN_CCIDDESC") == "") msg += "Centro de Custo." + "<br>"; // Remoção obrigatoriedade
+    if (form.getValue("FUN_TPADMISSAO_IDDESC_AD") == "") msg += "Tipo de Admissão." + "<br>";
     if (form.getValue("FUN_SECAO_IDDESC_AD") == "") msg += "Seção." + "<br>";
-    //if (form.getValue("FUN_CATEGORIA_IDDESC_AD") == "") msg += "Categoria Funcionário." + "<br>"; // Remoção obrigatoriedade
     if (form.getValue("FUN_IDDESCFUN") == "") msg += "Função." + "<br>";
     if (form.getValue("FUN_VLRSALARIO") == "") msg += "Salário." + "<br>";
-    // if (form.getValue("FUN_TIPOPGTO_IDDESC_AD") == "") msg += "Tipo de Pagamento." + "<br>"; // Remoção obrigatoriedade
-    // if (form.getValue("FUN_IDDESCSIND") == "") msg += "Sindicato." + "<br>"; // Remoção obrigatoriedade
-    // if (form.getValue("FUN_CATESOCIAL_IDDESC_AD") == "") msg += "Categoria eSocial." + "<br>"; // Remoção obrigatoriedade
-    // ... (continuar com as validações de 'cpTpRecrutamento', etc., que já estavam lá)
+    if (form.getValue("FUN_IDDESCTURN") == "") msg += "Turno de Trabalho." + "<br>";
+    if (form.getValue("FUN_SEQTURN_IDDESC_AD") == "") msg += "Sequência do Turno." + "<br>";
+    if (form.getValue("FUN_TPJORNADA") == "") msg += "Tipo de Jornada." + "<br>";
 
-    if (form.getValue("BancoPAgto") == "")
-      msg += "Banco de Pagamento " + "<br>";
-    // if ((form.getValue("cpNecTreinamento"))  =="")
-    // 	msg += "Necess&aacute;rio treinamento (s)" + "<br>";
-    // if (((form.getValue("cpJustTrein"))  =="") && ((form.getValue("cpNecTreinamento"))  =="1"))
-    // 	msg += "Justificar caso a resposta acima seja positiva" + "<br>";
-    // if ((form.getValue("cpAtendComp"))  =="")
-    // 	msg += "Atende a Matriz de Competências." + "<br>";
-    // if (((form.getValue("cpJustComp"))  =="") && ((form.getValue("cpAtendComp"))  =="2"))
-    // 	msg += "Justificar caso a resposta seja negativa" + "<br>";
-    if (form.getValue("AgPagto") == "")
-      msg += "Ag&ecirc;ncia de Pagamento " + "<br>";
-    if (form.getValue("ContPagto") == "") msg += "Conta de Pagamento " + "<br>";
-    if (form.getValue("TipodeContPagto") == "")
-      msg += "Tipo de Conta " + "<br>";
-    if (form.getValue("FGTSBANPagto") == "") msg += "Banco FGTS " + "<br>";
+    // INFORMAÇÕES GERAIS (EXAME/RH)
+    if (form.getValue("cpDataHoraExame") == "") msg += "Data e Hora do exame médico do candidato." + "<br>";
+    if (form.getValue("cpEnderecoClinica") == "") msg += "Endereço da Clinica do exame médico." + "<br>";
+    if (form.getValue("cpNomeClinica") == "") msg += "Nome da Clínica do exame médico." + "<br>";
+    if (form.getValue("cpEmailCandidatoInicio") == "") msg += "Tipo de e-mail que o candidato recebe." + "<br>";
 
-
-
-    if (form.getValue("Substituicao") == "")
-      msg += "Substitui&ccedil;&atilde;o" + "<br>";
-    if (form.getValue("CatPonto") == "") msg += "Categoria do Ponto" + "<br>";
-    if (form.getValue("ContSalBrad") == "")
-      msg += "Conta Sal&aacute;rio " + "<br>";
-    if (form.getValue("Planodonto") == "")
-      msg += "Plano Odontol&oacute;gico " + "<br>";
-    if (form.getValue("PlanoSaude") == "")
-      msg += "Plano de Sa&uacute;de " + "<br>";
-    if (form.getValue("MarcaPonto") == "") msg += "Marca Ponto" + "<br>";
-    if (form.getValue("ValeTransp") == "") msg += "Vale Transporte" + "<br>";
-    if (form.getValue("ValeAlim") == "")
-      msg += "Vale Alimenta&ccedil;&atilde;o" + "<br>";
-    if (form.getValue("ValeCesta") == "") msg += "Cesta" + "<br>";
-    // if ((form.getValue("ValeRefeicao"))  =="")
-    // 	msg += "Vale Refei&ccedil;&atilde;o" + "<br>"
-    // if ((form.getValue("TreinRH"))  =="")
-    // 	msg += "Atende a matriz de competência" + "<br>"
+    // Manter validação de segurança para CPF
     if (form.getValue("txtFuncAtivo") == "FUNC_ATIVO")
-      msg +=
-        "Existem funcionários ativos utilizando o CPF informado, gentileza verificar." +
-        "<br>";
-    if (
-      form.getValue("TxtContSind") == "J" &&
-      form.getValue("TxtVlrContSind") == ""
-    )
-      msg += "Valor da Contribui&ccedil;&atilde;o Sindical" + "<br>";
-    if (
-      form.getValue("TxtContSind") == "J" &&
-      form.getValue("TxtDtContSind") == ""
-    )
-      msg += "Data da Contribui&ccedil;&atilde;o Sindical" + "<br>";
-    if (form.getValue("txtEmail") == "") msg += "E-mail de Contato" + "<br>";
-    if (form.getValue("AddCombust") == "")
-      msg += "Crédito Combustível" + "<br>";
-    if (form.getValue("AuxMoradia") == "") msg += "Auxiliar Moradia" + "<br>";
-    if (form.getValue("AddPericulosidade") == "")
-      msg += "Adicional Periculosidade" + "<br>";
-    if (form.getValue("gratificacao") == "") msg += "Gratificação" + "<br>";
-    if (form.getValue("AddInsul") == "")
-      msg += "Adicional Insalubridade" + "<br>";
-
-    if (form.getValue("cpEmailCandidatoInicio") == "") {
-      msg += "Selecione o tipo de e-mail que o candidato recebe." + "<br>";
-    }
+      msg += "Existem funcionários ativos utilizando o CPF informado, gentileza verificar." + "<br>";
   }
+  
   //gestor
   if (atividade == 7 && acaoUsuario == "true") {
     if (form.getValue("cpAprovacaoGestor") == "0")
