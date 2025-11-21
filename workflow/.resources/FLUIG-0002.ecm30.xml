@@ -28,7 +28,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Admissão IRHO</processId>
-      <version>9</version>
+      <version>12</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>14154</formId>
@@ -1740,7 +1740,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>5</sequence>
       </conditionProcessStatePK>
       <condition>VerifHierarquia()==1</condition>
@@ -1752,7 +1752,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>5</sequence>
       </conditionProcessStatePK>
       <condition>VerifHierarquia()==3</condition>
@@ -1764,7 +1764,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>26</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;1&quot;</condition>
@@ -1776,7 +1776,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>26</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;2&quot;</condition>
@@ -1788,7 +1788,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>26</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;3&quot;</condition>
@@ -1800,7 +1800,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>44</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpReaberturaChamado&apos;)==&quot;1&quot;  </condition>
@@ -1812,7 +1812,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>44</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpReaberturaChamado&apos;)==&quot;2&quot;  </condition>
@@ -1824,7 +1824,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>53</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;1&quot;</condition>
@@ -1836,7 +1836,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>53</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;2&quot;</condition>
@@ -1848,7 +1848,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>53</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;3&quot;</condition>
@@ -1860,7 +1860,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>79</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;1&quot;</condition>
@@ -1872,7 +1872,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>79</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;2&quot;</condition>
@@ -1884,7 +1884,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>79</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;3&quot;</condition>
@@ -1896,7 +1896,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>98</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoKit&apos;)==&quot;1&quot;</condition>
@@ -1908,7 +1908,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>12</version>
         <sequence>98</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoKit&apos;)==&quot;2&quot;</condition>
@@ -2998,48 +2998,61 @@ function AprovaKit(){&#xd;
       </workflowProcessEventPK>
       <eventDescription>function afterProcessCreate(processId){&#xd;
     hAPI.setCardValue(&quot;idProcessoFluig&quot;, processId);&#xd;
+    &#xd;
+    log.info(&quot;&gt;&gt;&gt; ADMISSAO NOVA: Iniciando afterProcessCreate (ID: &quot; + processId + &quot;)&quot;);&#xd;
 &#xd;
     try {&#xd;
-        // 1. Recupera dados do formulário&#xd;
+        // 1. Obter dados do formulário&#xd;
         var nomeCandidato = hAPI.getCardValue(&quot;txtNomeColaborador&quot;);&#xd;
         var emailCandidato = hAPI.getCardValue(&quot;txtEmail&quot;);&#xd;
         &#xd;
-        // Dados do Exame (baseados nos campos do seu HTML)&#xd;
-        var dataExame = hAPI.getCardValue(&quot;cpDataHoraExame&quot;);     // Campo ID: cpDataHoraExame&#xd;
-        var localExame = hAPI.getCardValue(&quot;cpNomeClinica&quot;);      // Campo ID: cpNomeClinica&#xd;
-        var enderecoExame = hAPI.getCardValue(&quot;cpEnderecoClinica&quot;); // Campo ID: cpEnderecoClinica&#xd;
-&#xd;
-        // Link do Portal (Substitua pela URL real do seu portal público)&#xd;
+        // Link público (verifique se está correto)&#xd;
         var linkPortal = &quot;https://montebravo147803.fluig.cloudtotvs.com.br:2500/portal/1/DigteDpfAdIniciar&quot;; &#xd;
+        &#xd;
+        // 2. DEFINIR O REMETENTE (Conforme descoberto no dataset dpf_configuracoes)&#xd;
+        // Se o &quot;admin&quot; continuar falhando, tente trocar por &quot;adm&quot; ou o seu próprio login para teste.&#xd;
+        var REMETENTE_OFICIAL = &quot;admin&quot;; &#xd;
 &#xd;
-        // 2. Validação básica&#xd;
+        // 3. Validação&#xd;
         if (emailCandidato != null &amp;&amp; emailCandidato != &quot;&quot;) {&#xd;
             &#xd;
-            // 3. Parâmetros para o template HTML&#xd;
+            // Preparar Parâmetros&#xd;
             var parametros = new java.util.HashMap();&#xd;
             parametros.put(&quot;NOME_CANDIDATO&quot;, nomeCandidato);&#xd;
-            parametros.put(&quot;DATA_EXAME&quot;, dataExame);&#xd;
-            parametros.put(&quot;LOCAL_EXAME&quot;, localExame);&#xd;
-            parametros.put(&quot;ENDERECO_EXAME&quot;, enderecoExame);&#xd;
             parametros.put(&quot;LINK_ADMISSAO&quot;, linkPortal);&#xd;
             &#xd;
-            // Assunto do E-mail&#xd;
-            parametros.put(&quot;subject&quot;, &quot;Bem-vindo(a) à Monte Bravo - Processo de Admissão: &quot; + nomeCandidato);&#xd;
+            // Dados do Exame (com tratamento para evitar nulos)&#xd;
+            var dataExame = hAPI.getCardValue(&quot;cpDataHoraExame&quot;);&#xd;
+            parametros.put(&quot;DATA_EXAME&quot;, dataExame ? dataExame : &quot;A ser agendado&quot;);&#xd;
+            parametros.put(&quot;LOCAL_EXAME&quot;, hAPI.getCardValue(&quot;cpNomeClinica&quot;) || &quot;A ser informado&quot;);&#xd;
+            parametros.put(&quot;ENDERECO_EXAME&quot;, hAPI.getCardValue(&quot;cpEnderecoClinica&quot;) || &quot;A ser informado&quot;);&#xd;
 &#xd;
-            // 4. Destinatários&#xd;
+            // Assunto (alguns templates exigem o parametro &quot;subject&quot; minúsculo ou maiúsculo, enviamos os dois)&#xd;
+            var assunto = &quot;Bem-vindo(a) à Monte Bravo - Processo de Admissão&quot;;&#xd;
+            parametros.put(&quot;subject&quot;, assunto);&#xd;
+            parametros.put(&quot;SUBJECT&quot;, assunto);&#xd;
+&#xd;
+            // Destinatários&#xd;
             var destinatarios = new java.util.ArrayList();&#xd;
             destinatarios.add(emailCandidato);&#xd;
 &#xd;
-            // 5. Envio (Usando o código do template criado no painel)&#xd;
-            notifier.notify(&quot;admin&quot;, destinatarios, &quot;TPL_ADMISSAO_CANDIDATO&quot;, parametros);&#xd;
+            log.info(&quot;&gt;&gt;&gt; ADMISSAO NOVA: Tentando enviar e-mail...&quot;);&#xd;
+            log.info(&quot;&gt;&gt;&gt; Remetente: &quot; + REMETENTE_OFICIAL);&#xd;
+            log.info(&quot;&gt;&gt;&gt; Destinatário: &quot; + emailCandidato);&#xd;
+            log.info(&quot;&gt;&gt;&gt; Template: TPL_ADMISSAO_CANDIDATO&quot;);&#xd;
+&#xd;
+            // 4. COMANDO DE ENVIO (MÉTODO IGUAL AO PROCESSO ANTIGO)&#xd;
+            // Ordem: Remetente, Template, Parâmetros, Destinatários, Tipo de Conteúdo&#xd;
+            notifier.notify(REMETENTE_OFICIAL, &quot;TPL_ADMISSAO_CANDIDATO&quot;, parametros, destinatarios, &quot;text/html&quot;);&#xd;
             &#xd;
-            log.info(&quot;&gt;&gt;&gt; Admissão: E-mail enviado para candidato &quot; + nomeCandidato + &quot; (&quot; + emailCandidato + &quot;)&quot;);&#xd;
+            log.info(&quot;&gt;&gt;&gt; ADMISSAO NOVA: Sucesso! Comando de envio executado.&quot;);&#xd;
         } else {&#xd;
-            log.warn(&quot;&gt;&gt;&gt; Admissão: E-mail do candidato não preenchido. Notificação cancelada.&quot;);&#xd;
+            log.warn(&quot;&gt;&gt;&gt; ADMISSAO NOVA: E-mail do candidato não preenchido. Envio cancelado.&quot;);&#xd;
         }&#xd;
 &#xd;
     } catch (e) {&#xd;
-        log.error(&quot;&gt;&gt;&gt; Admissão: Erro ao enviar e-mail para candidato: &quot; + e);&#xd;
+        log.error(&quot;&gt;&gt;&gt; ADMISSAO NOVA: ERRO AO ENVIAR EMAIL: &quot; + e);&#xd;
+        log.error(e.toString());&#xd;
     }&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
@@ -4247,7 +4260,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>6</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4258,7 +4271,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>10</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4269,7 +4282,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>14</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4280,7 +4293,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>31</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4291,7 +4304,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>32</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4302,7 +4315,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4313,7 +4326,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>46</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4324,7 +4337,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>47</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4335,7 +4348,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>56</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4346,7 +4359,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>77</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4357,7 +4370,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>82</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4368,7 +4381,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>103</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4379,7 +4392,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>105</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4390,7 +4403,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>111</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4401,7 +4414,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>115</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4412,7 +4425,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>9</version>
+        <version>12</version>
         <linkSequence>119</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
