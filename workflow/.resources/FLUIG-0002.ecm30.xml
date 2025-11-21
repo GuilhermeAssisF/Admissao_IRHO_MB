@@ -4,12 +4,12 @@
       <companyId>1</companyId>
       <processId>FLUIG-0002</processId>
     </processDefinitionPK>
-    <processDescription>Admissão</processDescription>
+    <processDescription>Admissão IRHO</processDescription>
     <instruction></instruction>
     <active>true</active>
     <publicProcess>false</publicProcess>
     <volumeId>Default</volumeId>
-    <categoryId>Departamento Pessoal</categoryId>
+    <categoryId>Admissão Digital</categoryId>
     <managerEngineAllocationId></managerEngineAllocationId>
     <snapshotFrequency>0</snapshotFrequency>
     <baseDay>0</baseDay>
@@ -27,8 +27,8 @@
   <ProcessDefinitionVersion>
     <processDefinitionVersionPK>
       <companyId>1</companyId>
-      <processId>Admissão</processId>
-      <version>7</version>
+      <processId>Admissão IRHO</processId>
+      <version>9</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>14154</formId>
@@ -1740,7 +1740,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>5</sequence>
       </conditionProcessStatePK>
       <condition>VerifHierarquia()==1</condition>
@@ -1752,7 +1752,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>5</sequence>
       </conditionProcessStatePK>
       <condition>VerifHierarquia()==3</condition>
@@ -1764,7 +1764,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>26</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;1&quot;</condition>
@@ -1776,7 +1776,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>26</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;2&quot;</condition>
@@ -1788,7 +1788,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>26</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoGestor&apos;)==&quot;3&quot;</condition>
@@ -1800,7 +1800,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>44</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpReaberturaChamado&apos;)==&quot;1&quot;  </condition>
@@ -1812,7 +1812,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>44</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpReaberturaChamado&apos;)==&quot;2&quot;  </condition>
@@ -1824,7 +1824,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>53</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;1&quot;</condition>
@@ -1836,7 +1836,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>53</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;2&quot;</condition>
@@ -1848,7 +1848,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>53</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoDiretor&apos;)==&quot;3&quot;</condition>
@@ -1860,7 +1860,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>79</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;1&quot;</condition>
@@ -1872,7 +1872,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>79</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;2&quot;</condition>
@@ -1884,7 +1884,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>79</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoRH&apos;)==&quot;3&quot;</condition>
@@ -1896,7 +1896,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>98</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoKit&apos;)==&quot;1&quot;</condition>
@@ -1908,7 +1908,7 @@
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>9</version>
         <sequence>98</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&apos;cpAprovacaoKit&apos;)==&quot;2&quot;</condition>
@@ -2996,8 +2996,51 @@ function AprovaKit(){&#xd;
         <processId>FLUIG-0002</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function afterProcessCreate(processId){
-	hAPI.setCardValue( &quot;cpNumeroSolicitacao&quot;, getValue(&quot;WKNumProces&quot;) );
+      <eventDescription>function afterProcessCreate(processId){&#xd;
+    hAPI.setCardValue(&quot;idProcessoFluig&quot;, processId);&#xd;
+&#xd;
+    try {&#xd;
+        // 1. Recupera dados do formulário&#xd;
+        var nomeCandidato = hAPI.getCardValue(&quot;txtNomeColaborador&quot;);&#xd;
+        var emailCandidato = hAPI.getCardValue(&quot;txtEmail&quot;);&#xd;
+        &#xd;
+        // Dados do Exame (baseados nos campos do seu HTML)&#xd;
+        var dataExame = hAPI.getCardValue(&quot;cpDataHoraExame&quot;);     // Campo ID: cpDataHoraExame&#xd;
+        var localExame = hAPI.getCardValue(&quot;cpNomeClinica&quot;);      // Campo ID: cpNomeClinica&#xd;
+        var enderecoExame = hAPI.getCardValue(&quot;cpEnderecoClinica&quot;); // Campo ID: cpEnderecoClinica&#xd;
+&#xd;
+        // Link do Portal (Substitua pela URL real do seu portal público)&#xd;
+        var linkPortal = &quot;https://montebravo147803.fluig.cloudtotvs.com.br:2500/portal/1/DigteDpfAdIniciar&quot;; &#xd;
+&#xd;
+        // 2. Validação básica&#xd;
+        if (emailCandidato != null &amp;&amp; emailCandidato != &quot;&quot;) {&#xd;
+            &#xd;
+            // 3. Parâmetros para o template HTML&#xd;
+            var parametros = new java.util.HashMap();&#xd;
+            parametros.put(&quot;NOME_CANDIDATO&quot;, nomeCandidato);&#xd;
+            parametros.put(&quot;DATA_EXAME&quot;, dataExame);&#xd;
+            parametros.put(&quot;LOCAL_EXAME&quot;, localExame);&#xd;
+            parametros.put(&quot;ENDERECO_EXAME&quot;, enderecoExame);&#xd;
+            parametros.put(&quot;LINK_ADMISSAO&quot;, linkPortal);&#xd;
+            &#xd;
+            // Assunto do E-mail&#xd;
+            parametros.put(&quot;subject&quot;, &quot;Bem-vindo(a) à Monte Bravo - Processo de Admissão: &quot; + nomeCandidato);&#xd;
+&#xd;
+            // 4. Destinatários&#xd;
+            var destinatarios = new java.util.ArrayList();&#xd;
+            destinatarios.add(emailCandidato);&#xd;
+&#xd;
+            // 5. Envio (Usando o código do template criado no painel)&#xd;
+            notifier.notify(&quot;admin&quot;, destinatarios, &quot;TPL_ADMISSAO_CANDIDATO&quot;, parametros);&#xd;
+            &#xd;
+            log.info(&quot;&gt;&gt;&gt; Admissão: E-mail enviado para candidato &quot; + nomeCandidato + &quot; (&quot; + emailCandidato + &quot;)&quot;);&#xd;
+        } else {&#xd;
+            log.warn(&quot;&gt;&gt;&gt; Admissão: E-mail do candidato não preenchido. Notificação cancelada.&quot;);&#xd;
+        }&#xd;
+&#xd;
+    } catch (e) {&#xd;
+        log.error(&quot;&gt;&gt;&gt; Admissão: Erro ao enviar e-mail para candidato: &quot; + e);&#xd;
+    }&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -4204,7 +4247,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>6</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4215,7 +4258,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>10</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4226,7 +4269,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>14</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4237,7 +4280,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>31</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4248,7 +4291,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>32</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4259,7 +4302,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4270,7 +4313,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>46</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4281,7 +4324,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>47</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4292,7 +4335,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>56</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4303,7 +4346,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>77</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4314,7 +4357,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>82</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4325,7 +4368,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>103</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4336,7 +4379,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>105</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4347,7 +4390,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>111</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4358,7 +4401,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>115</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -4369,7 +4412,7 @@ function montaXMLDependente(){&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>FLUIG-0002</processId>
-        <version>7</version>
+        <version>9</version>
         <linkSequence>119</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
