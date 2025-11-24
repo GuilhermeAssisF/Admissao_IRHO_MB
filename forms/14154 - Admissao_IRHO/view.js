@@ -129,7 +129,7 @@ $(document).ready(function () {
     // Oculta campos da seção "Dados do Colaborador"
 
     // Oculta "Está Recebendo Seguro Desemprego?"
-    $("#TxtSegDesemprego").closest(".col-md-4").hide();
+    $("#TxtSegDesemprego").closest(".col-md-6").hide();
 
     // Oculta "Cor/Raça"
     $("#CORRACA").closest(".col-md-6").hide();

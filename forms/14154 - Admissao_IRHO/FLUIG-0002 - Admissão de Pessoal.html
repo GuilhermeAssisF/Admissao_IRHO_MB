@@ -174,7 +174,8 @@
             <span class="fluigicon fluigicon-pointer-right fluigicon-sm"></span>Dados do Colaborador
           </h4>
           <div class="row">
-            <div class="col-md-3">
+
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="cpfcnpj">CPF</label>
                 <input type="hidden" name="cpfcnpjValue" id="cpfcnpjValue" />
@@ -185,29 +186,19 @@
                 <input type="hidden" name="txtFuncAtivo" id="txtFuncAtivo" onchange="CarregaCPF()" />
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8">
+
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="txtNomeColaborador">Nome do Colaborador</label>
                 <input type="text" name="txtNomeColaborador" id="txtNomeColaborador" class="form-control nome"
                   maxlength="120" />
               </div>
             </div>
+
             <div class="col-md-4">
-              <div class="form-group">
-                <label for="TxtSegDesemprego">Est&aacute; Recebendo Seguro Desemprego?</label>
-                <select class="form-control" name="TxtSegDesemprego" id="TxtSegDesemprego">
-                  <option value="0">N&atilde;o</option>
-                  <option value="1">Sim</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <input type="hidden" name="Idade" id="Idade" />
-            <input type="hidden" name="dtDataNascColaboradorValue" id="dtDataNascColaboradorValue" />
-            <div class="col-md-6">
+              <input type="hidden" name="Idade" id="Idade" />
+              <input type="hidden" name="dtDataNascColaboradorValue" id="dtDataNascColaboradorValue" />
+
               <div class="form-group">
                 <label>Data de Nascimento</label>
                 <div class="input-group">
@@ -221,6 +212,20 @@
                 </div>
               </div>
             </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="TxtSegDesemprego">Est&aacute; Recebendo Seguro Desemprego?</label>
+                <select class="form-control" name="TxtSegDesemprego" id="TxtSegDesemprego">
+                  <option value="0">N&atilde;o</option>
+                  <option value="1">Sim</option>
+                </select>
+              </div>
+            </div>
+            
             <div class="col-md-6">
               <div class="form-group">
                 <label for="CORRACA">Cor/Ra&ccedil;a</label>
@@ -235,6 +240,7 @@
               </div>
             </div>
           </div>
+          
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
