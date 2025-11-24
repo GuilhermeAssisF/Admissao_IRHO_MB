@@ -174,8 +174,8 @@ $(document).ready(function () {
     // --- Modificações no Painel "Contato" ---
 
     // 2. Marca "E-mail de Contato" como obrigatório (adiciona asterisco)
-    var $labelEmail = $("#txtEmail").closest(".form-group").find("label");
-    $labelEmail.html($labelEmail.html() + ' <span style="color:red;">*</span>');
+    // var $labelEmail = $("#txtEmail").closest(".form-group").find("label");
+    // $labelEmail.html($labelEmail.html() + ' <span style="color:red;">*</span>');
 
     // --- Oculta campos da seção "Dados da Lotação" ---
 
