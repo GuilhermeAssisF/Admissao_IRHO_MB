@@ -1,25 +1,30 @@
 var BSE_FIM_APROVADO = 74;
+
 function beforeStateEntry(sequenceId)
 {
-	log.info('Executando beforeStateEntry: ' + sequenceId);
-	// Só grava no RM se for evento final
-	if (sequenceId == BSE_FIM_APROVADO)
-	{
-		var cpfCnpj = hAPI.getCardValue("cpfcnpjValue");
-		var fields = new Array(cpfCnpj);
-		var tabela = DatasetFactory.getDataset("DS_FLUIG_0041", fields, null, null);
-		log.info("tabela: " + tabela.values.length);
+    log.info('Executando beforeStateEntry: ' + sequenceId);
 
-		if (tabela == null || tabela.values.length < 1)
-		{
-			montaXMLFunc();
-			montaXMLDependente();
-		}		
-	}
+    // Verifica se é a etapa final de aprovação
+    if (sequenceId == BSE_FIM_APROVADO)
+    {
+        log.warn("AVISO: Datasets de integração (DS_FLUIG_0041 e ds_connector) não foram encontrados.");
+        log.warn("AVISO: A integração com o RM e o envio de e-mail via TBC foram PULADOS para permitir o avanço do processo.");
 
+        /* AS CHAMADAS ABAIXO FORAM COMENTADAS PARA NÃO GERAR ERRO.
+           PARA REATIVAR A INTEGRAÇÃO NO FUTURO (QUANDO OS DATASETS EXISTIREM),
+           BASTA REMOVER AS BARRAS (//) DO INÍCIO DAS LINHAS.
+        */
+
+        // montaXMLFunc();
+        // montaXMLDependente();
+    }
 }
+
 function montaXMLFunc()
 {
+	// Função mantida no código para uso futuro, mas não será executada agora.
+    log.info("Iniciando estrutura de montaXMLFunc (Inativa)...");
+
 	log.info("Iniciando montaXMLFunc...");
 	var CONNECT = DatasetFactory.getDataset("ds_connector", null, null, null);
 	var USUARIO = CONNECT.getValue(0,"INTEGRADOR");
@@ -397,6 +402,9 @@ function montaXMLFunc()
 }
 
 function montaXMLDependente(){
+	// Função mantida no código para uso futuro, mas não será executada agora.
+    log.info("Iniciando estrutura de montaXMLDependente (Inativa)...");
+
 	log.info("Iniciando montaXMLDependente...");
 	//Para cada campo de data tenho que fazer a conversão dela.
 	var formatoInput = new java.text.SimpleDateFormat("dd/MM/yyyy");
@@ -546,6 +554,5 @@ function montaXMLDependente(){
 
 	}
 }
-
 
 

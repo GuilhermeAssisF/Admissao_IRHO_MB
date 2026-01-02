@@ -24,6 +24,7 @@
     }
   </style>
   <meta charset="utf8" />
+
 </head>
 
 <body>
@@ -225,7 +226,7 @@
                 </select>
               </div>
             </div>
-            
+
             <div class="col-md-6">
               <div class="form-group">
                 <label for="CORRACA">Cor/Ra&ccedil;a</label>
@@ -240,7 +241,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -661,6 +662,16 @@
                               <option value="1">Sim</option>
                             </select>
                           </div>
+                        </div>
+                        <div class="campos-pensao-hidden" style="display:none;">
+                          <input type="hidden" name="txtNomeRespPensao" id="txtNomeRespPensao">
+                          <input type="hidden" name="txtCPFRespPensao" id="txtCPFRespPensao">
+                          <input type="hidden" name="txtBancoPensao" id="txtBancoPensao">
+                          <input type="hidden" name="txtAgenciaPensao" id="txtAgenciaPensao">
+                          <input type="hidden" name="txtContaPensao" id="txtContaPensao">
+
+                          <input type="hidden" name="txtOficioPensaoNome" id="txtOficioPensaoNome">
+                          <textarea name="txtOficioPensaoBase64" id="txtOficioPensaoBase64"></textarea>
                         </div>
                       </td>
                     </tr>
@@ -1368,6 +1379,7 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -1383,6 +1395,24 @@
                   <option value="1">Corrente</option>
                   <option value="2">Conta Sal&aacute;rio</option>
                 </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h3 style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">Dados PIX</h3>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Tipo de Chave PIX</label>
+                <input type="text" name="txtTipoChavePix" id="txtTipoChavePix" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label>Chave PIX</label>
+                <input type="text" name="txtChavePix" id="txtChavePix" class="form-control" readonly>
               </div>
             </div>
           </div>
@@ -2475,16 +2505,25 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="cpEmailCandidatoInicio" class="labelField">(RH) - Qual e-mail o candidato recebe no
-                        início da solicitação?</label>
+                      <label for="cpEmailCandidatoInicio">Modelo de E-mail de Boas Vindas</label>
+                      <input type="zoom" id="cpEmailCandidatoInicio" name="cpEmailCandidatoInicio" data-zoom="{
+                          'displayKey':'mail_nome',
+                          'datasetId':'ds_lista_emails_rh',
+                          'maximumSelectionLength':'1',
+                          'placeholder':'Selecione o modelo de texto...',
+                          'fields':[
+                              {'field':'mail_nome', 'label':'Modelo'},
+                              {'field':'mail_assunto', 'label':'Assunto', 'visible':'false'},
+                              {'field':'mail_corpo', 'label':'Corpo', 'visible':'false'}
+                          ]
+                        }" />
 
-                      <select class="form-control" name="cpEmailCandidatoInicio" id="cpEmailCandidatoInicio">
-                        <option value="">Selecione</option>
-                        <option value="E-mail Padrão">E-mail Padrão</option>
-                        <option value="Estagiários e Associados">Estagiários e Associados</option>
-                      </select>
+                      <input type="hidden" name="hidden_mail_assunto" id="hidden_mail_assunto">
+
+                      <textarea name="hidden_mail_corpo" id="hidden_mail_corpo" style="display:none;"></textarea>
                     </div>
                   </div>
+
                 </div>
 
                 <div class="row">
@@ -3097,7 +3136,7 @@
             <input type="text" name="FUN_TPDEFICIENTE_DESC_AD" id="FUN_TPDEFICIENTE_DESC_AD" class="form-control">
           </div>
           <div class="form-group col-sm-4">
-            <label for="FUN_TPLOGRADOURO_DESC_AD" class="control-label">Tipo Rogradouro
+            <label for="FUN_TPLOGRADOURO_DESC_AD" class="control-label">Tipo Logradouro
               Descrição:</label>
             <input type="text" name="FUN_TPLOGRADOURO_DESC_AD" id="FUN_TPLOGRADOURO_DESC_AD" class="form-control">
           </div>
@@ -3580,12 +3619,100 @@
               Turno</label>
             <textarea name="FUN_TURNO_JORNADA" id="FUN_TURNO_JORNADA" class="form-control"></textarea>
           </div>
+          <div class="form-group col-sm-4">
+            <label for="txtTamanhoCamisa">Tamanho da Camisa</label>
+            <input type="text" name="txtTamanhoCamisa" id="txtTamanhoCamisa" class="form-control">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="txtTamanhoCalcado">Tamanho do Calçado</label>
+            <input type="text" name="txtTamanhoCalcado" id="txtTamanhoCalcado" class="form-control">
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label for="txtNomeCurso">Nome do Curso Superior</label>
+            <input type="text" name="txtNomeCurso" id="txtNomeCurso" class="form-control">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="txtInstituicaoEnsino">Instituição de Ensino</label>
+            <input type="text" name="txtInstituicaoEnsino" id="txtInstituicaoEnsino" class="form-control">
+          </div>
+          <div class="form-group col-sm-4">
+            <label for="txtAnoConclusao">Ano de Conclusão</label>
+            <input type="text" name="txtAnoConclusao" id="txtAnoConclusao" class="form-control">
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label for="txtNomeEmergencia">Nome Contato Emergência</label>
+            <input type="text" name="txtNomeEmergencia" id="txtNomeEmergencia" class="form-control">
+          </div>
         </div>
       </div>
 
       <!-- Etapas do processo -->
+
+      <div style="display:none;">
+        <textarea name="cand_doc_rg_base64" id="cand_doc_rg_base64"></textarea>
+        <input type="hidden" name="cand_doc_rg_nome" id="cand_doc_rg_nome">
+
+        <textarea name="cand_doc_cpf_base64" id="cand_doc_cpf_base64"></textarea>
+        <input type="hidden" name="cand_doc_cpf_nome" id="cand_doc_cpf_nome">
+
+        <textarea name="cand_doc_titulo_base64" id="cand_doc_titulo_base64"></textarea>
+        <input type="hidden" name="cand_doc_titulo_nome" id="cand_doc_titulo_nome">
+
+        <textarea name="cand_doc_residencia_base64" id="cand_doc_residencia_base64"></textarea>
+        <input type="hidden" name="cand_doc_residencia_nome" id="cand_doc_residencia_nome">
+
+        <input type="hidden" name="origem_dados" id="origem_dados">
+      </div>
+      <div style="display: none;">
+        <input type="hidden" name="cand_email" id="cand_email"> <input type="hidden" name="cand_naturalidade"
+          id="cand_naturalidade">
+        <input type="hidden" name="cand_estado_natal" id="cand_estado_natal">
+        <input type="hidden" name="cand_estado_civil" id="cand_estado_civil">
+        <input type="hidden" name="cand_sexo" id="cand_sexo">
+        <input type="hidden" name="cand_nacionalidade" id="cand_nacionalidade">
+        <input type="hidden" name="cand_raca" id="cand_raca">
+        <input type="hidden" name="cand_rg" id="cand_rg">
+        <input type="hidden" name="cand_titulo_eleitor" id="cand_titulo_eleitor">
+
+        <input type="hidden" name="cand_cep" id="cand_cep">
+        <input type="hidden" name="cand_endereco" id="cand_endereco">
+
+        <input type="hidden" name="cand_deficiencia" id="cand_deficiencia">
+        <input type="hidden" name="cand_tamanho_calcado" id="cand_tamanho_calcado">
+        <input type="hidden" name="cand_tamanho_camisa" id="cand_tamanho_camisa">
+
+        <input type="hidden" name="cand_banco" id="cand_banco">
+        <input type="hidden" name="cand_agencia" id="cand_agencia">
+        <input type="hidden" name="cand_conta_corrente" id="cand_conta_corrente">
+        <input type="hidden" name="cand_tipo_conta" id="cand_tipo_conta">
+
+        <input type="hidden" name="cand_emergencia_nome" id="cand_emergencia_nome">
+        <input type="hidden" name="cand_emergencia_telefone" id="cand_emergencia_telefone">
+
+        <input type="hidden" name="cand_grau_instrucao" id="cand_grau_instrucao">
+        <input type="hidden" name="cand_curso" id="cand_curso">
+        <input type="hidden" name="cand_instituicao" id="cand_instituicao">
+        <input type="hidden" name="cand_ano_conclusao" id="cand_ano_conclusao">
+
+        <textarea name="json_dependentes" id="json_dependentes" style="display:none"></textarea>
+
+        <input type="hidden" name="cand_doc_cnh_nome" id="cand_doc_cnh_nome">
+        <textarea name="cand_doc_cnh_base64" id="cand_doc_cnh_base64" style="display:none"></textarea>
+
+        <input type="hidden" name="cand_doc_reservista_nome" id="cand_doc_reservista_nome">
+        <textarea name="cand_doc_reservista_base64" id="cand_doc_reservista_base64" style="display:none"></textarea>
+
+        <input type="hidden" name="cand_doc_pis_nome" id="cand_doc_pis_nome">
+        <textarea name="cand_doc_pis_base64" id="cand_doc_pis_base64" style="display:none"></textarea>
+
+        <input type="hidden" name="cand_foto_nome" id="cand_foto_nome">
+        <textarea name="cand_foto_base64" id="cand_foto_base64" style="display:none"></textarea>
+      </div>
     </form>
   </div>
+
   <!-- scrpts essenciais - DEVE CONTER EM TODOS OS FORMS -->
   <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
   <script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
@@ -3601,9 +3728,12 @@
   <!-- scrpts essenciais - DEVE CONTER EM TODOS OS FORMS -->
   <script type="text/javascript" src="view.js"></script>
   <script type="text/javascript" src="dal.js"></script>
+
   <script type="text/javascript" src="jquery.maskMoney.min.js"></script>
   <script type="text/javascript" src="jquery-ui-Data.js"></script>
   <script type="text/javascript" src="jquery-uiData2.js"></script>
+
+  <script type="text/javascript" src="custom_zoom_events.js"></script>
 </body>
 
 </html>
