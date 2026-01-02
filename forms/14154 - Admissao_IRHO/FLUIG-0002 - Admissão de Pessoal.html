@@ -327,6 +327,26 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 style="margin-top: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px; color: #1eaad9;">
+                    Detalhes da Formação (Informado pelo Candidato)
+                  </h4>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="txtNomeCurso">Nome do Curso Superior</label>
+                  <input type="text" name="txtNomeCurso" id="txtNomeCurso" class="form-control" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="txtInstituicaoEnsino">Instituição de Ensino</label>
+                  <input type="text" name="txtInstituicaoEnsino" id="txtInstituicaoEnsino" class="form-control"
+                    readonly>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="txtAnoConclusao">Ano de Conclusão</label>
+                  <input type="text" name="txtAnoConclusao" id="txtAnoConclusao" class="form-control" readonly>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -342,6 +362,29 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 style="margin-top: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px; color: #1eaad9;">
+                Complementos e Emergência
+              </h4>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="txtTamanhoCamisa">Tamanho da Camisa</label>
+              <input type="text" name="txtTamanhoCamisa" id="txtTamanhoCamisa" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="txtTamanhoCalcado">Tamanho do Calçado</label>
+              <input type="text" name="txtTamanhoCalcado" id="txtTamanhoCalcado" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="txtNomeEmergencia">Contato de Emergência (Nome)</label>
+              <input type="text" name="txtNomeEmergencia" id="txtNomeEmergencia" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="txtTelefoneEmergencia">Telefone de Emergência</label>
+              <input type="text" name="txtTelefoneEmergencia" id="txtTelefoneEmergencia" class="form-control" readonly>
             </div>
           </div>
           <div id="divDhecklist" class="hide">
@@ -530,8 +573,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  <span class="fluigicon fluigicon-user fluigicon-md icone-span">
-                  </span>
+                  <span class="fluigicon fluigicon-user fluigicon-md icone-span"></span>
                   Dependentes
                 </h3>
               </div>
@@ -556,8 +598,9 @@
                               style="cursor: pointer" />
                           </div>
                         </div>
+
                         <div class="row">
-                          <div class="col-sm-6">
+                          <div class="col-sm-4">
                             <label for="txtNomDepen">Nome Dependente</label>
                             <input type="text" name="txtNomDepen" id="txtNomDepen" class="form-control input-sm Tabela"
                               maxlength="120" />
@@ -568,6 +611,11 @@
                               <option value="F">Feminino</option>
                               <option value="M">Masculino</option>
                             </select>
+                          </div>
+                          <div class="col-sm-2">
+                            <label for="txtEstadoCivilDepen">Estado Civil</label>
+                            <input type="text" name="txtEstadoCivilDepen" id="txtEstadoCivilDepen"
+                              class="form-control input-sm Tabela" readonly />
                           </div>
                           <div class="col-md-2">
                             <div class="form-group">
@@ -599,6 +647,7 @@
                             </div>
                           </div>
                         </div>
+
                         <div class="row esconde">
                           <div class="col-sm-2">
                             <label for="TxtCartorio">Cart&oacute;rio</label>
@@ -621,11 +670,12 @@
                               maxlength="5" />
                           </div>
                           <div class="col-sm-2">
-                            <label for="TxtFolha">CPF</label>
+                            <label for="TxtCPFDep">CPF</label>
                             <input type="text" name="TxtCPFDep" id="TxtCPFDep" mask="999.999.999-99"
-                              class="form-control input-sm Tabela" maxlength="5" />
+                              class="form-control input-sm Tabela" maxlength="14" />
                           </div>
                         </div>
+
                         <div class="row">
                           <div class="col-sm-2">
                             <label for="TxtIncIRRF">Incid&ecirc;ncia p/ IRRF</label>
@@ -663,16 +713,57 @@
                             </select>
                           </div>
                         </div>
-                        <div class="campos-pensao-hidden" style="display:none;">
-                          <input type="hidden" name="txtNomeRespPensao" id="txtNomeRespPensao">
-                          <input type="hidden" name="txtCPFRespPensao" id="txtCPFRespPensao">
-                          <input type="hidden" name="txtBancoPensao" id="txtBancoPensao">
-                          <input type="hidden" name="txtAgenciaPensao" id="txtAgenciaPensao">
-                          <input type="hidden" name="txtContaPensao" id="txtContaPensao">
 
-                          <input type="hidden" name="txtOficioPensaoNome" id="txtOficioPensaoNome">
-                          <textarea name="txtOficioPensaoBase64" id="txtOficioPensaoBase64"></textarea>
+                        <div class="row" id="divDadosPensao"
+                          style="background-color: #fff8e1; border: 1px solid #faebcc; padding: 10px; margin-top: 10px; border-radius: 4px;">
+                          <div class="col-md-12">
+                            <h5
+                              style="color: #8a6d3b; margin-top: 0; font-weight: bold; border-bottom: 1px solid #faebcc; padding-bottom: 5px;">
+                              Dados Bancários - Pensão Alimentícia
+                            </h5>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                              <label for="txtNomeRespPensao">Nome Responsável</label>
+                              <input type="text" name="txtNomeRespPensao" id="txtNomeRespPensao"
+                                class="form-control input-sm" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label for="txtCPFRespPensao">CPF Responsável</label>
+                              <input type="text" name="txtCPFRespPensao" id="txtCPFRespPensao"
+                                class="form-control input-sm" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label for="txtBancoPensao">Banco</label>
+                              <input type="text" name="txtBancoPensao" id="txtBancoPensao" class="form-control input-sm"
+                                readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label for="txtAgenciaPensao">Agência</label>
+                              <input type="text" name="txtAgenciaPensao" id="txtAgenciaPensao"
+                                class="form-control input-sm" readonly>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label for="txtContaPensao">Conta</label>
+                              <input type="text" name="txtContaPensao" id="txtContaPensao" class="form-control input-sm"
+                                readonly>
+                            </div>
+                          </div>
+
+                          <div style="display:none;">
+                            <input type="hidden" name="txtOficioPensaoNome" id="txtOficioPensaoNome">
+                            <textarea name="txtOficioPensaoBase64" id="txtOficioPensaoBase64"></textarea>
+                          </div>
                         </div>
+
                       </td>
                     </tr>
                   </tbody>
@@ -870,6 +961,20 @@
           </h3>
         </div>
         <div class="panel-body">
+          <div class="row" style="background-color: #f9f9f9; padding: 10px 0; margin-bottom: 15px; border-radius: 4px;">
+            <div class="col-md-12">
+              <label style="color: #d9534f;">Preenchimento do Candidato (Widget):</label>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Possui Deficiência?</label>
+              <input type="text" name="txtPossuiDeficiencia" id="txtPossuiDeficiencia" class="form-control" readonly>
+            </div>
+            <div class="form-group col-md-9">
+              <label>Qual Deficiência / Tipo?</label>
+              <input type="text" name="txtTipoDeficiencia" id="txtTipoDeficiencia" class="form-control" readonly>
+            </div>
+          </div>
+          <hr>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -3619,97 +3724,72 @@
               Turno</label>
             <textarea name="FUN_TURNO_JORNADA" id="FUN_TURNO_JORNADA" class="form-control"></textarea>
           </div>
-          <div class="form-group col-sm-4">
-            <label for="txtTamanhoCamisa">Tamanho da Camisa</label>
-            <input type="text" name="txtTamanhoCamisa" id="txtTamanhoCamisa" class="form-control">
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="txtTamanhoCalcado">Tamanho do Calçado</label>
-            <input type="text" name="txtTamanhoCalcado" id="txtTamanhoCalcado" class="form-control">
-          </div>
 
-          <div class="form-group col-sm-4">
-            <label for="txtNomeCurso">Nome do Curso Superior</label>
-            <input type="text" name="txtNomeCurso" id="txtNomeCurso" class="form-control">
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="txtInstituicaoEnsino">Instituição de Ensino</label>
-            <input type="text" name="txtInstituicaoEnsino" id="txtInstituicaoEnsino" class="form-control">
-          </div>
-          <div class="form-group col-sm-4">
-            <label for="txtAnoConclusao">Ano de Conclusão</label>
-            <input type="text" name="txtAnoConclusao" id="txtAnoConclusao" class="form-control">
-          </div>
 
-          <div class="form-group col-sm-4">
-            <label for="txtNomeEmergencia">Nome Contato Emergência</label>
-            <input type="text" name="txtNomeEmergencia" id="txtNomeEmergencia" class="form-control">
-          </div>
         </div>
-      </div>
 
-      <!-- Etapas do processo -->
+        <!-- Etapas do processo -->
 
-      <div style="display:none;">
-        <textarea name="cand_doc_rg_base64" id="cand_doc_rg_base64"></textarea>
-        <input type="hidden" name="cand_doc_rg_nome" id="cand_doc_rg_nome">
+        <div style="display:none;">
+          <textarea name="cand_doc_rg_base64" id="cand_doc_rg_base64"></textarea>
+          <input type="hidden" name="cand_doc_rg_nome" id="cand_doc_rg_nome">
 
-        <textarea name="cand_doc_cpf_base64" id="cand_doc_cpf_base64"></textarea>
-        <input type="hidden" name="cand_doc_cpf_nome" id="cand_doc_cpf_nome">
+          <textarea name="cand_doc_cpf_base64" id="cand_doc_cpf_base64"></textarea>
+          <input type="hidden" name="cand_doc_cpf_nome" id="cand_doc_cpf_nome">
 
-        <textarea name="cand_doc_titulo_base64" id="cand_doc_titulo_base64"></textarea>
-        <input type="hidden" name="cand_doc_titulo_nome" id="cand_doc_titulo_nome">
+          <textarea name="cand_doc_titulo_base64" id="cand_doc_titulo_base64"></textarea>
+          <input type="hidden" name="cand_doc_titulo_nome" id="cand_doc_titulo_nome">
 
-        <textarea name="cand_doc_residencia_base64" id="cand_doc_residencia_base64"></textarea>
-        <input type="hidden" name="cand_doc_residencia_nome" id="cand_doc_residencia_nome">
+          <textarea name="cand_doc_residencia_base64" id="cand_doc_residencia_base64"></textarea>
+          <input type="hidden" name="cand_doc_residencia_nome" id="cand_doc_residencia_nome">
 
-        <input type="hidden" name="origem_dados" id="origem_dados">
-      </div>
-      <div style="display: none;">
-        <input type="hidden" name="cand_email" id="cand_email"> <input type="hidden" name="cand_naturalidade"
-          id="cand_naturalidade">
-        <input type="hidden" name="cand_estado_natal" id="cand_estado_natal">
-        <input type="hidden" name="cand_estado_civil" id="cand_estado_civil">
-        <input type="hidden" name="cand_sexo" id="cand_sexo">
-        <input type="hidden" name="cand_nacionalidade" id="cand_nacionalidade">
-        <input type="hidden" name="cand_raca" id="cand_raca">
-        <input type="hidden" name="cand_rg" id="cand_rg">
-        <input type="hidden" name="cand_titulo_eleitor" id="cand_titulo_eleitor">
+          <input type="hidden" name="origem_dados" id="origem_dados">
+        </div>
+        <div style="display: none;">
+          <input type="hidden" name="cand_email" id="cand_email"> <input type="hidden" name="cand_naturalidade"
+            id="cand_naturalidade">
+          <input type="hidden" name="cand_estado_natal" id="cand_estado_natal">
+          <input type="hidden" name="cand_estado_civil" id="cand_estado_civil">
+          <input type="hidden" name="cand_sexo" id="cand_sexo">
+          <input type="hidden" name="cand_nacionalidade" id="cand_nacionalidade">
+          <input type="hidden" name="cand_raca" id="cand_raca">
+          <input type="hidden" name="cand_rg" id="cand_rg">
+          <input type="hidden" name="cand_titulo_eleitor" id="cand_titulo_eleitor">
 
-        <input type="hidden" name="cand_cep" id="cand_cep">
-        <input type="hidden" name="cand_endereco" id="cand_endereco">
+          <input type="hidden" name="cand_cep" id="cand_cep">
+          <input type="hidden" name="cand_endereco" id="cand_endereco">
 
-        <input type="hidden" name="cand_deficiencia" id="cand_deficiencia">
-        <input type="hidden" name="cand_tamanho_calcado" id="cand_tamanho_calcado">
-        <input type="hidden" name="cand_tamanho_camisa" id="cand_tamanho_camisa">
+          <input type="hidden" name="cand_deficiencia" id="cand_deficiencia">
+          <input type="hidden" name="cand_tamanho_calcado" id="cand_tamanho_calcado">
+          <input type="hidden" name="cand_tamanho_camisa" id="cand_tamanho_camisa">
 
-        <input type="hidden" name="cand_banco" id="cand_banco">
-        <input type="hidden" name="cand_agencia" id="cand_agencia">
-        <input type="hidden" name="cand_conta_corrente" id="cand_conta_corrente">
-        <input type="hidden" name="cand_tipo_conta" id="cand_tipo_conta">
+          <input type="hidden" name="cand_banco" id="cand_banco">
+          <input type="hidden" name="cand_agencia" id="cand_agencia">
+          <input type="hidden" name="cand_conta_corrente" id="cand_conta_corrente">
+          <input type="hidden" name="cand_tipo_conta" id="cand_tipo_conta">
 
-        <input type="hidden" name="cand_emergencia_nome" id="cand_emergencia_nome">
-        <input type="hidden" name="cand_emergencia_telefone" id="cand_emergencia_telefone">
+          <input type="hidden" name="cand_emergencia_nome" id="cand_emergencia_nome">
+          <input type="hidden" name="cand_emergencia_telefone" id="cand_emergencia_telefone">
 
-        <input type="hidden" name="cand_grau_instrucao" id="cand_grau_instrucao">
-        <input type="hidden" name="cand_curso" id="cand_curso">
-        <input type="hidden" name="cand_instituicao" id="cand_instituicao">
-        <input type="hidden" name="cand_ano_conclusao" id="cand_ano_conclusao">
+          <input type="hidden" name="cand_grau_instrucao" id="cand_grau_instrucao">
+          <input type="hidden" name="cand_curso" id="cand_curso">
+          <input type="hidden" name="cand_instituicao" id="cand_instituicao">
+          <input type="hidden" name="cand_ano_conclusao" id="cand_ano_conclusao">
 
-        <textarea name="json_dependentes" id="json_dependentes" style="display:none"></textarea>
+          <textarea name="json_dependentes" id="json_dependentes" style="display:none"></textarea>
 
-        <input type="hidden" name="cand_doc_cnh_nome" id="cand_doc_cnh_nome">
-        <textarea name="cand_doc_cnh_base64" id="cand_doc_cnh_base64" style="display:none"></textarea>
+          <input type="hidden" name="cand_doc_cnh_nome" id="cand_doc_cnh_nome">
+          <textarea name="cand_doc_cnh_base64" id="cand_doc_cnh_base64" style="display:none"></textarea>
 
-        <input type="hidden" name="cand_doc_reservista_nome" id="cand_doc_reservista_nome">
-        <textarea name="cand_doc_reservista_base64" id="cand_doc_reservista_base64" style="display:none"></textarea>
+          <input type="hidden" name="cand_doc_reservista_nome" id="cand_doc_reservista_nome">
+          <textarea name="cand_doc_reservista_base64" id="cand_doc_reservista_base64" style="display:none"></textarea>
 
-        <input type="hidden" name="cand_doc_pis_nome" id="cand_doc_pis_nome">
-        <textarea name="cand_doc_pis_base64" id="cand_doc_pis_base64" style="display:none"></textarea>
+          <input type="hidden" name="cand_doc_pis_nome" id="cand_doc_pis_nome">
+          <textarea name="cand_doc_pis_base64" id="cand_doc_pis_base64" style="display:none"></textarea>
 
-        <input type="hidden" name="cand_foto_nome" id="cand_foto_nome">
-        <textarea name="cand_foto_base64" id="cand_foto_base64" style="display:none"></textarea>
-      </div>
+          <input type="hidden" name="cand_foto_nome" id="cand_foto_nome">
+          <textarea name="cand_foto_base64" id="cand_foto_base64" style="display:none"></textarea>
+        </div>
     </form>
   </div>
 
